@@ -1,0 +1,107 @@
+/**
+ * 文件：车险报价管理页面样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-9-13
+**/
+
+@import "../public/zlib.v2.less";
+
+@gray: #8793a4;
+
+.clear_lay {
+    .clearfix;
+}
+
+.left_lay {
+    width: 49%;
+    .f-l;
+}
+
+.right_lay {
+    width: 49%;
+    .f-r;
+}
+
+.info_ul {
+    width: 50%;
+    .f-l;
+    margin-bottom: 20px;
+
+    li {
+        padding: 2px 0;
+        span {
+            &:first-child {
+                color: #8793a4;
+            }
+        }
+    }
+}
+
+.foot_div {
+    border-top: 1px solid #ccc;
+    padding-top: 4px;
+}
+
+.gray {
+    color: @gray;
+}
+
+.bold {
+    .bold;
+}
+
+.result_card {
+    border: 1px solid #ccc;
+    width: 180px;
+    float: left;
+    padding: 5px 10px;
+    margin: 10px 30px;
+    .t-c;
+    ul {
+        color: @gray;
+        margin: 5px 0;
+    }
+    .result_title {
+        padding: 5px;
+        border-bottom: 1px solid #ccc;
+    }
+    .result_foot {
+        border-top: 1px solid #ccc;
+        padding: 5px 0 0;
+        color: @orange;
+        .bold;
+    }
+
+    &.selected {
+        border: 1px solid @blue;
+        .result_title {
+            border-bottom: 1px solid @blue;
+        }
+        .result_foot {
+            border-top: 1px solid @blue;
+        }
+    }
+
+}
+
+.insurance_ul {
+    .clearfix;
+    margin-bottom: 10px;
+    li {
+        .f-l;
+        margin-right: 5px;
+    }
+}
+
+.note {
+    .w100;
+    border: 1px solid #ccc;
+}
+
+.right_icon {
+    .f-r;
+    padding-left: 20px;
+    .pointer;
+}

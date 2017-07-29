@@ -1,0 +1,109 @@
+/**
+ * 文件：新增外在人员政策配置
+ * 作者：龙凤
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-12-23
+**/
+
+@import "../public/zlib.v2.less";
+
+div.tab_bodies{
+    div.tab_body td{
+        border:0;
+        border-spacing: 0;
+        border-collapse: collapse;
+        .th_black{
+                cursor: pointer;
+                margin:0 10px;
+        }
+    }
+}
+
+.tab_lay .tab_bodies table.qian_bao_table td input {
+    border : 1px solid #ccc;
+    height: 28px;
+    line-height: 28px;
+    margin-left: 5px;
+}
+.li_item {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+}
+.tab_lay .tab_bodies table .for_yidong .input_tip {
+    left: 300px;
+    top: 0;
+}
+.dxq_btn_div button{
+    border: 1px solid #3092d2;
+    background-color: #fff;
+    color: #3092d2;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+.table_window {
+    .w100;
+    margin-bottom: 40px;
+
+    .tab_controller_top {
+        .clearfix;
+        background-color: rgba(195, 194, 194, 0.2);
+        margin: 0 2%;
+        cursor:pointer;
+        li {
+            .one-height(40px);
+            .f-l;
+            width: 110px;
+            .t-c;
+            border-right: 1px solid #fff;
+            color:#c3c2c2;
+            &:hover{
+                background-color: #EDF8FC;
+            }
+            .iconfont {
+                color: #c3c2c2;
+                margin-right: 5px;
+            }
+
+            &.active {
+                background: #edf8fc;
+                color: #333;
+                .iconfont {
+                    color: #428fb8;
+                }
+            }
+        }
+    }
+    .tab_controller_body{
+        margin: 0 2%;
+        background: #edf8fc;
+        padding:10px 40px 40px 40px;
+        overflow-x: scroll;
+        table.window_bottom{
+            width:1200px;
+            margin: 3px 0 0;
+            background-color:#edf8fc;
+            th,td{
+                 border: 1px solid #ccc;
+                 height: 34px;  
+                 text-align:center;
+                 width:28px;
+                 div{
+                    background-color:#fff;
+                    width:100%;
+                    height:100%;
+                    .required{
+                        margin-top:4px;
+                        width:90%;
+                        height:24px;
+                        text-align:center;
+                    }
+                    
+                 }
+            }
+        }    
+    }
+}

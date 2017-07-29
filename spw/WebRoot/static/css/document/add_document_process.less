@@ -1,0 +1,113 @@
+/**
+ * 文件：签批新增模板页样式
+ * 作者：无名大强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-9-18
+**/
+@import "../public/zlib.v2.less";
+
+.position_tree {
+
+    border: 1px solid #ccc;
+    background-color: #fff;
+    width: 700px;
+    height: 540px;
+    position: fixed;
+    top: 40px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    right: 0;
+    z-index: 101;
+    .hide;
+
+    .close_tree {
+        .t-r;
+        .p-a;
+        right: 50px;
+        top: 10px;
+
+        .iconfont {
+            font-size: 24px;
+            .pointer;
+            color: @red;
+
+            &.icon-zhengque1 {
+                color: @green;
+            }
+            
+        }
+    }
+
+    .ztree {
+        margin: 20px 5px 20px 50px;
+        width: auto;
+        height: 500px;
+        overflow-y: scroll; 
+        overflow-x: hidden;
+    }
+}
+
+.sign_btn {
+    font-size: 14px;
+}
+
+//使用角色列表
+.selected_scope {
+    .clearfix;
+    width: 500px;
+    li {
+
+        .icon-cuowu {
+            color:#e61d10;
+            display:inline;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+        .f-l;
+        padding: 2px 10px;
+        margin: 0 10px 5px 0;
+        background-color: #eee;
+        .pointer;
+    }
+}
+
+.clear_actor {
+    color: #ccc;
+    .p-r;
+    left: -3rem;
+
+    &:hover {
+        color: #999;
+        .pointer;
+    }
+}
+
+/*底部遮罩*/
+#overlay {
+    background: #000;
+    filter: alpha(opacity=60); /* IE的透明度 */
+    opacity: 0.6;  /* 透明度 */
+    display: none;
+    .p-f;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 100; /* 此处的图层要大于页面 */
+}
+#overlay img{
+    position:fixed;
+    .hide;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    -webkit-transform: translateZ(0);
+    -moz-transform:translateZ(0);
+    -ms-transform:translateZ(0);
+    -o-transform:translateZ(0);
+    transform: translateZ(0);
+}

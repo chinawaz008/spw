@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spw.elife.basics.dao.AuthMapper">
+	<select id="selectPrincipalMenus" resultType="com.spw.elife.basics.bean.Menu">
+		select menu.id,menu.`name`,menu.parent_id
+		parentId,menu.branch,menu.icon,menu.url,menu.label,menu.priority from
+		console_menu menu
+		where menu.id in (SELECT auth.menu_id FROM console_authority auth WHERE 1 =
+		1
+		<if test="roleId!=null and roleId!=''">
+			and auth.role_id = #{roleId}
+		</if>
+		<if test="personType!=null and personType!=''">
+			and auth.person_type = #{personType}
+		</if>
+		<if test="companyType!=null and companyType!=''">
+			and auth.company_type = #{companyType}
+		</if>
+		) order by menu.priority
+	</select>
+
+
+	<select id="selectPtMenus" resultType="com.spw.elife.basics.bean.Menu">
+		select menu.id,menu.`name`,menu.parent_id
+		parentId,menu.branch,menu.icon,menu.url,menu.label,menu.priority
+		from console_menu menu
+		where menu.id in (10,20,30,40,50,60,70,80,90,100,110,120) or menu.parent_id
+		in (10,20,30,40,50,60,70,80,90,100,110,120) and menu.id not
+		in(8030,9020)
+		order by menu.priority
+	</select>
+
+	<select id="selectREMenus" resultType="com.spw.elife.basics.bean.Menu">
+		select menu.id,menu.`name`,menu.parent_id
+		parentId,menu.branch,menu.icon,menu.url,menu.label,menu.priority
+		from console_menu menu
+		where menu.id in (20,30,31,32,40,41,50,51,52,90) or menu.parent_id in
+		(20,30,31,32,40,50,80,90) and menu.id not in (9069)
+		order by
+		menu.priority
+	</select>
+
+	<select id="selectAllMenus" resultType="com.spw.elife.basics.bean.Menu">
+		SELECT
+		menu.id,
+		menu.`name`,
+		menu.parent_id parentId,
+		menu.branch,
+		menu.icon,
+		menu.url,
+		menu.label,
+		menu.priority
+		FROM
+		console_menu menu
+	</select>
+
+	<delete id="deleteEntity">
+		delete from console_authority where role_id =#{roleId} and
+		person_type=#{personType} and menu_id in
+		<foreach item="list" collection="list" open="(" separator=","
+			close=")">
+			#{list}
+		</foreach>
+		<if test="companyType!=null and companyType!=''">
+			and company_type = #{companyType}
+		</if>
+	</delete>
+
+	<insert id="createEntity">
+		insert into
+		console_authority(role_id,menu_id,person_type,company_type)
+		values
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			(#{item.roleId},#{item.menuId},#{item.personType},#{item.companyType})
+		</foreach>
+	</insert>
+
+	<select id="selectRedevelopeAllMenus" resultType="com.spw.elife.basics.bean.Menu">
+		SELECT
+		menu.id,
+		menu.`name`,
+		menu.parent_id parentId,
+		menu.branch,
+		menu.icon,
+		menu.url,
+		menu.label,
+		menu.priority,
+		0 as type
+		FROM
+		console_menu menu
+		UNION ALL
+		SELECT
+		bd.id as id,
+		bd.`name`,
+		bd.menu_id as parentId,
+		"" as branch,
+		"" as icon,
+		"" as url,
+		"" as label,
+		"" as priority,
+		1 as type
+		FROM
+		button_detail bd
+	</select>
+	<select id="selectRedevelopeMenus" resultType="com.spw.elife.basics.bean.Menu">
+		SELECT
+		line.relation_id as id,
+		line.type
+		FROM
+		role_level head
+		LEFT JOIN role_level_line line ON head.id = line.parent_id
+		WHERE
+		1=1
+		<if test="roleId!=null and roleId!=''">
+			and head.position_id = #{roleId}
+		</if>
+		<if test="personType !=null and personType !=''">
+			and head.person_type = #{personType}
+		</if>
+		<if test="departMentId !=null and departMentId !=''">
+			and head.depart_id = #{departMentId}
+		</if>
+	</select>
+
+<!-- 	<select id="selectPositionAuthByPositionId" resultType="com.spw.elife.basics.bean.RoleLevelEntity">
+		SELECT
+		head.id,
+		head.position_id as positionId,
+		head.person_type as personType
+		FROM
+		role_level head
+		WHERE 1=1
+		<if test="roleId!=null and roleId!=''">
+			and head.position_id = #{roleId}
+		</if>
+		<if test="personType !=null and personType !=''">
+			and head.person_type = #{personType}
+		</if>
+		<if test="departMentId !=null and departMentId !=''">
+			and head.depart_id = #{departMentId}
+		</if>
+	</select> -->
+	<insert id="insertRoleLevel" useGeneratedKeys="true"
+		keyProperty="id">
+		INSERT INTO role_level (
+		depart_id,
+		position_id,
+		person_type
+		)
+		VALUES (
+		#{departMentId},
+		#{positionId},
+		#{personType})
+	</insert>
+	<delete id="deleteRoleLineByParentId">
+		delete from role_level_line where parent_id = #{id}
+	</delete>
+
+	<insert id="insertRoleLines" parameterType="java.util.List">
+		INSERT INTO role_level_line (
+		parent_id,
+		relation_id,
+		type
+		) VALUES
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			(#{item.parentId},
+			#{item.relationId},
+			#{item.type})
+		</foreach>
+	</insert>
+
+	<select id="selectRolesByurl" resultType="String">
+		SELECT
+		bu.id
+		FROM
+		console_menu menu
+		LEFT JOIN button_detail bu ON menu.id = bu.menu_id
+		WHERE
+		menu.url = #{url}
+		AND bu.type != 0
+	</select>
+
+	<!-- <select id="getDataRoles" resultType="com.spw.elife.basics.bean.RoleEntity"> 
+		<foreach item="item" collection="params" open="" separator="UNION" close=""> 
+		SELECT bu.id, bu. NAME, bu.menu_id AS menuId, bu.type FROM role_level head 
+		LEFT JOIN role_level_line line ON head.id = line.parent_id LEFT JOIN button_detail 
+		bu ON bu.id = line.relation_id WHERE 1 = 1 <if test="ids !=null and ids !=''"> 
+		and line.relation_id in <foreach item="sub" collection="ids" open="(" separator="," 
+		close=")"> #{sub } </foreach> </if> AND head.depart_id = #{item.orgType } 
+		AND head.position_id = #{item.position } AND head.person_type = #{item.personType 
+		} </foreach> </select> -->
+
+	<select id="countEntity" resultType="int">
+		SELECT
+		count(0)
+		FROM (
+		SELECT
+		count(0)
+		FROM
+		data_authority da
+		LEFT JOIN ms_staff st ON da.staff_id = st.id
+		WHERE 1=1
+
+		<if test="staffRole !=null and staffRole !='' and staffRole == 1">
+			AND (1=2
+			<if test="defultStaffId !=null and defultStaffId !=''">
+				OR st.id =#{defultStaffId }
+			</if>
+			<!-- 总公司渠道检索条件集合 -->
+			<if test="channelList !=null and channelList !=''">
+				OR st.line_type in
+				<foreach item="list" collection="channelList" open="("
+					separator="," close=")">
+					#{list}
+				</foreach>
+			</if>
+			<!-- 督训区检索条件集合 -->
+			<if test="governorList !=null and governorList !=''">
+				OR st.countyFranchisees_id in
+				<foreach item="list" collection="governorList" open="("
+					separator="," close=")">
+					#{list}
+				</foreach>
+			</if>
+			<!-- 省分检索条件集合 -->
+			<if test="companyList !=null and companyList !=''">
+				OR st.branch_company_id in
+				<foreach item="list" collection="companyList" open="("
+					separator="," close=")">
+					#{list}
+				</foreach>
+			</if>
+			<!-- 部门检索条件集合 -->
+			<if test="departmentList !=null and departmentList !=''">
+				OR
+				<foreach collection="departmentList" item="item" index="indexP"
+					open="" separator="OR" close="">
+					FIND_IN_SET(#{item}, st.org_type)
+				</foreach>
+			</if>
+			)
+		</if>
+		<if test="lineType !=null and lineType !=''">
+			AND st.line_type = #{lineType}
+		</if>
+		<if test="countyFranchiseesId !=null and countyFranchiseesId !=''">
+			AND st.countyFranchisees_id = #{countyFranchiseesId}
+		</if>
+		<if test="branchCompanyId !=null and branchCompanyId !=''">
+			AND st.branch_company_id = #{branchCompanyId}
+		</if>
+		<if test="workNum !=null and workNum !=''">
+			AND st.work_num = #{workNum}
+		</if>
+		<if test="code !=null and code !=''">
+			AND st.id_card = #{code}
+		</if>
+		<if test="name !=null and name !=''">
+			AND st.name like concat('%',#{name},'%')
+		</if>
+		GROUP BY
+		staff_id
+		) mas
+	</select>
+
+	<select id="queryDataList" resultType="com.spw.elife.staff.bean.DataAuthorityEntity">
+		SELECT
+		da.id,
+		da.staff_id AS staffId,
+		da.type,
+		st.`name` AS staffName,
+		st.org_type AS departmentName,
+		st.position,
+		st.branch_company_id as
+		branchCompanyId,
+		st.countyFranchisees_id as countyFranchiseesId,
+		st.store_id as storeId,
+		st.line_type as lineType,
+		o.name as
+		countyFranchiseesName,
+		com.comp_name AS branchCompanyName,
+		od.name AS
+		storeName,
+		st.work_num as worknum
+		FROM
+		data_authority da
+		LEFT JOIN ms_staff st ON da.staff_id = st.id
+		LEFT JOIN organization o on o.id = st.countyFranchisees_id
+		LEFT JOIN organization od on od.id = st.store_id
+		LEFT JOIN company com on st.branch_company_id = com.id
+		WHERE 1=1
+		<if test="staffRole !=null and staffRole !='' and staffRole == 1">
+			AND (1=2
+			<if test="defultStaffId !=null and defultStaffId !=''">
+				OR st.id =#{defultStaffId }
+			</if>
+			<!-- 总公司渠道检索条件集合 -->
+			<if test="channelList !=null and channelList !=''">
+				OR st.line_type in
+				<foreach item="list" collection="channelList" open="("
+					separator="," close=")">
+					#{list}
+				</foreach>
+			</if>
+			<!-- 督训区检索条件集合 -->
+			<if test="governorList !=null and governorList !=''">
+				OR st.countyFranchisees_id in
+				<foreach item="list" collection="governorList" open="("
+					separator="," close=")">
+					#{list}
+				</foreach>
+			</if>
+			<!-- 省分检索条件集合 -->
+			<if test="companyList !=null and companyList !=''">
+				OR st.branch_company_id in
+				<foreach item="list" collection="companyList" open="("
+					separator="," close=")">
+					#{list}
+				</foreach>
+			</if>
+			<!-- 部门检索条件集合 -->
+			<if test="departmentList !=null and departmentList !=''">
+				OR
+				<foreach collection="departmentList" item="item" index="indexP"
+					open="" separator="OR" close="">
+					FIND_IN_SET(#{item}, st.org_type)
+				</foreach>
+			</if>
+			)
+		</if>
+		<if test="lineType !=null and lineType !=''">
+			AND st.line_type = #{lineType}
+		</if>
+		<if test="countyFranchiseesId !=null and countyFranchiseesId !=''">
+			AND st.countyFranchisees_id = #{countyFranchiseesId}
+		</if>
+		<if test="branchCompanyId !=null and branchCompanyId !=''">
+			AND st.branch_company_id = #{branchCompanyId}
+		</if>
+		<if test="workNum !=null and workNum !=''">
+			AND st.work_num = #{workNum}
+		</if>
+		<if test="code !=null and code !=''">
+			AND st.id_card = #{code}
+		</if>
+		<if test="name !=null and name !=''">
+			AND st.name like concat('%',#{name},'%')
+		</if>
+		GROUP BY
+		da.staff_id
+		limit #{index},#{size}
+	</select>
+
+	<insert id="insertAuthorityEntitys" useGeneratedKeys="true"
+		parameterType="java.util.List">
+		insert into data_authority(
+		staff_id,
+		type,
+		province_id,
+		department_id,
+		organization_id
+		) values
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			(#{item.staffId},
+			#{item.type},
+			#{item.provinceId},
+			#{item.departmentId},
+			#{item.organizationId})
+		</foreach>
+	</insert>
+
+	<select id="getAuthortyByStaffId" resultType="com.spw.elife.staff.bean.AuthorityEntity">
+		SELECT
+		da.id,
+		da.staff_id AS staffId,
+		da.type,
+		da.province_id as provinceId,
+		da.department_id as departmentId,
+		da.organization_id as organizationId
+		FROM
+		data_authority da
+		WHERE 1=1
+		<if test="staffId !=null and staffId !=''">
+			AND da.staff_id = #{staffId}
+		</if>
+	</select>
+
+	<delete id="deleteAuthority">
+		delete from data_authority where staff_id = #{staffId}
+	</delete>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<select id="selectSuperMenus" resultType="com.spw.elife.basics.bean.Menu">
+		select menu.id,menu.`name`,menu.parent_id
+		parentId,menu.branch,menu.icon,menu.url,menu.label,menu.priority from
+		console_menu menu order by menu.priority
+	</select>
+	
+	
+	<select id="selectRedevelopePrincipalMenus" resultType="com.spw.elife.basics.bean.Menu">
+			SELECT
+			menu.id,
+			menu.`name`,
+			menu.parent_id parentId,
+			menu.branch,
+			menu.icon,
+			menu.url,
+			menu.label,
+			menu.priority
+			FROM
+			console_menu menu
+			LEFT JOIN authority_line line ON menu.id = line.relation_id
+			LEFT JOIN authority head ON line.authority_id = head.id
+			WHERE line.type = 0
+			and head.employee_id = #{employeeId}
+			<if test="roleId !=null and roleId !=''">
+				and head.role_id = #{roleId}
+			</if>
+	</select>
+	
+	
+	<select id="getButtonAuthorization" resultType="String">
+			SELECT
+				line.relation_id as relationId
+			FROM
+			authority_line line
+			LEFT JOIN authority head ON line.authority_id = head.id
+			LEFT JOIN button_detail bu ON line.relation_id = bu.id
+			WHERE line.type = 1
+			and head.employee_id = #{employeeId}
+			<if test="roleId !=null and roleId !=''">
+				and head.role_id = #{roleId}
+			</if>
+	</select>
+	
+	
+	<select id="getAllButtons" resultType="String">
+		SELECT
+		id
+		FROM
+		button_detail
+		WHERE type = 0
+	</select>
+</mapper>

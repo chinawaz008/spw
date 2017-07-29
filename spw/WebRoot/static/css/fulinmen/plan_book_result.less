@@ -1,0 +1,229 @@
+/**
+ * 文件：福临门页面样式
+ * 作者：无名大强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-8-31
+**/
+@import "../public/zlib.v2.less";
+
+@images: "../../img/fulinmen";
+@light_orange: #fce9a4;
+@middle_orange: #fedc60;
+@dark_orange: #ffa700;
+@bg_red: #d9271b;
+@dark_red: #bf2118;
+@pink: #e95953;
+// @pink: #fff;
+
+body {
+    background-color: @pink;
+}
+
+.header {
+    .w100;
+    font-size: 0;
+    img {
+        .w100;
+    }
+}
+
+.main {
+    font-size: 1.4rem;
+    background-color: @pink;
+}
+.footer {
+    .w100;
+    height: 10rem;
+    background-color: @pink;
+}
+
+.info_board {
+    background: url("@{images}/line.png") center no-repeat;
+    background-size: 100% auto;
+    width: 80%;
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem;
+    color: @light_orange;
+    .padding {
+        padding-right: 1.5rem;
+    }
+    p {
+        .t-c;
+    }
+}
+
+.benefit, .increment {
+    width: 95%;
+    margin: 2rem auto;
+}
+
+.benefit_body {
+    .t-c;
+    font-size: 1.5rem;
+    .box {
+        display: inline-block;
+        width: 12rem;
+        border: 0.1rem solid @middle_orange;
+        border-radius: 1rem;
+        margin: 1rem;
+
+        .up {
+            background-color: @middle_orange;
+            color: @bg_red;
+            .t-c;
+            border-radius: 0.9rem 0.9rem 0 0;
+            padding: 0.3rem 0;
+        }
+
+        .down {
+            background-color: @bg_red;
+            color: @middle_orange;
+            .t-c;
+            padding: 0.5rem 0;
+            border-radius: 0 0 0.9rem 0.9rem;
+        }
+
+    }
+}
+
+.increment_explain {
+    p {
+        .t-c;
+        font-size: 1.3rem;
+        color: @middle_orange;
+        
+    }
+}
+
+.increment_button {
+    .t-c;
+    button {
+        display: inline-block;
+        border: 0;
+        border-radius: 1rem;
+        .t-c;
+        font-size: 1.4rem;
+        background-color: @bg_red;
+        color: @dark_orange;
+        padding: 1.5rem 1rem;
+        margin: 1.2rem 0.8rem;
+        &.selected {
+            background-color: @dark_orange;
+            color: @bg_red;
+        }
+    }
+}
+
+.increment_board {
+    width: 95%;
+    margin: 0 auto;
+    background-color: @dark_red;
+    border-radius: 1rem;
+    padding: 1rem 0;
+    p {
+        font-size: 1.5rem;
+        color: @dark_orange;
+        .t-c;
+    }
+}
+
+.increment_bar {
+    .plan_profit_range {
+        width: 90%;
+        margin: .5rem auto 0;
+        position: relative;
+        height: 3rem;
+
+        .minus, .plus {
+            position: absolute;
+            width: 3rem;
+            height: 3rem;
+            line-height: 3rem;
+            text-align: center;
+            font-size: 3rem;
+            z-index: 2;
+            color: #fed25d;
+        }
+
+        .minus {
+            left: -1rem;
+        }
+
+        .plus {
+            right: -1rem;
+        }
+
+        .rangeGrey {
+            width: 84%;
+            left: 8%;
+            top: 1.1rem;
+            height: 1rem;
+            background: #ccc;
+            position: absolute;
+            border-radius: 20px;
+            z-index: 1;
+        }
+
+        .rangeBtn {
+            box-shadow: 0px 0px 1px 1px #fed25d;
+            width: 2rem;
+            height: 2rem;
+            border: .5rem solid #ffe8e8;
+            top: -1rem;
+            left: 0;
+            border-radius: 100%;
+            position: absolute;
+            background: #fed25d;
+        }
+
+        .rangeBg {
+            width: 84%;
+            left: 8%;
+            top: 1.1rem;
+            height: 1rem;
+            background: #ccc;
+            position: absolute;
+            border-radius: 20px;
+            z-index: 3;
+            background: #fed25d;
+        }
+    }
+}
+
+.increment_bar_explain {
+    .t-c;
+    color: @middle_orange;
+    font-size: 1.3rem;
+    margin: 1rem;
+}
+
+.tips_title {
+    padding: 2rem 0 1rem;
+    .tips_board {
+        display: inline-block;
+        width: 10rem;
+        .t-c;
+        .one-height(3rem);
+        color: #fff;
+        font-size: 1.8rem;
+        .bold;
+        vertical-align: middle;
+        background-color: @bg_red;
+    }
+
+    .tips_arrow {
+        display: inline-block;
+        vertical-align: middle;
+        .arrow-right (1.5rem, 1.5rem, @bg_red);
+
+    }
+}
+
+.tips {
+    color: @light_orange;
+    font-size: 1.4rem;
+    text-indent: 2.8rem;
+    width: 95%;
+    margin: 0 auto;
+}

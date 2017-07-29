@@ -1,0 +1,104 @@
+/**
+ * 文件：民盛后台工资详情页面样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-4-29
+**/
+@import "../public/zlib.v2.less";
+
+.statement_title {
+    .w100;
+    .clearfix;
+    
+
+    label {
+        color: @blue;
+        font-size: 16px;
+        margin-left: 20px;
+    }
+
+    select {
+        width: 130px;
+    }
+
+    .left_title {
+        .f-l;
+    }
+
+    .right_title {
+        .f-r;
+    }
+}
+
+.statement_table {
+    width: 100%;
+    .t-c;
+    margin-top: 10px;
+    thead {
+        th {
+            color: @blue;
+            font-weight: normal;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            height: 45px;
+        }
+    }
+    tbody {
+        td{
+            background-color: #fff;
+            font-size: 12px;
+            border:1px solid #ccc;
+            height: 38px;
+
+            &.small_total {
+                background-color: #fff6e6;
+            }
+
+            &.big_total {
+                background-color: #ffece5;
+            }
+
+            &.rank {
+                color: @blue;
+                font-size: 20px;
+                .bold;
+            }
+
+            &.rank1 {
+                line-height:0;
+                font-size:0;
+                overflow: hidden;
+                background: url(../../img/statement/1.png) no-repeat center center; 
+            }
+
+            &.rank2 {
+                line-height:0;
+                font-size:0;
+                overflow: hidden;
+                background: url(../../img/statement/2.png) no-repeat center center; 
+            }
+
+            &.rank3 {
+                line-height:0;
+                font-size:0;
+                overflow: hidden;
+                background: url(../../img/statement/3.png) no-repeat center center; 
+            }
+        }
+    }
+    tfoot{
+        td{
+            font-size: 12px;
+            color: #fff;
+            height: 38px;
+            border:1px solid #ccc;
+            background-color: @blue;
+        }
+        &:before {
+            content: '';
+            display: block;
+            height: 10px;
+        }
+    }
+}

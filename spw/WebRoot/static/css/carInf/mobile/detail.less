@@ -1,0 +1,202 @@
+/**
+ * 文件：车险页面样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-10-12
+**/
+
+@gray_border: #b3b3b3;
+@blue_car: #448fb9;
+@cyan: #12b5b0;
+
+@import "../../public/zlib.v2.less";
+@images: "../../../img/carInf";
+@images2: "../../../img/goods/moblie";
+@orange: #f39900;
+
+[v-cloak] { display: none };
+
+body {
+    background-color: #f2f2f2;
+    .size(100%, 100%);
+    font-size: 1.4rem;
+    padding-bottom: 10rem;
+}
+
+.hide {
+    .hide;
+}
+
+//标题栏组件
+.title_bar {
+    .w100;
+    .p-f;
+    top: 0;
+    font-size: 1.4rem;
+    height: 4.5rem;
+    background-color: #fff;
+    border-bottom: 1px solid @gray_border;
+    .t-c;
+
+    button {
+        .p-a;
+        left: 1rem;
+        .square(2.5rem);
+        top: 50%;
+        margin-top: -1.25rem;
+        border: 0;
+        background: url("@{images}/back.png"); 
+        background-color: #fff;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+
+    h1 {
+        .w100;
+        height: 100%;
+        line-height: 4.5rem;
+        .t-c;
+        font-size: 2rem;
+    }
+}
+
+.shop_car{
+        .p-a;
+        right: 1rem;
+        .square(2.5rem);
+        top: 50%;
+        margin-top: -1.25rem;
+        border: 0;
+        background: url("@{images2}/cart.png"); 
+        background-color: #fff;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        display: inline-block;
+}
+
+.car_num {
+    padding: 0.5rem 1rem;
+    font-size: 1.4rem;
+    margin-top: 4.5rem;
+
+    span {
+        float: right;
+
+        &.blue {
+            color: @blue;
+        }
+
+        &.green {
+            color: @green;
+        }
+
+        &.red {
+            color: @ms-red;
+        }
+    }
+}
+
+.detail_info {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+    padding: 0.5rem 1rem;
+    .w100;
+    font-size: 1.4rem;
+
+    .item{
+        white-space:nowrap; 
+        color: @orange;
+        .t-r;
+        width: 6rem;
+        vertical-align: top;
+    }
+}
+
+.sub_title {
+    border-left: 0.5rem solid @ms-red;
+    color: #997a7a;
+    padding-left: 0.8rem;
+    margin: 1.3rem 0 1rem 1rem;
+    line-height: 1.5rem;
+    font-size: 1.4rem;
+}
+
+.insure_info {
+    font-size: 1.4rem;
+    .w100;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 1rem;
+
+    thead {
+        padding-top: -1rem;
+        th {
+            &:last-child {
+                .t-r;
+            }
+        }
+    }
+
+    tbody {
+        td {
+            &:first-child {
+                width: 50%;
+            }
+            &:nth-child(2) {
+                .t-c;
+            }
+            &:last-child {
+                .t-r;
+            }
+        }
+
+    }
+}
+
+.total {
+    font-size: 1.4rem;
+    .t-c;
+    margin: 1rem 0 1.3rem;
+
+    span {
+        color: @ms-red;
+    }
+}
+
+//去支付按钮
+.to_pay {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 2rem;
+    color: #fff;
+    background-color: @orange;
+    border: 0;
+    font-size: 2rem;
+    padding: 0.5rem 0;
+}
+
+//to_store请前往上述门店支付
+.to_store {
+    margin: 1rem ;
+}
+
+//遮罩层样式
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba(0,0,0,0.5);
+    img {
+        position: fixed;
+        width: 25%;
+        top: 50%;
+        left: 50%;
+        margin: -12.5% 0 0 -12.5%;
+    }
+}

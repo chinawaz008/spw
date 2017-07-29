@@ -1,0 +1,79 @@
+/**
+ * 文件：福临门页面样式
+ * 作者：无名大强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-8-31
+**/
+@import "../public/zlib.v2.less";
+
+@images: "../../img/changqingshu";
+
+@light_green: #e8f4db;
+// @pink: #fff;
+
+body {
+    background-color: @light_green;
+}
+
+.header {
+    .w100;
+    font-size: 0;
+    img {
+        .w100;
+    }
+}
+
+.main {
+    font-size: 1.4rem;
+    background-color: @light_green;
+}
+.footer {
+    .w100;
+    height: 10rem;
+    background-color: @light_green;
+    .t-c;
+}
+
+.section_title {
+    font-size: 1.4rem;
+    .bold;
+    margin: 1rem 0 0.5rem;
+    img {
+        width: 1.6rem;
+        margin: 0 0.5rem 0 1rem;
+        vertical-align: text-bottom;
+    }
+}
+
+.section_body {
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    ul {
+        li {
+            border-bottom: 1px solid #ccc;
+            padding: 1rem 0.5rem;
+
+            &.cut_bar {
+                background-color: @light_green;
+                padding: 0.5rem;
+            }
+            
+            span {
+                margin-right: 0.5rem;
+            }
+
+            input {
+                border: 0;
+            }
+        }
+    }
+}
+.submit_btn {
+    background-color: #EE4000;
+    color: #fff;
+    border: 0;
+    margin: 3rem auto;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}

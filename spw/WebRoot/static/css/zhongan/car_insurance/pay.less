@@ -1,0 +1,174 @@
+/**
+ * 文件：民盛众安驾乘意外险页面样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2017-1-10
+**/
+
+@import "../../public/zlib.v2.less";
+@images: "../../../img/zhongan/car_insurance";
+@orange: #f39801;
+
+@sub-title: #997a7a;
+body {
+    background-color: #f2f2f2;
+    .size(100%, 100%);
+    font-size: 1.4rem;
+}
+
+.hide {
+    .hide;
+}
+
+.gray {
+   color: #999; 
+}
+
+//标题栏组件
+.title_bar {
+    .w100;
+    .p-f;
+    top: 0;
+    height: 4.5rem;
+    background-color: #fff;
+    border-bottom: @border;
+    .t-c;
+
+    button {
+        .p-a;
+        left: 1rem;
+        .square(2.5rem);
+        top: 50%;
+        margin-top: -1.25rem;
+        border: 0;
+        background-image: url("@{images}/back.png"); 
+        background-color: #fff;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+
+    h1 {
+        .w100;
+        height: 100%;
+        line-height: 4.5rem;
+        .t-c;
+        font-size: 2rem;
+    }
+}
+
+//子标题
+.subtitle {
+    border-left: 0.5rem solid @ms-red;
+    color: @sub-title;
+    padding-left: 0.6rem;
+    line-height: 1.5rem;
+    margin: 1.5rem 1rem 1rem;
+    font-size: 1.4rem;
+}
+
+//介绍页头部图片
+.top_img {
+    margin-top: 4.5rem;
+    .block;
+    .w100;
+    font-size: 1.4rem;
+}
+
+
+//导航
+.navigation {
+    .w100;
+    height: 6rem;
+    margin-top: 4.5rem;
+    background-image: url('@{images}/step_bg.png');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    .o-h;
+    display: table;
+    font-size: 1.4rem;
+
+    span {
+        display: table-cell;
+        vertical-align: middle;
+        padding: 0.3rem 0;
+
+        img {
+            max-height: 6rem;
+        }
+    }
+
+    .step1 {
+        width: 20%;
+    }
+
+    .step2 {
+        width: 41%;
+    }
+
+    .step3 {
+        width: 60%;
+    }
+
+    .step4 {
+        width: 75%;
+    }
+
+    .step5 {
+        .w100;
+    }
+}
+
+//ok图片
+.ok {
+    width: 40%;
+    .block;
+    margin: 3rem auto 1rem;
+    font-size: 1.4rem;
+}
+
+//支付结果
+.result {
+    .w100;
+    background-color: #fff;
+    color: #999;
+    border-bottom: @border;
+    border-top: @border;
+    font-size: 1.4rem;
+    td {
+        padding: 0.2rem 1rem;
+    }
+}
+
+//下一步按钮
+.next_btn {
+    width: 96%;
+    margin: 2rem 0 2rem 2%;
+    background-color: @orange;
+    color: #fff;
+    border: 0;
+    padding: 1rem 0;
+    .radius;
+    font-size: 1.4rem;
+}
+
+//遮罩层样式
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba(0,0,0,0.5);
+    .hide;
+    img {
+        position: fixed;
+        width: 25%;
+        top: 50%;
+        left: 50%;
+        margin: -12.5% 0 0 -12.5%;
+    }
+}
+

@@ -1,0 +1,155 @@
+/**
+ * 文件：福临门页面样式
+ * 作者：无名大强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-8-31
+**/
+@import "../public/zlib.v2.less";
+
+@images: "../../img/changqingshu";
+@green: #79b526;
+@dark_green: #669921;
+@text_green: #1d331b;
+@yellow: #f8de00;
+@bg_red: #d9271b;
+
+body {
+    background-color: @green;
+    color: @text_green;
+}
+
+.header {
+    .w100;
+    font-size: 0;
+    img {
+        .w100;
+    }
+}
+
+.main {
+    font-size: 1.4rem;
+    background-color: @green;
+}
+.footer {
+    .w100;
+    height: 10rem;
+    background-color: @green;
+}
+
+.info_board {
+    background: url("@{images}/card.png") center no-repeat;
+    background-size: 100% auto;
+    width: 80%;
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 3rem 3rem;
+    p {
+        padding-top: 0.5rem; 
+    }
+}
+
+.insurance_info {
+    width: 94%;
+    .m-center;
+    background-color: @dark_green;
+    border-radius: 1rem;
+    margin-top: 6rem;
+    padding-bottom: 2rem;
+
+    .insurance_title {
+        .t-c;
+        img {
+            width: 60%;
+            margin-top: -2.5rem;
+        }
+    }
+
+    
+    p {
+        margin-left: 1rem;
+        img {
+            width: 3rem;
+            vertical-align: middle;
+        }
+    }
+
+    ul {
+        margin: 0.5rem 0 1rem 2rem; 
+        .clearfix;
+        li {
+            .f-l;
+            &:nth-child(1) {
+                width: 40%;
+            }
+            &:nth-child(3) {
+                width: 40%;
+            }
+
+            span {
+                color: @yellow;
+            }
+
+            label {
+                color: #333;
+            }
+        }
+    }
+
+    .add {
+        .hide;
+    }
+
+}
+
+.detail {
+    .deatil_title {
+        .t-c;
+        margin-top: 2.5rem;
+        img {
+            width: 60%;
+        }   
+    }
+    div {
+        margin-left: 1rem;
+        color: @yellow;
+        font-size: 1.6rem;
+        img {
+            width: 3rem;
+            vertical-align: middle;
+        }
+    }
+
+    p {
+        margin: 0rem 1.5rem 0.5rem 4.5rem;
+    }
+}
+
+.tips_title {
+    padding: 2rem 0 1rem;
+    .tips_board {
+        display: inline-block;
+        width: 10rem;
+        .t-c;
+        .one-height(3rem);
+        color: #fff;
+        font-size: 1.8rem;
+        .bold;
+        vertical-align: middle;
+        background-color: @bg_red;
+    }
+
+    .tips_arrow {
+        display: inline-block;
+        vertical-align: middle;
+        .arrow-right (1.5rem, 1.5rem, @bg_red);
+
+    }
+}
+
+.tips {
+    color: @yellow;
+    font-size: 1.4rem;
+    text-indent: 2.8rem;
+    width: 95%;
+    margin: 0 auto;
+}

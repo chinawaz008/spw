@@ -1,0 +1,82 @@
+/**
+ * 文件：车险页面样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-6-7
+**/
+
+@import "../public/zlib.v2.less";
+@images: "../../img/carInsurance"; 
+@blue: #5599ff;
+@blue-light:#eaf7fd;
+@blue-dark:#5790aa;
+@red: #cf4646;
+
+
+//车险第三步，选择车型
+.form_title {
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 30px;
+    margin-left: 50px;
+    .bold;
+    label {
+        .inline;
+        .size(10px, 20px);
+        background-color: @ms-red;
+        margin-right: 5px;
+        vertical-align: text-top;
+    }
+    span{
+        font-size: 12px;
+        font-weight: normal;
+    }
+}
+.tab_bodies {
+    .cx_table_div {
+        width: 990px;
+        margin: 10px 0 50px 50px;
+        .cx_table {
+            .t-c;
+            font-size: 14px;
+            .w100;
+            margin:0;
+            thead {
+                tr {
+                    th {
+                        color: @blue;
+                        font-weight: normal;
+                        background-color: #f2f2f2;
+                        border: 1px solid #ccc;
+                        height: 45px;
+                    }
+                }
+            }
+
+            tbody {
+                tr {
+                    td {
+                        border: 1px solid #CCC;
+                    }
+                    
+                }
+            }
+        }
+        
+    }   
+}
+.btn_div {
+    .t-c;
+    margin: 30px 0;
+    button {
+        background-color: @blue;
+        color: #fff;
+        width: 120px;
+        height: 37px;
+        .pointer;
+        .t-c;
+        border: 0;
+        font-size: 18px;
+    }
+}

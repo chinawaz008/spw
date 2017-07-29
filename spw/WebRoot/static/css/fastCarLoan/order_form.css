@@ -1,0 +1,79 @@
+.biaoti {
+	margin: 20px 40px ;
+}
+
+.zi{
+	font-size: 14px;
+}
+
+.tupian{
+	margin: 0 0 20px 60px;
+}
+.tupian img {
+	width: 600px;
+	display: block;
+	float: left;
+}
+.input_ul {
+	float: left;
+	width: 300px;
+	margin: 15px 0 0 50px;
+}
+.input_ul li {
+	margin-bottom: 10px;
+}
+.input_ul .short {
+	padding-left: 14px;
+}
+.clear_i {
+	clear: both;
+	display: block;
+	width: 100%;
+}
+
+.hr {
+	width: 90%;
+	border: 1px solid #ccc;
+	margin-top: 30px;
+}
+
+.btn_baocun{
+	width: 200px;
+	height: 50px;
+	background: rgb(135, 184, 127) none repeat scroll 0% 0%;
+	font-size: 20px;
+	color: #fff;
+	margin: 45px 40px 60px 340px;
+	border: 0;
+}
+
+.btn_bohui{
+	width: 200px;
+	height: 50px;
+	background: #da251d;
+	font-size: 20px;
+	color: #fff;
+	margin: 45px 0 60px;
+	border: 0;
+}
+
+#inner_table {
+	border: 0px none;
+	-webkit-box-shadow: 1px 4px 8px rgb(255, 255, 255);
+	box-shadow: 1px 4px 8px rgb(255, 255, 255);
+
+}
+
+#inner_table .table_window {
+	
+	width: 1000px;
+	margin: 20px auto;
+}
+
+#inner_table table {
+	margin: 0;
+}
+
+#inner_table table td {
+	position: inherit;
+}

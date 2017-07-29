@@ -1,0 +1,587 @@
+/**
+ * 文件：审批样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-11-7
+**/
+
+@gray_border: #b3b3b3;
+@blue_car: #448fb9;
+@cyan: #12b5b0;
+
+@import "../../public/zlib.v2.less";
+@carInf_images: "../../../img/carInf";
+@orange: #f39900;
+
+body {
+    background-color: #f2f2f2;
+    .size(100%, 100%);
+    font-size: 1.4rem;
+}
+
+.hide {
+    .hide;
+}
+
+//列表容器组件
+.application_list {
+    .title_bar {
+        .w100;
+        height: 4.5rem;
+        background-color: #fff;
+        .t-c;
+        .p-f;
+        top: 0;
+        left: 0;
+
+        h1 {
+            .w100;
+            height: 100%;
+            line-height: 5rem;
+            .t-c;
+            font-size: 2rem;
+        }
+    }
+
+    .list_title {
+        .w100;
+        height: 4.5rem;
+        background-color: #fff;
+        border-top: 1px solid @gray_border;
+        font-size: 1.6rem;
+        .p-f;
+        top: 4.5rem;
+        left: 0;
+
+        li {
+            .f-l;
+            width: 37%;
+            .t-c;
+            height: 100%;
+            line-height: 4.3rem;
+            color: #999;
+            border-bottom: 1px solid #ccc;
+
+            &:last-child {
+                width: 26%;
+            }
+            
+            &.selected {
+                color: @ms-red;
+                border-bottom: 2px solid @ms-red;
+            }
+        }
+    }
+    button.add_new {
+        .w100;
+        height: 5rem;
+        .p-f;
+        bottom: 0;
+        color: #fff;
+        font-size: 2rem;
+        background-color: @ms-red;
+        border: 0;
+    }
+    .no_record {
+        margin-top: 22rem;
+        text-align: center;
+        color: #999;
+        font-size: 1.6rem;
+    }
+}
+
+//列表组件
+.applications {
+    margin: 10.1rem 0 10rem 0;
+    border-top: 1px solid #ccc;
+    background-color: #fff;
+
+    li {
+        border-bottom: 1px solid #ccc;
+
+        .first_lay {
+            margin-top: 1rem;
+            div {
+                .inline;
+
+                &.apply_type {
+                    width: 40%;
+                    font-size: 1.6rem;
+                    background-color: #f2f2f2;
+                    padding-left: 1rem;
+
+                    .emergencied {
+                        color: @ms-red;
+                        .f-r;
+                        margin-right: 0.5rem;
+                        font-size: 1.2rem;
+                    }
+                }
+
+                &.state {
+                    .f-r;
+                    margin-right: 1rem;
+                    
+                    &.handle {
+                        color: @orange;
+                    }
+
+                    &.success {
+                        color: @blue_car;
+                    }
+
+                    &.reject {
+                        color: @ms-red;
+                    }
+
+                    &.passed {
+                        color: @cyan;
+                    }
+
+
+                }
+            }
+        }
+
+        .applyer_lay {
+            margin-top: 0.5rem;
+            color: #999;
+            .applyer {
+                .inline;
+                .f-r;
+                margin-right: 1rem;
+               
+            }
+            .department {
+                .inline;
+                li {
+                    border-bottom: 0;
+                    padding-left: 1rem;
+                }
+            }
+        }
+
+        .date_lay {
+            margin: 0.5rem 0 1rem;
+            padding-left: 1rem;
+        }
+    }
+}
+
+//遮罩层样式
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba(0,0,0,0.5);
+    img {
+        position: fixed;
+        width: 25%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+}
+
+//标题栏组件
+.title_bar {
+    .w100;
+    .p-f;
+    top: 0;
+    left: 0;
+    height: 4.5rem;
+    background-color: #fff;
+    .t-c;
+    border-bottom: 1px solid #ccc;
+
+    button {
+        .p-a;
+        left: 1rem;
+        .square(2.5rem);
+        top: 50%;
+        margin-top: -1.25rem;
+        border: 0;
+        background: url("@{carInf_images}/back.png"); 
+        background-color: #fff;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+
+    h1 {
+        .w100;
+        height: 100%;
+        line-height: 5rem;
+        .t-c;
+        font-size: 2rem;
+    }
+
+    span {
+        .p-a;
+        right: 1rem;
+        top: 50%;
+        margin-top: -1.2rem;
+        font-size: 1.6rem;
+        color: @ms-red;
+        padding-left: 3rem;
+
+    }
+}
+
+//人员基本信息
+.staff_info {
+    .w100;
+    padding: 1rem 0;
+    border-bottom: 1px solid #ccc;
+    margin-top: 4.5rem;
+
+    td {
+        width: 25%;
+        vertical-align: top;
+        word-break: break-all;
+    }
+
+    background-color: #fff;
+
+    .item {
+        color: @orange;
+        .t-r;
+    }
+
+    .split {
+        .t-c;
+        color: #999;
+
+        td {
+            border-top: 1px solid #ccc;
+            padding: 0.5rem;
+        }
+    }
+
+    .last {
+        padding-bottom: 1rem;
+    }
+}
+
+//子标题
+.sub_title {
+    border-left: 0.5rem solid @ms-red;
+    color: #997a7a;
+    margin: 1rem 0 0.8rem 1rem;
+    padding-left: 0.5rem;
+    line-height: 1.4rem;
+}
+
+//公出申请组件
+.new_business_travel {
+    .reason {
+        margin-top: 1rem;
+        .w100;
+        border: 0;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        padding: 0.5rem 0;
+        text-indent: 1rem;
+    }
+
+    .place {
+        border-top: 1px solid #ccc;
+        background-color: #fff;
+
+        li {
+            border-bottom: 1px solid #ccc;
+            .clearfix;
+
+            .selector {
+                .inline;
+                width: 30%;
+                .t-c;
+                color: #999;
+                padding: 0.5rem 0;
+                margin: 0.5rem 0;
+                border-right: 1px solid #ccc;
+
+                &.checked {
+                    color: #333;
+                }
+
+                &:last-child {
+                    border: 0;
+                }
+            }
+
+            input {
+                border: 0;
+                text-indent: 1rem;
+                line-height: 4rem;
+            }
+
+            button {
+                .f-r;
+                .size(6rem, 4rem);
+                background-color: @blue;
+                color: #fff;
+                border: 0;
+            }
+        }
+    }
+
+    .time {
+        border-top: 1px solid #ccc;
+        background-color: #fff;
+
+        li {
+            border-bottom: 1px solid #ccc;
+            .clearfix;
+            line-height: 4rem;
+
+            label {
+                margin-left: 1rem;
+            }
+
+            input {
+                .f-r;
+                line-height: 4rem;
+                border: 0;
+                .t-r;
+                margin-right: 1rem;
+            }
+        }
+    }
+
+    .flow {
+        margin-top: 1rem;
+
+        li {
+            line-height: 4rem;
+            .clearfix;
+            padding: 0 1rem;
+
+            button {
+                background-color: #999;
+                color: #fff;
+                border: 0;
+                border-radius: 2rem;
+                margin-top: 1rem;
+                .f-r;
+            }
+        }
+    }
+
+    .dxq {
+        button {
+            border: 1px solid @blue;
+            background-color: #fff;
+            color: @blue;
+            padding: 0.5rem 1rem;
+            margin: 1rem;
+            border-radius: 0.5rem;
+        }
+    }
+}
+
+//li选择控件
+.li_selector {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba(0,0,0,0.5);
+
+    ul {
+        width: 20rem;
+        margin: 10rem auto 0;
+        border-radius: 1rem;
+        background-color: #fff;
+        padding: 0.5rem 0 1rem 1.5rem;
+
+        li {
+            .inline;
+            color: #999;
+            font-size: 1.6rem;
+            margin: 0.8rem 1rem 0 0;
+
+            &.selected {
+                color: @ms-red;
+            }
+        }
+    }
+}
+
+//签批意见列表
+.options {
+    margin-bottom: 10rem;
+
+    .department {
+        .t-c;
+        color: @ms-red;
+        margin: 1rem 0 0.5rem; 
+    }
+
+    .one_signer {
+        border-top: 0.1rem solid #ccc;
+        border-bottom: 0.1rem solid #ccc;
+        background-color: #fff;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        font-size: 1.4rem;
+        .up_storey {
+            border-bottom: 0.1rem solid #ccc;
+            padding-bottom: 1rem;
+            img {
+                display: inline-block;
+                .square(4rem);
+            }
+            .signer_person {
+                display: inline-block;
+                margin-left: 0.5rem;
+                vertical-align: top;
+            }
+            .signer_result {
+                display: inline-block;
+                color: #fff;
+                .f-r;
+                margin-right: 0.5rem;
+                &.ok {
+                    .circle(4rem, #32b059);
+                    line-height: 4rem;
+                    position: static;
+
+                }
+
+                &.no {
+                    .circle(4rem, @ms-red);
+                    line-height: 4rem;
+                    position: static;
+                }
+
+                &.un {
+                    .circle(4rem, @blue);
+                    line-height: 4rem;
+                    position: static;
+                }
+            }
+        }
+
+        .down_storey {
+            padding-top: 1rem;
+            .suggestion_item {
+                display: inline-block;
+                width: 7rem;
+                font-weight: 700;
+            }
+
+            input {
+                border: 0;
+                width: 20rem;
+            }
+
+            p {
+                .t-r;
+                padding: 1rem 0;
+                img {
+                    width: 5rem;
+                    margin-left: 2rem;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+}
+
+//选择新增申请类型
+.choice_apply_type {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba(0,0,0,0.5);
+
+    .type_box {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        padding: 1rem 0;
+        background-color: #f2f2f2;
+        .t-c;
+
+        .type_title {
+            .t-c;
+            color: @ms-red;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    button {
+        width: 90%;
+        margin: 0 auto 1rem;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        padding: 1rem 0;
+
+        &.cancel {
+            background-color: @ms-red;
+            color: #fff;
+            border: 1px solid @ms-red;
+        }
+    }
+}
+
+//请假申请中的请假原因
+.leave_reason {
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    margin-top: 1rem;
+    margin-bottom: -1rem;
+    padding: 1rem 1rem 0;
+
+    ul {
+        .clearfix;
+        .inline;
+        vertical-align: top;
+        width: 80%;
+        margin-top: 0.2rem;
+
+        li {
+            .f-l;
+            margin: 0 0 1rem 2rem;
+            padding-left: 2.2rem;
+            background-image: url("@{carInf_images}/radio_off.png"); 
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+            line-height: 1.8rem;
+
+            &.selected {
+                background-image: url("@{carInf_images}/radio_on.png"); 
+            }
+        }
+    }
+}
+
+//转正申请的底部边框
+.border_bottom {
+    border-bottom: 1px solid #ccc;
+    ul {
+        li {
+            float: none;
+
+            input {
+                width: 8rem;
+                text-indent: 0.5rem;
+                height: 1.4rem;
+                border: 0;
+            }
+        }
+    }
+}
+

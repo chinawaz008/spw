@@ -1,0 +1,165 @@
+/**
+ * 文件：个人日报历史详情页面
+ * 作者：无名大强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-9-26
+**/
+@import "../public/zlib.v2.less";
+
+@purple: #9598bf;
+@orange: #f89406;
+@brown: #d15b47;
+@blue: #438eb9;
+
+[v-cloak] { display: none };
+
+.tab_lay {
+    .clearfix;
+    margin-bottom: 20px;
+}
+
+.date_box {
+    .size(315px, 160px);
+    .f-l;
+    .shadow-lay;
+
+    p {
+        text-indent: 35px;
+    }
+    
+    .day {
+        font-size: 26px;
+    }
+
+    .week {
+        color: @blue;
+        .bold;
+        font-size: 28px;
+    }
+}
+
+.float_box(){
+    .f-l;
+    .shadow-lay;
+    margin-left: 20px;
+    .size(177px, 160px);
+
+    p {
+        margin-left: 25px;
+        color: #666;
+
+        &.colorized {
+            font-size: 20px;
+            margin-top: 50px;
+        }
+    }
+}
+
+.tiaoxian_box {
+    .float_box;
+    .colorized {
+        color: @purple
+    }
+    background: url(../../img/daily/tiaoxian.png) no-repeat 90% bottom;
+}
+
+.sheng_box {
+    .float_box;
+    .colorized {
+        color: @orange
+    }
+    background: url(../../img/daily/sheng.png) no-repeat 90% bottom;
+}
+
+.qu_box {
+    .float_box;
+    .colorized {
+        color: @brown
+    }
+    background: url(../../img/daily/qu.png) no-repeat 90% bottom;
+}
+
+.name_box {
+    .float_box;
+    .colorized {
+        color: @blue
+    }
+    background: url(../../img/daily/name.png) no-repeat 90% bottom;
+}
+
+.type_box {
+    .float_box;
+    .colorized {
+        color: @purple
+    }
+    background: url(../../img/daily/type.png) no-repeat 90% bottom;
+}
+
+.branch_box {
+    .float_box;
+    .colorized {
+        color: @orange
+    }
+    background: url(../../img/daily/branch.png) no-repeat 90% bottom;
+}
+
+.department_box {
+    .float_box;
+    .colorized {
+        color: @brown
+    }
+    background: url(../../img/daily/department.png) no-repeat 90% bottom;
+}
+
+.work_lay {
+    .w100;
+    .shadow-lay;
+    background: @orange;
+    display: flex;
+    align-items: center;
+
+    .serial_number {
+        color: #fff;
+        .bold;
+        .f-l;
+        .t-c;
+        width: 5%;
+        font-size: 20px;
+
+    }
+
+    .work_content {
+        .f-r;
+        width: 95%;
+        background-color: #fff;
+        padding: 25px;
+
+        .work_plan {
+            font-size: 16px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .work_report {
+            font-size: 14px;
+            margin: 10px 0 0;
+
+            label {
+                padding: 5px 10px;
+                background-color: #fffccc;
+                margin: 0 10px 0 0;
+            }
+        }
+
+        .work_img {
+            margin: 10px 0 0;
+            img {
+                width: 190px;
+                border: 1px solid #ccc;
+                margin-left: 90px;
+            }
+        }
+    }
+}
+

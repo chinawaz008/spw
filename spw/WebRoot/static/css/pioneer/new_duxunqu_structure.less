@@ -1,0 +1,115 @@
+/**
+ * 文件：督训区组织架构页面样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-7-26
+**/
+@import "../public/zlib.v2.less";
+
+.legend {
+    border-top: 1px solid #ccc; 
+    margin-top: -10px;
+    .clearfix;
+    .icon-duxunzhang {
+        color: #f4c600;
+    }
+    .icon-zhuanyuan {
+        color: #9d55b8;
+    }
+    .icon-fenbujingli {
+        color: #ec5943;
+    }
+    .icon-fujingli {
+        color: #87b87f;
+    }
+    .icon-kehujingli {
+        color: #bb792b;
+    }
+    ul {
+        .clearfix;
+        .f-r;
+        padding: 10px;
+        li {
+            .f-l;
+            // margin: 0 10px 0 0;
+            .iconfont {
+                margin: 0 5px 0 15px;
+            }
+        }
+    }
+}
+.body_box {
+    .p-r;
+    .detail_box {
+        .p-a;
+        left: 400px;
+        top: 10px;
+    }
+}
+
+.sub_title {
+    .w100;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    .iconfont {
+        color: @blue;
+    }
+}
+
+.main .body .table_lay .table_window {
+    width: 600px;
+    margin: 20px;
+    .item_introduction {
+        margin-bottom: 15px;
+        ul {
+            .clearfix;
+            li {
+                .f-l;
+                margin-right: 60px;
+                label {
+                    &:first-child {
+                        .bold;
+                    }
+                }
+            }
+        }
+        table.detail_table {
+            thead {
+                    color: @blue;
+                    tr {
+                        border-bottom: 1px solid @blue;
+                    }
+                }
+            tbody {
+                tr {
+                    td {
+                        border: 0;
+                        .t-l;
+                        &.item_name {
+                            .bold;
+                            .t-r;
+                        }
+                        &.choose_pic_td {
+                            vertical-align: top;
+                            .choose_pic {
+                                width: 163px;
+                                border:1px solid #ddd;
+                                margin: 15px auto;
+                                .pointer;
+                                img {
+                                    .size(150px, 235px);
+                                    margin: 5px;
+                                }
+                            }
+                        }
+                        &.small_td {
+                            width: 100px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

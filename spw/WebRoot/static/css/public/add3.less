@@ -1,0 +1,588 @@
+/**
+ * 文件：民盛后台办公新增类页面样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-3-3
+**/
+@import "initial.less";
+@import "zlib.v2.less";
+
+@blue: #428fb8;
+@green: #86b97f;
+@orange: #f7b852;
+@blue-light: #6fb3e0;
+@red-light: #ce594d;
+
+@red: #e61d10;
+@gray-dark: #343737;
+@blue-dark: #242f34;
+
+.hide {
+    .hide;
+}
+
+body {
+    padding-bottom: 100px;
+}
+
+.body {
+    padding: 10px 20px 80px 20px;
+
+}
+
+/*标题栏样式*/
+.theme_lay {
+    margin-bottom: 20px;
+    .theme {
+        color: @blue;
+        .inline;
+        .main_theme {
+            font-size: 26px;
+        }
+        .sub_theme {
+            font-size: 12px;
+        }
+    }
+    .btns {
+        .inline;
+        .f-r;
+        .mt5;
+    }
+}
+
+/*tab切换页的样式*/
+.tab_lay {
+    .tab_controller{
+        .clearfix;
+        li {
+            .f-l;
+            .t-c;
+            width: 120px;
+            .size(120px, 35px);
+            line-height: 30px;
+            background-color: @gray-light;
+            border: 1px solid #ccc;
+            margin-right: -1px;
+            .pointer;
+            &.active {
+                background-color: #fff;
+                border-top:2px solid @blue;
+                border-bottom: 1px solid #fff;
+            }
+            &.wrong {
+                &:after {
+                    content: "！";
+                    color: @red;
+                    .bold;
+                }
+            }
+            .iconfont {
+                color: @blue;
+            }
+
+
+        }
+    }
+    .tab_bodies {
+        border:1px solid #ccc;
+        margin-top: -1px;
+        .shadow-lay;
+        table {
+            margin: 20px 2% 40px;
+            width: 96%;
+            font-size: 12px;
+            td {
+                height: 55px;
+                .p-r;
+                &.item_name{
+                    .t-r;
+                }
+            }
+            select {
+                border: 1px solid @gray-light;
+                text-indent: 2px;
+                .shadow-input;
+                min-width: 90px;
+                color: #666;
+                option {
+                    &:first-child {
+                        color: #999;
+                    }
+                }
+            }
+            select {
+                height: 26px;
+                width: 90px;
+                option {
+                    text-indent: 5px;
+                }
+                &.select_m {
+                    width: 140px;
+                }
+
+            }
+            input[type="text"] {
+                .one-height(28px);
+                vertical-align: middle;
+                border: 1px solid #eee;
+                text-indent: 5px;
+                color: #666;
+                .shadow-input;
+                &.input_m {
+                    width: 120px;
+                }
+                &.input_s {
+                    width: 90px;
+                }
+                &.input_l {
+                    width: 170px;
+                }
+            }
+
+            textarea {
+                .w100;
+                margin: 10px 0;
+                padding: 5px 8px;
+                border: 1px solid #eee;
+                color: #666;
+                .shadow-input;
+            }
+            .choose_pic_td {
+                vertical-align: top;
+                .choose_pic {
+                    width: 163px;
+                    border:1px solid #ddd;
+                    margin: 15px auto;
+                    .pointer;
+                    img {
+                        .size(150px, 235px);
+                        margin: 5px;
+                    }
+                }
+                p {
+                    .t-c;
+                    .pointer;
+                    input {
+                        width: 150px;
+                    }
+                }
+            }
+            .check_for_the_same {
+                visibility: hidden;
+                .pointer;
+            }
+            .last_the_same {
+                .hide;
+            }
+            #fenbu {
+                .hide;
+            }
+            .add_relatives {
+                .hide;
+            }
+            .belong_to_same {
+                vertical-align: middle;
+            }
+            .input_tip {
+                .p-a;
+                color: @red;
+                top: 43px;
+                left: 5px;
+            }
+            .delete_fenbu {
+                .hide();
+            }
+            
+        }
+
+        #info_files_form {
+            table {
+                thead {
+                    color: @blue;
+                    tr {
+                        border-bottom: 1px solid @blue;
+                    }
+                }
+            }
+        }
+
+        #organization_form {
+            .describe_td {
+                vertical-align: top;
+                .describe {
+                    padding: 0 0 0 100px;
+                    line-height: 25px;
+                    width: 500px;
+                    text-indent: -36px;
+                    .f-r;
+                    .iconfont {
+                        font-size: 25px;
+                        color: @red-light;
+                        margin-right: 10px;
+                        .bold;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.table_lay {
+    border: 1px solid #ccc;
+    .shadow-lay;
+    width: 98%;
+    margin: 10px auto 0;
+
+    .table_window {
+        margin: 20px;
+        .sub_title {
+            width: 100%;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            .iconfont {
+                color: #428fb8;
+            }
+
+            &.wrong{
+                color: @ms-red;
+                .iconfont {
+                    color: @ms-red;
+                }
+            }
+        }
+    }
+    table {
+        width: 100%;
+        .t-c;
+
+        margin: 20px 2% 40px;
+        width: 96%;
+        font-size: 12px;
+        td {
+            .p-r;
+            .t-l;
+            padding: 5px 0;
+            .clearfix;
+            &.item_name{
+                .t-r;
+            }
+        }
+        select {
+            border: 1px solid #ccc;
+            text-indent: 2px;
+            min-width: 90px;
+            color: #666;
+            option {
+                &:first-child {
+                    color: #999;
+                }
+            }
+        }
+        select {
+            height: 26px;
+            width: 90px;
+            option {
+                text-indent: 5px;
+            }
+            &.select_m {
+                width: 140px;
+            }
+
+        }
+        input[type="text"] {
+            .one-height(28px);
+            vertical-align: middle;
+            border: 1px solid #ccc;
+            text-indent: 5px;
+            color: #666;
+            &.input_m {
+                width: 120px;
+            }
+            &.input_s {
+                width: 90px;
+            }
+            &.input_l {
+                width: 170px;
+            }
+        }
+
+        textarea {
+            .w100;
+            margin: 10px 0;
+            padding: 5px 8px;
+            border: 1px solid #eee;
+            color: #666;
+            .shadow-input;
+        }
+        .choose_pic_td {
+            vertical-align: top;
+            .choose_pic {
+                width: 163px;
+                border:1px solid #ddd;
+                margin: 15px auto;
+                .pointer;
+                img {
+                    .size(150px, 235px);
+                    margin: 5px;
+                }
+            }
+            p {
+                .t-c;
+                .pointer;
+                input {
+                    width: 150px;
+                }
+            }
+        }
+        .check_for_the_same {
+            visibility: hidden;
+            .pointer;
+        }
+        .last_the_same {
+            .hide;
+        }
+        #fenbu {
+            .hide;
+        }
+        .add_relatives {
+            .hide;
+        }
+        .belong_to_same {
+            vertical-align: middle;
+        }
+        .delete_fenbu {
+            .hide();
+        }
+
+        .input_tip {
+            display: block;
+            color: @ms-red;
+        }
+        
+    }
+    
+    .pagination {
+        .f-r;
+        margin: 0 15px 15px;
+        li {
+            display: inline;
+            .pointer;
+            color: @blue;
+            span {
+                font-size: 12px;
+                float: left;
+                margin-left: -1px;
+                padding: 5px 10px;
+                border: 1px solid #ccc;
+                &:hover {
+                    background-color: #eee;
+                }
+            }
+            &.active {
+                span {
+                    color: #fff;
+                    cursor: default;
+                    background-color: @blue;
+                    border-color: @blue;
+                }
+            }
+            &.disabled {
+                span {
+                    color: #777;
+                    cursor: not-allowed;
+                    background-color: #fff;
+                }
+            }
+        }
+    }
+}
+
+//按钮区域
+.btn_div {
+    .w100;
+    .p-f;
+    bottom: 0;
+    left:0;
+    padding: 10px 0;
+    z-index: 50;
+    .t-c;
+    background-color: rgba(100, 100, 100, 0.7);
+
+}
+
+/*民盛日期选择插件的样式*/
+.ms_datepicker {
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+    background-image: url(data:image/gif;base64,R0lGODlhEAAQAPcAAP//////zP//mf//Zv//M///AP/M///MzP/Mmf/MZv/MM//MAP+Z//+ZzP+Zmf+ZZv+ZM/+ZAP9m//9mzP9mmf9mZv9mM/9mAP8z//8zzP8zmf8zZv8zM/8zAP8A//8AzP8Amf8AZv8AM/8AAMz//8z/zMz/mcz/Zsz/M8z/AMzM/8zMzMzMmczMZszMM8zMAMyZ/8yZzMyZmcyZZsyZM8yZAMxm/8xmzMxmmcxmZsxmM8xmAMwz/8wzzMwzmcwzZswzM8wzAMwA/8wAzMwAmcwAZswAM8wAAJn//5n/zJn/mZn/Zpn/M5n/AJnM/5nMzJnMmZnMZpnMM5nMAJmZ/5mZzJmZmZmZZpmZM5mZAJlm/5lmzJlmmZlmZplmM5lmAJkz/5kzzJkzmZkzZpkzM5kzAJkA/5kAzJkAmZkAZpkAM5kAAGb//2b/zGb/mWb/Zmb/M2b/AGbM/2bMzGbMmWbMZmbMM2bMAGaZ/2aZzGaZmWaZZmaZM2aZAGZm/2ZmzGZmmWZmZmZmM2ZmAGYz/2YzzGYzmWYzZmYzM2YzAGYA/2YAzGYAmWYAZmYAM2YAADP//zP/zDP/mTP/ZjP/MzP/ADPM/zPMzDPMmTPMZjPMMzPMADOZ/zOZzDOZmTOZZjOZMzOZADNm/zNmzDNmmTNmZjNmMzNmADMz/zMzzDMzmTMzZjMzMzMzADMA/zMAzDMAmTMAZjMAMzMAAAD//wD/zAD/mQD/ZgD/MwD/AADM/wDMzADMmQDMZgDMMwDMAACZ/wCZzACZmQCZZgCZMwCZAABm/wBmzABmmQBmZgBmMwBmAAAz/wAzzAAzmQAzZgAzMwAzAAAA/wAAzAAAmQAAZgAAMwAAAKanqPv8/fX6/NrY1uTd166sq9vX1t5MMc8zLt7e3tTU1P///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAOMALAAAAAAQABAAAAiBAMV1wzawIMGDAwUCWMiwYcOB2RxKXEjQoEWEBxeK08gRwEYABDt+HLkw4bZw4L6JCyduZUuWIQGAA5ANXERxN2kOXPgtYk+PHQmu9AYOHLeXSAViy5bNG1On2nB6jNitm8ir2bBhS8rSpdeqNDdmE0tWZ7ecQMcGFVexbVW34gICADs=);
+}
+.ms_datepicker_box {
+    .hide;
+    .p-a;
+    background-color: #fff;
+    z-index:999;
+    border:1px solid #ccc;
+    table {
+        font-size: 12px;
+        margin: 5px;
+        .t-c;
+        tr {
+            td {
+                padding: 2px;
+                .iconfont {
+                    .pointer;
+                }
+                &.pick_day {
+                    .pointer;
+                    &:hover {
+                        color: #fff;
+                        background-color: @blue;
+                    }
+                }
+                &.day_name {
+                    color: @blue;
+                }
+            }
+        }
+    }
+}
+
+/*民盛上传Excel表插件样式*/
+.ms_import_box {
+    width: 540px;
+    .p-f;
+    margin: auto; 
+    left: 0;
+    right: 0;
+    top: 150px;
+    background-color: #fff;
+    z-index: 101;
+    .import_box_title {
+        background-color: @blue;
+        color: #fff;
+        font-size: 20px;
+        .one-height(50px);
+        text-indent: 30px;
+        .close_import_box {
+            .f-r;
+            margin-right: 30px;
+            font-size: 30px;
+            .pointer;
+        }
+    }
+    .import_box_body {
+        width: 440px;
+        margin-left: 50px;
+        padding: 20px 0;
+        border-bottom: 2px dashed #ccc;
+        .iconfont {
+            font-size:40px;
+            line-height: 30px;
+        }
+        .success {
+            color: @green;
+        }
+        .fails {
+            color: @red;
+        }
+        table {
+            margin: 0 auto;
+            td {
+                padding: 0 5px;
+            }
+        }
+        .error_board {
+            .w100;
+            height: 100px;
+            background-color: #eee;
+            overflow-y: scroll;
+            margin-top: 20px;
+            padding: 0 20px;
+        }
+        .loading {
+            .t-c;
+        }
+    }
+    .import_box_foot {
+        .t-c;
+        padding: 15px 0;
+        font-size: 16px;
+        form {
+            .hide;
+        }
+    }
+    iframe {
+        .hide;
+    }
+}
+
+/*民盛缩略图放大插件的样式*/
+.ms_thumbnail {
+    .size(30px,45px);
+    .p-r;
+    img {
+        .w100;
+    }
+    .enlarged {
+        .p-f;
+        top: 10px;
+        left: 10px;
+        border:1px solid #ccc;
+        background-color: #fff;
+        z-index: 10;
+        img {
+            height: 530px;
+            width: auto;
+        }
+    }
+}
+
+/*按钮样式*/
+.btn(@color) {
+    border: 0;
+    margin: 5px;
+    color: #fff;
+    background-color: @color;
+    text-shadow: 1px 1px darken(@color, 30%);
+    .shadow-btn;
+    &:hover {
+        background-color:darken(@color, 15%);
+        .shadow-btn-light;
+    }
+}
+.btnr(@color) {
+    .btn(@color);
+    .radius(5px);
+}
+
+.btn_blue {
+    .btn(@blue-light);
+}
+.btn_green {
+    .btn(@green);
+}
+.btn_orange {
+    .btn(@orange);
+}
+.btn_red {
+    .btn(@red-light);
+}
+.btn_grey {
+    .btn(#bbb);
+}
+
+.btnr_blue {
+    .btnr(@blue-light);
+}
+.btnr_green {
+    .btnr(@green);
+}
+.btnr_orange {
+    .btnr(@orange);
+}
+.btnr_red {
+    .btnr(@red-light);
+}
+

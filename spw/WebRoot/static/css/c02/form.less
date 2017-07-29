@@ -1,0 +1,264 @@
+/**
+ * 文件：车险页面样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-4-1
+**/
+
+@import "../public/zlib.v2.less";
+@images: "../../img/carInsurance"; 
+@blue: #5599ff;
+@blue-light:#eaf7fd;
+@blue-dark:#5790aa;
+@red: #cf4646;
+
+.border(){
+    border: 1px solid #ccc;
+}
+
+//车险第三步，填写投保信息
+.form_title {
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 30px;
+    margin-left: 50px;
+    .bold;
+    label {
+        .inline;
+        .size(10px, 20px);
+        background-color: @ms-red;
+        margin-right: 5px;
+        vertical-align: text-top;
+    }
+    span{
+        font-size: 12px;
+        font-weight: normal;
+    }
+}
+.tab_bodies {
+    .cx_table_div {
+        width: 990px;
+        margin: 10px 0 50px 50px;
+        .cx_table {
+            .t-c;
+            font-size: 14px;
+            .w100;
+            margin:0;
+            thead {
+                tr {
+                    th {
+                        color: @blue;
+                        font-weight: normal;
+                        background-color: #f2f2f2;
+                        border: 1px solid #ccc;
+                        height: 45px;
+                    }
+                }
+            }
+
+            tbody {
+                tr {
+                    td {
+                        border: 1px solid #CCC;
+                    }
+                    
+                }
+            }
+        }
+        
+    }   
+}
+
+.form_box {
+    border: 1px solid #CCC;
+    width: 990px;
+    margin: 10px 0 50px 50px;
+    padding: 20px 0;
+    font-size: 14px;
+    .form_main {
+        .f-l;
+        margin-left: 50px;
+        width: 500px;
+        margin-right: -2px;
+        .insurance_types {
+            .t-l;
+            margin: 5px 0 0 0;
+            .p-r;
+            width: 100%;
+            z-index: 10;
+            
+            .thead {
+                width: 330px;
+                .one-height(35px);
+                background-color: #eee;
+                border: 0;
+                border-radius: 18px;
+                margin: 3px 0;
+                .bold;
+                font-size: 16px;
+                text-indent: 20px;
+            }
+            ul {
+                .clearfix;
+                li {
+                    border-bottom: 1px dashed #ccc;
+                    .one-height(45px);
+                    text-indent: 20px;
+                    .pointer;
+                    &.selected {
+                        border: 2px solid @blue-dark;
+                        background-color: @blue-light;
+                        border-right: 0;
+                    }
+                    span {
+                        &:first-child {
+                            .inline;
+                            width: 330px;
+                        }
+                    }
+                }
+            }
+            
+            .non_deductible {
+                line-height: 25px;
+                span {
+                    &.selected {
+                        color: @blue;
+                    }
+                }
+            }
+        }
+        .compulsory_insurance {
+            margin-top: 20px;
+            line-height: 25px;
+            label {
+                .pointer; 
+            }
+            span {
+                .inline;
+                .square(15px);
+                .middle;
+                line-height: 15px;
+                color: #fff;
+                border: 1px solid #999;
+                .bold;
+                .t-c;
+                margin-right: 10px;
+                &.selected {
+                    color: @ms-red;
+                    border: 1px solid @ms-red;
+                }
+            }
+        }
+        .btn_div {
+            .t-c;
+            margin: 30px 0;
+            button {
+                background-color: @blue;
+                color: #fff;
+                width: 120px;
+                height: 37px;
+                .pointer;
+                .t-c;
+                border: 0;
+                font-size: 18px;
+            }
+        }
+
+    }
+    .form_side {
+        .f-l;
+        .p-r;
+        .insurance_detail {
+            width: 340px;
+            height: 600px;
+            padding: 15px;
+            background-color: @blue-light;
+            border: 2px solid @blue-dark;
+            border-radius: 18px;
+            .p-r;
+            .hide;
+            &.selected {
+                display: block;
+            }
+            .check_div {
+                border-bottom: 2px solid @blue-dark;
+                line-height: 30px;
+                padding: 0 0 20px 0;
+                .bx_head {
+                    .bold;
+                }
+                .bx_body {
+                    ul {
+                        .clearfix;
+                        li {
+                            .f-l;
+                            border-bottom: 1px dashed #ccc;
+                            width: 50%;
+                            .one-height(45px);
+                        }
+                    }
+                }
+                .bx_foot {
+                    .one-height(45px);
+                }
+                span {
+                        .inline;
+                        .size(22px, 22px);
+                        margin: 0 5px;
+                        background: url("@{images}/4.png") no-repeat;
+                        .pointer;
+                        vertical-align: middle;
+                    &.span_radio {
+                        background-position: -30px 0;
+                        &.selected {
+                            background-position: 0 0;
+                        }  
+                    }
+                    &.span_checkbox {
+                        background-position: -1px -30px;
+                        &.selected {
+                           background-position: -30px -30px; 
+                        } 
+                    }
+                }
+
+            }
+            .insurance_scope{
+                margin-top: 5px;
+                padding-bottom: 20px;
+                margin-bottom: 20px;
+                .title {
+                    .bold;
+                    margin-bottom: 5px;
+                    margin-top: 10px;
+                }
+                .detail {
+                    text-indent: 28px;
+                }
+            }
+        }
+
+    }
+    table {
+        &.car_info {
+            margin: 0 0 0 20px;
+            width: auto;
+            .car_logo {
+                .size(100px, 60px);
+                background: url("@{images}/3.png") no-repeat center center;
+            }
+            tr {
+                td {
+                    padding-right: 30px;
+                    height: auto;
+                }
+                
+            }
+        }
+        
+    }
+
+    
+}

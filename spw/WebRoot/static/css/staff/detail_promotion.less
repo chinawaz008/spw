@@ -1,0 +1,109 @@
+/**
+ * 文件：民盛后台晋升详情页面样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-6-8
+**/
+@import "../public/zlib.v2.less";
+
+@green-light:#80c269;
+
+.sub_title {
+    .w100;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    .iconfont {
+        color: @blue;
+    }
+}
+.table_window {
+    .item_introduction {
+        margin-bottom: 15px;
+        ul {
+            .clearfix;
+            li {
+                .f-l;
+                margin-right: 60px;
+                label {
+                    &:first-child {
+                        .bold;
+                    }
+                }
+            }
+        }
+        table.detail_table {
+            thead {
+                    color: @blue;
+                    tr {
+                        border-bottom: 1px solid @blue;
+                    }
+                }
+            tbody {
+                tr {
+                    td {
+                        border: 0;
+                        .t-l;
+                        &.item_name {
+                            .bold;
+                            .t-r;
+                        }
+                        &.choose_pic_td {
+                            vertical-align: top;
+                            .choose_pic {
+                                width: 163px;
+                                border:1px solid #ddd;
+                                margin: 15px auto;
+                                .pointer;
+                                img {
+                                    .size(150px, 235px);
+                                    margin: 5px;
+                                }
+                            }
+                        }
+                        &.small_td {
+                            width: 100px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    span {
+        &.red {
+            color: @red;
+            text-decoration:underline;
+        }
+        &.pointer_num {
+            color: orange;
+        }
+        &.exam {
+            button {
+                border:0;
+                border-radius: 10px;
+                color: #333;
+                background-color: #fff;
+                border: 1px solid #333;
+                &.success {
+                    margin-right: 10px;
+                }
+                &.success.selected {
+                    background-color: @green-light;
+                    border: 1px solid @green-light;
+                    color: #fff;
+                }
+                &.failed.selected {
+                    background-color: @ms-red;
+                    border: 1px solid @ms-red;
+                    color: #fff;
+                }
+            }
+        }
+    }
+    td {
+        &.yes {
+            color: green;
+        }
+    }
+}

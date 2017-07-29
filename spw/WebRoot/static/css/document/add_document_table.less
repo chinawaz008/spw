@@ -1,0 +1,216 @@
+/**
+ * 文件：签批新增页样式
+ * 作者：无名大强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-9-18
+**/
+@import "../public/zlib.v2.less";
+
+@blue_bg: #edf8fc;
+
+.tab_lay .tab_bodies {
+    padding: 30px 0;
+
+    .tab_body {
+        padding: 0 50px;
+    }
+
+    .templet_btn {
+        border: 1px solid @green;
+        padding: 3px 20px;
+        margin: 0 10px 10px 0;
+        color: @green;
+        background-color: #fff;
+        .pointer;
+
+        &.selected {
+            color: #fff;
+            background-color: @green;
+        }
+    }
+
+    table.qian_bao_table {
+        width: 745px;
+        margin: 20px 0 0;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        .t-c;
+
+        td {
+            border: 1px solid #ccc;
+            height: 45px;
+            padding: 0;
+
+            &.title_td {
+                color: #333;
+                width: 160px;
+                border: 1px solid #ccc;
+                .bold;
+
+                p {
+                    background-color: @blue_bg;
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                    padding: 0;
+                    line-height: 45px;
+                }
+
+                &.content {
+                    height: 303px;
+                    p {
+                        line-height: 303px;
+                    }
+                }
+            }
+
+            &.attachment {
+                .t-l;
+            }
+
+            .adds {
+                .clearfix;
+                .f-l;
+                li {
+                    .f-l;
+                    margin: 5px;
+                    padding: 3px 5px;
+                    background-color: #eee;
+
+                    .delete {
+                        .pointer;
+                        color: @red-light;
+                        .iconfont {
+                            color: @red-light;
+
+                        }
+                    }
+                }
+
+            }
+
+            .add_btn {
+                .f-l;
+            }
+
+            input {
+                .w100;
+                .one-height(40px);
+                border: 0;
+                .shadow(0 0 0 #fff);
+            }
+        }
+
+        textarea {
+            border: 0;
+            min-height: 280px;
+            .shadow(0 0 0 #fff);
+        }
+    }
+
+}
+
+.item_introduction {
+    margin: 0 0 50px 0;
+    .p-r;
+    font-size: 14px;
+
+    table.detail_table {
+
+        border: 1px solid #ccc;
+        .t-c;
+        width: 745px;
+        margin: -1px 0 0;
+
+        .title_td {
+            .bold;
+            font-size: 14px;
+            width: 160px;
+            p {
+                height: 100%;
+                line-height: 100px;
+                margin: 0;
+                background-color: @blue_bg;
+            }
+        }
+
+        td {
+            border: 1px solid #ccc;
+            padding: 0;
+            height: 110px;
+
+            &:nth-child(2) {
+                width: 510px;
+                border-right: 0;
+            }
+
+            &:nth-child(3) {
+                border-left: 0;
+                .t-l;
+            }
+        }
+
+
+        textarea {
+            width: 500px;
+            height: 80px;
+            margin: 10px;
+            padding: 3px 5px;
+            border: 1px solid #ccc;
+        }
+        .spend_time {
+            margin: 0 0 15px 5px;
+        }
+
+        .spend_time_title {
+            color: @blue;
+        }
+    }
+
+    #tip_box {
+        width: 180px;
+        border: 1px solid #ccc;
+        .shadow-lay;
+        padding: 15px 0;
+        background-color: #fff;
+        .p-a;
+        left: 100px;
+        .hide;
+        
+
+        table {
+            border: 0;
+            margin: 0;
+            td {
+                border: 0;
+                height: 20px;
+                .t-l;
+
+                &:first-child {
+                    color: @blue;
+                    .t-r;
+                }
+            }
+        }
+
+
+    }
+}
+
+.tab_lay .tab_bodies table .input_tip {
+    top: 12px;
+    right: 10px;
+    left: auto;
+}
+
+#sign_tbody {
+    textarea {
+        width: 550px;
+        
+    }
+}
+
+.sign_btn {
+    font-size: 14px;
+}

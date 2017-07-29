@@ -1,0 +1,117 @@
+/**
+ * 文件：督训区人员日报详情
+ * 作者：无名大强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-9-26
+**/
+
+@import "../public/zlib.v2.less";
+
+.table_lay {
+    .p-r;
+
+    .day {
+        .p-a;
+        .size(70px, 30px);
+        background-color: @green;
+        color: #fff;
+        font-size: 18px;
+        .t-c;
+        top: 10px;
+        left: -10px;
+
+    }
+
+    .daily_detail {
+        margin: 20px 80px;
+        font-size: 15px;
+
+        li {
+            margin: 5px 0;
+
+            p {
+                margin: 0 20px;
+                img {
+                    width: 100px;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+        .plan {
+            margin-right: 20px;
+        }
+        .finish_status {
+            color: @blue;
+        }
+    }
+
+    .no_data {
+        margin: 50px 350px;
+    }
+}
+
+.duxunqu_detail {
+    .clearfix;
+    margin-bottom: 20px;
+    li {
+        .f-l;
+        margin-right: 80px;
+        font-size: 15px;
+        .bold;
+
+        .thin {
+            font-weight: normal;
+        }
+    }
+}
+.query_form {
+    .clearfix;
+    li {
+        margin-right: 50px;
+        .f-l;
+    }
+}
+
+.query_btn {
+    background-color: @blue;
+    color: #fff;
+    border: 0;
+    .pointer;
+}
+
+.pagination {
+    .f-r;
+    margin: 15px;
+    li {
+        display: inline;
+        .pointer;
+        color: @blue;
+        span {
+            font-size: 12px;
+            float: left;
+            margin-left: -1px;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            &:hover {
+                background-color: #eee;
+            }
+        }
+        &.active {
+            span {
+                color: #fff;
+                cursor: default;
+                background-color: @blue;
+                border-color: @blue;
+            }
+        }
+        &.disabled {
+            span {
+                color: #777;
+                cursor: not-allowed;
+                background-color: #fff;
+            }
+        }
+    }
+}

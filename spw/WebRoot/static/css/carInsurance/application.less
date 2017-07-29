@@ -1,0 +1,141 @@
+/**
+ * 文件：车险页面样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-5-17
+**/
+
+@import "../public/zlib.v2.less";
+@images: "../../img/carInsurance";
+@blue: #5599ff;
+@blue-light:#eaf7fd;
+@blue-dark:#5790aa;
+
+.form_title {
+    font-size: 16px;
+    line-height: 20px;
+    margin: 20px 0 0 50px;
+    .bold;
+    label {
+        .inline;
+        .size(10px, 20px);
+        background-color: @ms-red;
+        margin-right: 5px;
+        vertical-align: text-top;
+    }
+    span{
+        font-size: 12px;
+        font-weight: normal;
+    }
+    button {
+        background-color: @ms-red;
+        color: #fff;
+        .pointer;
+        .f-r;
+        padding: 2px 5px;
+        border-radius: 3px;
+        border: 0px;
+        margin-right: 67px;
+    }
+}
+
+.form_box {
+    border: 1px solid #CCC;
+    width: 990px;
+    margin: 10px 0 0 50px;
+    padding: 0 0 40px;
+    font-size: 14px;
+    .policy_content{
+        width:950px;
+        margin: 0 20px;
+        .content_item {
+            font-size:16px;
+            margin-top: 20px;
+            .one-height(45px);
+            background-color: #f8f8f8;
+            .bold;
+            border-bottom: 1px solid #ebebeb;
+            label {
+                color: @ms-red;
+                margin: 0 10px;
+                background-color: @ms-red; 
+            }
+            span {
+                font-size:14px;
+                font-weight: normal;
+                margin-left: 10px;
+            }
+        }
+        table {
+            margin-top: 5px;
+            tr {
+                td {
+                    padding: 13px 2px;
+                    span {
+                        color: @ms-red;
+                        .bold;
+                        margin-right: 3px;
+                    }
+                    &:first-child {
+                        width: 105px;
+                        .t-r;
+                    }
+                    &:nth-child(2) {
+                        width: 206px;
+                        .p-r;
+
+                    }
+                    &:nth-child(3) {
+                        width: 140px;
+                        .t-r;
+                    }
+                    .input_tip{
+                        .p-a;
+                        top: 40px;
+                        left: 0;
+                        font-size: 14px;
+                        color: red;
+                        span {
+                           .inline;
+                           font-size: 16px;
+                           .circle(16px, red);
+                           .middle;
+                           .t-c;
+                           line-height: 16px;
+                           margin: 0 5px 0 0;
+                        }
+                    }
+                }
+            }
+            input[type="text"] {
+                width: 200px;
+                height: 25px;
+                text-indent: 5px;
+            }
+            select {
+                .size(170px, 28px);
+                margin-right: 15px;
+                &:last-child {
+                    margin: 0;
+                }
+            }
+            textarea {
+                .size(546px, 85px);
+            }
+            .submit_btn {
+                .size(200px, 40px);
+                font-size: 19px;
+                color: #fff;
+                background-color: @blue;
+                .pointer;
+                margin-top: 20px;
+                border: 0;
+            }
+        }
+    }
+    &:last-child {
+        margin-bottom: 50px;
+    }
+}
+

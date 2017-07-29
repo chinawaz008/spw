@@ -1,0 +1,304 @@
+/**
+ * 文件：民盛后台办公新增类页面样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-3-3
+**/
+@import "zlib.v2.less";
+
+.dashboard_lay {
+    .clearfix;
+    margin-bottom: 15px;
+    
+    .dashboard_box {
+        .shadow-lay;
+        .f-l;
+        .p-r;
+        overflow: hidden;
+    }
+
+    .left {
+        .f-l;
+        width: 515px;
+        height: 280px;
+    }
+
+    .right {
+        .f-r;
+        width: 515px;
+        height: 280px;
+    }
+
+    .data_box {
+        .bg_img {
+            .w100;
+            height: 200px;
+            .o-h;
+            img {
+                .w100;
+            }
+        }
+        .data_list {
+            .w100;
+            .clearfix;
+            height: 80px;
+            margin: 20px 0 0 20px;
+            li {
+                width: 150px;
+                .f-l;
+                border-right: 1px solid #ccc;
+
+                p {
+                    text-indent: 35px;
+                }
+
+                .data {
+                    font-size: 18px;
+                    color: #333;
+                    margin: 0;
+                }
+
+                .item {
+                    color: #999;
+                    margin: 0;
+                }
+
+                &:last-child {
+                    border-right: 0;
+                }
+            }
+        }
+    }
+    
+    .calendar_box {
+        .month {
+            font-size: 16px;
+            font-weight: normal;
+            color: #eb7d2f;
+            .t-c;
+        }
+        .go_before {
+            .t-r;
+            .pointer;
+            .iconfont {
+                margin-right: -50px;
+            }
+        }
+        .go_after {
+            .t-l;
+            .pointer;
+            .iconfont {
+                margin-left: -50px;
+            }
+        }
+        .calendar_table {
+            .w100;
+            margin-top: 10px;
+        }
+        td {
+            width: 80px;
+            a {
+                text-decoration: none;
+                color: #333;
+            }
+
+            &.current {
+                background-color: #428fb9;
+                a {
+                    color: #fff;
+                }
+            }
+            &.no {
+                background-color: #fed0cb;
+            }
+            &.ok {
+                background-color: #e5ffe0;;
+            }
+        }
+        tbody {
+
+            tr {
+                height: 35px;
+                border-top: 1px solid #ccc;
+                .t-c;
+            }
+        }
+
+        .week_days {
+            color: #999;
+            height: 25px;
+        }
+    }
+
+    .apply_box {
+        .new_apply {
+            padding: 10px 30px;
+            .t-r;
+            a {
+                color: @ms-red;
+            }
+        }
+
+        .apply_board {
+            .w100;
+            height: 222px;
+            overflow: hidden;
+        }
+
+        img.placeholder {
+            margin: 5px 0 35px 150px;
+        }
+
+        .apply_table {
+            .w100;
+            tr {
+                height: 30px;
+                border-bottom: 1px solid #ccc;
+
+                td {
+                    .t-c;
+                    overflow: hidden;
+                    word-break:keep-all;/* 不换行 */  
+                    white-space:nowrap;/* 不换行 */ 
+                    text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用*/  
+                    
+                    a {
+                        text-decoration: none;
+                    }
+
+                    button {
+                        border: 0;
+                        color: #fff;
+
+                        &.orange {
+                            background-color: @orange;
+                        }
+
+                        &.green {
+                            background-color: @green;
+                        }
+
+                        &.red {
+                            background-color: @red;
+                        }
+
+                        &.blue {
+                            background-color: @blue;
+                        }
+                    }
+
+                    &:first-child {
+                        max-width: 200px;
+                        padding-left: 10px;
+                        overflow: hidden;
+                        .t-l;
+                    }
+                }
+            }
+
+            
+        }
+    }
+
+    .notice_box {
+        .notice_publisher {
+            .t-r;
+            padding: 10px 30px;
+        }
+
+        img.placeholder {
+            margin: 5px 0 35px 150px;
+        }
+
+        .notice_board {
+            .w100;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .notice_table {
+            .w100;
+
+            tr {
+                border-bottom: 1px solid #ccc;
+                a {
+                    color: #333;
+                    .pointer;
+                }
+                td {
+                    .t-c;
+                    min-width: 35px;
+                    height: 30px;
+                    color: #333;
+                    overflow: hidden;
+                    word-break:keep-all;/* 不换行 */  
+                    white-space:nowrap;/* 不换行 */ 
+                    text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用*/  
+                    &:first-child {
+                        color: @ms-red;
+                        .t-r;
+                        padding-right: 5px;
+                    }
+
+                    &:nth-child(2) {
+                        max-width: 200px;
+                        overflow: hidden;
+                        .t-l;
+                    }
+                }
+            }
+        }
+    }
+
+    .page_bar {
+        .w100;
+        .clearfix;
+        margin: 15px 0;
+        .t-c;
+        .p-a;
+        bottom: 0;
+
+        li {
+            display: inline-block;
+            border: 1px solid #ccc;
+            padding: 3px 8px;
+            margin-left: -1px;
+            font-size: 12px;
+            .pointer;
+            color: @blue;
+            &:hover {
+                background-color: #eee;
+            }
+            &.active {
+                background-color: @ms-red;
+                color: #fff;
+                cursor: default;
+                border-color: @ms-red;
+                
+            }
+            &.disabled {
+                color: #777;
+                cursor: not-allowed;
+                background-color: #fff;
+            }
+        }
+    } 
+
+    .dashboard_box_full {
+        .w100;
+        .shadow-lay;
+        .p-r;
+        padding-top: 40px;
+    }
+
+    .box_title {
+        .p-a;
+        top: 10px;
+        left: 20px;
+    }
+    .main_chart {
+        .size(1000px, 400px);
+    }
+
+}

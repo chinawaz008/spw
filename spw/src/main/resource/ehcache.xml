@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache dynamicConfig="false" monitoring="off" updateCheck="false"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ehcache.xsd">
+    
+    <defaultCache eternal="false" maxEntriesLocalHeap="0" timeToIdleSeconds="3000" timeToLiveSeconds="3000"/>
+    
+    <!-- <cache maxEntriesLocalHeap="10000" name="validateCode" eternal="true" /> -->
+    
+</ehcache>

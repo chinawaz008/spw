@@ -1,0 +1,130 @@
+/**
+ * 文件：民盛后台办公新增类页面样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-3-3
+**/
+@import "zlib.v2.less";
+
+.dashoard_lay {
+    .clearfix;
+    .float_block {
+        .f-l;
+    }
+    .clicp {
+        border: 1px solid #ccc;
+        .shadow-lay;
+        margin-bottom: 20px;
+        margin-right: 20px;
+        .size(240px, 80px);
+        .clearfix;
+        .clicp_icon {
+            .square(50px);
+            margin: 15px 20px;
+            .f-l;
+            img {
+                .w100;
+            }
+        }
+        .num {
+            font-size: 20px;
+        }
+        .item {
+            font-size: 14px;
+            color: #999;
+        }
+    }
+    .box {
+        .shadow-lay;
+        margin-bottom: 20px;
+        margin-right: 20px;
+
+        .box_head {
+            .one-height(45px);
+            background-color: #f2f2f2;
+            font-size: 16px;
+
+            .iconfont {
+                margin: 0px 5px 0px 10px;
+                font-size: 20px;
+            }
+        }
+    }
+
+    .approve {
+        .f-l;
+        .size(410px, 295px);
+        table {
+            .w100;
+            td{
+                .t-c;
+                .one-height(45px);
+            }
+        }
+    }
+
+    .calendar {
+        .f-l;
+        .size(330px, 295px);
+        table {
+            .w100;
+            th {
+                .one-height(30px);
+                font-style: normal;
+                .iconfont {
+                    color: #b3b3b3;
+                    .pointer;
+                }
+                &.go_before {
+                    .t-r;
+
+                }
+                &.go_after {
+                    .t-l;
+                }
+            }
+            td{
+                .t-c;
+                .one-height(30px);
+            }
+        }
+    }
+
+    .board {
+        .f-r;
+        .size(300px, 395px);
+        table {
+            .w100;
+            margin-top: 5px;
+            td{
+                padding: 0 22px 0 13px;
+                .one-height(33px);
+            }
+        }
+
+    }
+
+    .chart {
+        width: 1088px;
+
+        .main_chart {
+            .size(1088px, 400px);
+            margin-top: 10px;
+        }
+    }
+    .approve_div {
+        overflow-y: scroll;
+    }
+
+    .one_line_td {
+        width: 120px;
+    }
+
+    .one_line {
+        overflow: hidden;
+        height: 20px;
+        line-height: 20px;
+        text-indent: 5px;
+    }
+}

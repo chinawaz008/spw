@@ -1,0 +1,54 @@
+/**
+ * 文件：登录界面样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-3-2
+**/
+@import "../public/zlib.v2.less";
+
+*:focus {outline: none}
+
+body {
+    background-color: #2d3138;
+}
+
+.input() {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-indent: 5px;
+    .size(185px, 30px);
+}
+
+.login_box {
+    width: 960px;
+    margin: 0 auto;
+    .p-r;
+    top: -70px;
+    img {
+        .w100;
+    }
+    .username {
+        .p-a;
+        top: 397px;
+        left: 410px;
+        .input;
+    }
+    .password {
+        .p-a;
+        top: 445px;
+        left: 410px;
+        .input;
+    }
+    .submit{
+        .p-a;
+        top: 510px;
+        left: 410px;
+        border: 0;
+        border-radius: 5px;
+        background-color: @ms-red;
+        color: #fff;
+        padding: 6px 52px;
+        width: 185px;
+    }
+}

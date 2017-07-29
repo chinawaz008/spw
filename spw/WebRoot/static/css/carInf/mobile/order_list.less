@@ -1,0 +1,245 @@
+@import "../../public/zlib.v2.less";
+
+@gray_border: #b3b3b3;
+@images: "../../../img/Automobile_insurance";
+//标题栏组件
+body{
+    background:#f2f2f2;
+    font-size: 1.4rem;
+}
+#app{
+    margin-top:9rem;
+}
+.title_bar {
+    .w100;
+    .p-f;
+    top: 0;
+    height: 4.5rem;
+    background-color: #fff;
+    border-bottom: 1px solid @gray_border;
+    .t-c;
+    z-index: 10;
+
+    button {
+        .p-a;
+        left: 1rem;
+        .square(2.5rem);
+        top: 50%;
+        margin-top: -1.25rem;
+        border: 0;
+        background: url("@{images}/01.png"); 
+        background-color: #fff;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+
+        &.others {
+            right: 1rem;
+            left: auto;
+            background-image: url("@{images}/02.png");
+        }
+    }
+
+    h1 {
+        .w100;
+        height: 100%;
+        line-height: 4.5rem;
+        .t-c;
+        font-size: 2rem;
+    }
+}
+.controller{
+    background:#fff;
+    width:100%;
+    top:4.5rem;
+    height:4.5rem;
+    position:fixed;
+    line-height:4.5rem;
+    z-index: 10;
+    border-top:1px #ccc solid;
+    border-bottom:1px #ccc solid;
+    font-size:1.4rem;
+    li{
+        width: 20%;
+        .t-c;
+        float:left;
+        color:#999; 
+    }
+    .selected{
+        color:#ec3101;
+        border-bottom:0.2rem #ec3101 solid;
+    }
+
+}
+.order_list{
+    padding-top:1rem;
+    width:100%;
+    position:relative;
+    background-color:#f2f2f2;
+    font-size:1.2rem;
+    padding-bottom:6rem;
+    li{
+        a:hover{
+        color:#333;
+        }  
+        height:16rem;
+        background-color: #fff;
+        margin-bottom:1rem;
+        border-top:1px #ccc solid;
+        border-bottom:1px #ccc solid;
+        .order_head{
+            .clearfix;
+            .w100;
+            .one-height(4rem);
+            span{
+                background: url("@{images}/04.png") no-repeat 0 35% ;
+                margin-left: 1rem;
+                padding-left: 2.5rem;
+                background-size:auto 100%;
+            }
+            label {
+                .f-r;
+                margin-right: 1rem;
+            }
+            .completed{
+                color:#0ab895;
+                
+            }
+            .un_pay{
+                color:#ec3101;
+            }
+        }
+        .order_body{
+            .clearfix;
+            .w100;
+            height:8rem;
+            border-top:1px #ccc solid;
+            ul{
+                padding-top:1rem;
+                float:left;
+                li{
+                    margin:0;
+                    height:2rem;
+                    padding:0;
+                    border:0;
+                }
+            }
+            .logo {
+                background-color:transparent;
+                height:6.5rem;
+                float:left;
+                margin:0.8rem 2rem 0.8rem 1rem;
+                width:17%;
+                
+                img{
+                width:100%;
+                height:auto;
+                overflow: hidden;
+                }
+            }
+        }
+        .order_foot{
+            padding:0 1rem;
+            width:100%;
+            float:right;
+            border-top:1px #ccc solid;
+            height:4rem;
+            line-height: 4rem;
+            text-align:right;
+            span{
+                padding:1rem 0;
+            }
+            .to_pay{
+                background-color: #fff;
+                border:1px #ec3101 solid ;
+                border-radius: 5px;
+                color:#ec3101;
+                margin-left:5rem;
+                font-size:1.2rem;
+            }
+        }
+    }
+}
+
+.companys_lay {
+    .p-f;
+    top: 4.5rem;
+    z-index: 12;
+    .w100;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+
+}
+    .companys{
+        background:#fff;
+        
+        line-height:4.5rem;
+        width:100%;
+        border-bottom:1px #ccc solid;
+        border-top:1px #ccc solid;
+        /*opacity: 0.6;*/
+        .selected{
+                color:#ec3101;
+                background: url("@{images}/gougou.png")  #fff no-repeat 100% 50% ;
+                background-size:auto 35%
+                ;
+            }
+        li{
+            background:#fff;
+            height:4.5rem;
+            line-height: 4.5rem;
+            margin:0 1rem;
+            border-bottom:1px #ccc solid;
+            a{
+                display: block;
+                .w100;
+                height: 100%;
+                &:hover{
+                    color:#333;
+                }
+            }
+            &:last-child{
+                border-bottom:none;
+            }
+        }
+    }
+.nothing{
+    height:25rem;
+    top:0;
+    position:relative;
+    line-height:4.5rem;
+
+    width:100%;
+    background: url("@{images}/dingdan.png") #f2f2f2  no-repeat 50% 50% ;
+    background-size:auto 45%;
+
+}
+
+//遮罩层样式
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba(0,0,0,0.5);
+    img {
+        position: fixed;
+        width: 25%;
+        top: 50%;
+        left: 50%;
+        margin: -12.5% 0 0 -12.5%;
+    }
+}
+
+.sub_iframe{
+    .p-f;
+    top: 4.5rem;
+    z-index: 11;
+    .w100;
+    height: 100%;
+    border:none;
+    border-top:1px solid #ccc;
+    border-left:1px solid #ccc;
+
+}

@@ -1,0 +1,128 @@
+/**
+ * 文件：民盛样式
+ * 作者：无名大强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2017-1-6
+**/
+@import "../public/zlib.v2.less";
+
+
+.tab_lay {
+    margin-bottom: 20px;
+
+    .tab_bodies {
+
+        table {
+            .t-c;
+            &.basic {
+                margin: 10px 0 10px 2%;
+                width: 80%;
+                tr {
+                    td {
+                        height: 30px;
+
+                        &:nth-child(2n + 1) {
+                            .t-r;
+                            .bold;
+                        }
+                        
+                        &:nth-child(2n) {
+                            .t-l;
+                        }
+
+
+                    }
+                }
+            }
+
+            .info_pic {
+                max-width: 300px;
+                max-height: 300px;
+            }
+
+            .enlarged {
+                .p-f;
+                .size(100%, 100%);
+                top: 0;
+                left: 0;
+                .t-c;
+                z-index: 102;
+
+                img {
+                    max-height: 500px;
+                    max-width: 850px;
+                    width: auto;
+                    margin-top: 50px;
+                }
+
+            }
+
+            .icon-fangda {
+                .p-a;
+                font-size: 25px;
+                top: 190px;
+                right: 20px;
+                color: #999;
+            }
+
+            &.result {
+                // font-size: 18px;
+
+                .iconfont {
+                    color: @ms-red;
+                    font-size: 20px;
+                }
+
+                td {
+                    // vertical-align: top;
+
+                    &:first-child {
+                        width: 200px;
+                    }
+
+                    &:nth-child(2) {
+                        width: 150px;
+                    }
+
+                    input {
+                        margin: 0 5px 0 10px;
+                    }
+
+                    p {
+                        margin: 0 0 10px 0;
+                        .p-r;
+
+                    }
+                    label.input_tip {
+                        top: 0;
+                        right: 0;
+                        left: initial;
+                    }
+                }
+
+                textarea {
+                    margin: 0;
+                }
+
+            }
+
+        }
+    }
+}
+.bank_num {
+    display: inline-block;
+    width: 170px;
+    margin: 5px 0 5px 0;
+    height: 28px;
+    line-height: 28px;
+    vertical-align: middle;
+    text-indent: 5px;
+    color: #666;
+    text-align: left;
+}
+.bank_info {
+    display: inline-block;
+    width: 140px;
+    text-align: right;
+}

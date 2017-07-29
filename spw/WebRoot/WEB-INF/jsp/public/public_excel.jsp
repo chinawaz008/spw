@@ -1,0 +1,1 @@
+<div id="public_excel" data-name="${fileName}" data-total="${size}" data-failnum="${errorNum }" data-state="${result }" data-detail="${message}"></div>

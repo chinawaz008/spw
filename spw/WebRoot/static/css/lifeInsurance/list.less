@@ -1,0 +1,83 @@
+/**
+ * 文件：总管理后台 寿险保单列表
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-1-27
+**/
+@import "../public/zlib.v2.less";
+
+.input_tip {
+    color: #e61d10;
+    left: 5px;
+}
+
+/*民盛上传Excel表插件样式*/
+.ms_import_box {
+    width: 540px;
+    .p-f;
+    margin: auto; 
+    left: 0;
+    right: 0;
+    top: 150px;
+    background-color: #fff;
+    z-index: 101;
+    .import_box_title {
+        background-color: @blue;
+        color: #fff;
+        font-size: 20px;
+        .one-height(50px);
+        text-indent: 30px;
+        .close_import_box {
+            .f-r;
+            margin-right: 30px;
+            font-size: 30px;
+            .pointer;
+        }
+    }
+    .import_box_body {
+        width: 440px;
+        margin-left: 50px;
+        padding: 20px 0;
+        border-bottom: 2px dashed #ccc;
+        .iconfont {
+            font-size:40px;
+            line-height: 30px;
+        }
+        .success {
+            color: @green;
+        }
+        .fails {
+            color: @red;
+        }
+        table {
+            margin: 0 auto;
+            td {
+                padding: 0 5px;
+            }
+        }
+        .error_board {
+            .w100;
+            height: 100px;
+            background-color: #eee;
+            overflow-y: scroll;
+            margin-top: 20px;
+            padding: 0 20px;
+        }
+        .loading {
+            .t-c;
+        }
+    }
+    .import_box_foot {
+        .t-c;
+        padding: 15px 0;
+        font-size: 16px;
+        form {
+            .hide;
+        }
+    }
+    iframe {
+        .hide;
+    }
+}
+

@@ -1,0 +1,370 @@
+/**
+ * 文件：民盛出行页面样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-10-12
+**/
+
+@gray_border: #b3b3b3;
+@blue_car: #448fb9;
+@cyan: #12b5b0;
+
+@import "../public/zlib.v2.less";
+@images: "../../img/mscx";
+@orange: #f39900;
+@blue: #4390b9;
+@red: #d9261d;
+@main-red: #da251d;
+
+body {
+    background-color: #f2f2f2;
+    .size(100%, 100%);
+    font-size: 1.4rem;
+}
+
+.hide {
+    .hide;
+}
+
+//标题栏组件
+.title_bar {
+    .w100;
+    .p-f;
+    top: 0;
+    height: 4.5rem;
+    background-color: #fff;
+    border-bottom: 1px solid @gray_border;
+    .t-c;
+
+    button {
+        .p-a;
+        left: 1rem;
+        .square(2.5rem);
+        top: 50%;
+        margin-top: -1.25rem;
+        border: 0;
+        background-image: url("@{images}/back.png"); 
+        background-color: #fff;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+
+        &.more {
+            right: 1rem;
+            left: auto;
+            background-image: none; 
+            width: 5rem;
+            padding: 0;
+            text-align: right;
+            color: @main-red;
+
+        }
+    }
+
+    h1 {
+        .w100;
+        height: 100%;
+        line-height: 4.5rem;
+        .t-c;
+        font-size: 2rem;
+    }
+}
+
+//价格、品牌选择器
+.filter {
+    font-size: 1.4rem;
+    .p-f;
+    top: 4.5rem; 
+    .size(100%, 4.5rem);
+    background-color: #fff;
+    .clearfix;
+    .t-c;
+
+    li {
+        .f-l;
+        width: 49%;
+        line-height: 4.5rem;
+        color: #999;
+
+        &.selected {
+            color: @main-red;
+        }
+
+        &.split {
+            border-right: 1px solid #ccc;
+            width: 1%;
+            height: 2rem;
+            margin-top: 1.2rem;
+        }
+    }
+}
+
+//车型列表
+.car_list {
+    font-size: 1.4rem;
+    margin: 10rem 0 7rem;
+    .w100;
+
+    li {
+        margin-bottom: 0.6rem;
+    }
+}
+
+//筛选选项列表
+.option_list {
+    font-size: 1.4rem;
+    .p-f;
+    top: 9rem;
+    .w100;
+
+    background:#fff;
+        
+    line-height:4.5rem;
+    width:100%;
+    border-bottom:1px #ccc solid;
+    border-top:1px #ccc solid;
+ 
+    .selected{
+            color:#ec3101;
+            background: url("@{images}/gougou.png")  #fff no-repeat 100% 50% ;
+            background-size:auto 35%
+            ;
+        }
+    li{
+        background:#fff;
+        height:4.5rem;
+        line-height: 4.5rem;
+        margin:0 1rem;
+        border-bottom:1px #ccc solid;
+        a{
+            display: block;
+            .w100;
+            height: 100%;
+            &:hover{
+                color:#333;
+            }
+        }
+        &:last-child{
+            border-bottom:none;
+        }
+    }
+}
+
+//详情页头部
+.car_top {
+    font-size: 1.4rem;
+    margin-top: 4.5rem;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+
+    img {
+        .w100;
+        .block;
+    }
+
+    .car_name {
+        padding: 1rem;
+        .clearfix;
+
+        span {
+            font-size: 2rem;
+        }
+
+        label {
+            .f-r;
+
+            button {
+                border: 1px solid @orange;
+                .radius(3px);
+                background-color: #fff;
+                color: @orange;
+                margin-left: 1.5rem;
+                padding: 0.5rem 1rem;
+
+                &.selected {
+                    background-color: @orange;
+                    color: #fff;
+                }
+            }
+        }
+    }
+    .car_info {
+        padding: 0 1rem 1rem;
+    }
+}
+
+//操作按钮
+.handler_buttons {
+    font-size: 1.4rem;
+    .p-f;
+    .w100;
+    height: 4rem;
+    bottom: 0;
+    left: 0;
+
+    button {
+        .size(50%, 100%);
+        color: #fff;
+        border: 0;
+
+        &.blue {
+            background-color: @blue;
+        }
+
+        &.red {
+            background-color: @red;
+        }
+
+    }
+}
+
+//租赁计划
+.plan {
+    font-size: 1.4rem;
+    margin: 2rem 0 7rem;
+    
+    .ads {
+        font-size: 1.6rem;
+        .bold;
+    }
+
+    .sub_title {
+        .w100;
+        color: @main-red;
+        .t-c;
+        padding: 1rem 0 0.5rem;
+    }
+
+    .rent_table {
+        .w100;
+        .t-l;
+
+        span {
+            color: #999;
+        }
+
+        label {
+            margin-left: 1rem;
+        }
+    }
+
+    .orange {
+        color: @orange;
+    }
+
+    .blank {
+        background-color: #fff;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc; 
+        padding: 0.5rem 1rem;
+        .t-c;
+
+    }
+}
+
+
+//以租代购产品
+.product {
+    font-size: 1.4rem;
+    .w100;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc; 
+    padding: 0.5rem 0;
+    margin-top: 1rem;
+
+    .product_top {
+        border-bottom: 1px solid #ccc;
+        padding: 0 1rem 0.5rem;
+    }
+
+    .product_table {
+        .w100;
+        label {
+            margin-left: 1rem;
+        }
+        img {
+            width: 2rem;
+            vertical-align: middle;
+            margin-right: 1rem;
+        }
+    }
+
+    .product_detail {
+        .w100;
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+
+        td {
+            border-right: 1px solid #ccc;
+
+            &:last-child {
+                border-right: 0;
+            }
+        }
+    }
+}
+
+//套餐
+.package {
+
+    table {
+        border-top: @border;
+        .w100;
+        border-collapse: collapse;
+        background-color: #fff;
+        td {
+            border-bottom: @border;
+            color: @orange;
+
+            &:nth-child(2n+1) {
+                color: #999;
+                padding: 0.5rem 1rem;
+            }
+
+            &:nth-child(2) {
+                width: 9rem;
+            }
+
+            &:last-child {
+                padding-right: 1rem;
+            }
+        }
+    }
+}
+
+//参数表
+.parameters {
+    font-size: 1.4rem;
+    margin: 1rem 0 7rem;
+    border-top: @border;
+    border-bottom: @border;
+    background-color: #fff; 
+
+    table {
+        width: 95%;
+        margin: 0 auto;
+        .t-l;
+        .collapse;
+
+        td {
+            border-bottom: 1px solid #eee;
+            padding: 0.6rem 0;
+
+            &:last-child {
+                .bold;
+            }
+        }
+
+        tr {
+            &:last-child {
+                td {
+                    border-bottom: 0;
+                }
+            }
+        }
+
+    }
+}
+
+

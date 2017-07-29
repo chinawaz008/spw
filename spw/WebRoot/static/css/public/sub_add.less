@@ -1,0 +1,189 @@
+/**
+ * 文件：民盛后台办公新增类页面样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-3-3
+**/
+
+@import "zlib.v2.less";
+
+@blue: #428fb8;
+@green: #86b97f;
+@orange: #f7b852;
+@blue-light: #6fb3e0;
+@red-light: #ce594d;
+
+@red: #e61d10;
+@gray-dark: #343737;
+@blue-dark: #242f34;
+
+body {
+    background-color: #f2f2f2;
+}
+
+.red {
+    color: red;
+}
+
+.orange {
+    color: orange;
+}
+
+.btns {
+    .w100;
+    .p-f;
+    bottom: 0;
+    left: 0;
+    border-top: @border;
+    .t-c;
+    background-color: #f2f2f2;
+    z-index: 11;
+
+    button {
+        color: #fff;
+        background-color: @ms-red;
+        border: 1px solid @ms-red;
+        margin: 10px;
+        padding: 5px 20px;
+        .radius;
+    }
+    .btns_green{
+         .btns_green;
+    }
+   
+}
+
+.btns_green {
+    color: #fff;
+    background-color: @green;
+    border: 1px solid @green;
+    padding: 5px 20px;
+    .radius;
+}
+
+.tab_controller {
+    .clearfix;
+    .w100;
+    margin-top: 10px;
+
+    li {
+        .f-l;
+        .t-c;
+        .pointer;
+        margin: 0 0.5%;
+        border-bottom: solid 3px #999;
+        width: 19%;
+
+        &.active {
+            color: @ms-red;
+            border-bottom: solid 3px @ms-red;
+        }
+
+        &.wrong {
+            color: orange;
+            border-bottom: solid 3px orange;
+        }
+    }
+}
+
+.tab_body {
+    margin: 10px 20px;
+    table {
+        .w100;
+
+        .item_name {
+            .t-r;
+            padding: 15px 10px 15px 0;
+            .bold;
+        }
+
+        input[type="text"],
+        select {
+            .size(160px, 24px);
+            border: @border;
+            padding: 0 0 0 5px;
+
+            &.long {
+                width: 488px;
+            }
+        }
+
+        td {
+            .p-r;
+
+            .input_tip {
+                .p-a;
+                bottom: -6px;
+                right: 0;
+                color: @ms-red;
+            }
+        }
+    }
+
+    .files_table {
+        thead {
+            border-bottom: @border;
+            .t-c;
+            .bold;
+
+            th {
+                padding: 10px 0;
+            }
+        }
+
+        tbody {
+            tr {
+                border-bottom: @border;
+
+                td {
+                    padding: 10px 0;
+                }
+
+                &.no_border {
+                    border-bottom: 0;
+                }
+            }
+        }
+    }
+
+    .choose_pic_td {
+        vertical-align: top;
+        .choose_pic {
+            width: 163px;
+            border: 1px solid #ddd;
+            margin: 15px auto;
+            .pointer;
+            img {
+                .size(150px, 235px);
+                margin: 5px;
+            }
+        }
+        p {
+            .t-c;
+            .pointer;
+            input {
+                width: 150px;
+            }
+        }
+    }
+    .check_for_the_same {
+        visibility: hidden;
+        .pointer;
+    }
+    .last_the_same {
+        .hide;
+    }
+    #fenbu {
+        .hide;
+    }
+    .add_relatives {
+        .hide;
+    }
+    .belong_to_same {
+        vertical-align: middle;
+    }
+    .delete_fenbu {
+        .hide();
+    }
+}

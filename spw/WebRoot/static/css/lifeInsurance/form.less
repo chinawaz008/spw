@@ -1,0 +1,546 @@
+/**
+ * 文件：总管理后台 新增寿险保单 less样式 lifeInsurance/form.jsp
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-1-27
+**/
+@import "../public/zlib.v2.less";
+@green: #80c269;
+@blue: #5599ff;
+@red: #cf4646;
+@orange: #ffae00;
+@purple: #563d7c;
+
+.salesman {
+    margin: 10px;
+    .search_salesman_input {
+        width: 200px;
+    }
+}
+
+.file_body{
+    .css_mix(@colormix){
+        input[type="text"]:focus{
+            border-color: @colormix;
+        }
+        li.selected span{
+            color: #fff;
+            background-color: @colormix;
+        }
+        .lay_bottom button{
+            background-color: @colormix;
+            &.disabled{
+                background-color: #999;
+            }
+        }
+        .lay_top{
+            label{
+                border: 1px solid @colormix;
+                color: @colormix;
+            }
+        }
+        .sex {
+            .slide_block{
+                .p-a;
+                top: 0px;
+                .size(50px, 34px);
+                .radius;
+                background-color: @colormix;
+            }
+            span{
+                .p-r;
+                z-index: 1;
+            }
+            &.male {
+                .slide_block{
+                    left: 0;
+                    transition: 0.3s;
+                }
+                span:first-child{
+                    color: #fff;
+                }
+            }
+            &.female {
+                .slide_block{
+                    left: 50px;
+                    transition: 0.3s;
+                }
+                span:nth-child(2) {
+                    color: #fff;
+                }
+            }
+
+        }
+
+
+    }
+    &.form_appliant{
+        .css_mix(@green);
+    }
+    &.form_insured{
+        .css_mix(@blue);
+    }
+    &.form_beneficiary{
+        .css_mix(@red);
+    }
+    &.form_plan{
+        .css_mix(@orange);
+    }
+    .border(){
+        height: 35px;
+        line-height: 34px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        vertical-align: middle;
+        margin: 0;
+    }
+    .lay{
+        margin-bottom: 10px;
+        font-size: 15px;
+        .p-r;
+        .clearfix;
+        input[type="text"]{
+            .border;
+            text-indent: 7px;
+            font-size: 15px;
+            width: 250px;
+            &.long{
+                width: 700px;
+            }
+            &.short{
+                width: 135px;
+            }
+            &.small{
+                width: 116px;
+            }
+            &.error{
+                border-color: red;
+            }
+            &.other_input{
+                .size(120px, 25px);
+                margin: 0 0 0 10px;
+                vertical-align: baseline;
+            }
+        }
+        .sex{
+            .p-r;
+            .inline;
+            .border;
+            width: 100px;
+            span{
+                .inline;
+                width: 45px;
+                .t-c;
+                .pointer;
+            }
+        }
+        &>ul{
+            .border;
+            li{
+                .inline;
+                padding: 0 10px;
+                border-right: 1px solid #ccc;
+                height: 33px;
+                &:not(:first-child){
+                    .pointer;
+                }
+                span{
+                    .inline;
+                    .circle(16px, #ccc, #333);
+                    margin-right: 7px;
+                    vertical-align: middle;
+                    line-height: 16px;
+                    font-size: 13px;
+                    text-indent: -4px;
+                    .bold;
+                }
+                &:hover span{
+                    color: #fff;
+                }
+                select{
+                    height: 27px;
+                }
+            }
+        }
+        label{
+            color: red;
+            margin-left: 10px;
+        }
+        .sameAsAppliant{
+            .inline;
+            .square(18px);
+            color: @red;
+            border: 1px solid @red;
+            .t-c;
+            vertical-align: text-bottom;
+            line-height: 17px;
+            .pointer;
+        }
+        textarea{
+            .border;
+            .w100;
+            text-indent: 7px;
+        }
+    }
+
+    .fr_lay {
+        .f-r;
+
+        label {
+            .inline;
+        }
+    }
+    .lay_bottom{
+        .t-c;
+        button{
+            height: 35px;
+            padding: 0 10px;
+            margin: 0 20px 10px;
+            color: #fff;
+            font-size: 17px;
+            border:0;
+            .radius;
+            .shadow;
+            .pointer;
+        }
+    }
+    .lay_top{
+        font-size: 19px;
+        margin-bottom: 10px;
+        label{
+            .inline;
+            .size(23px, 23px);
+            line-height: 23px;
+            .t-c;
+            .pointer;
+            vertical-align: middle;
+        }
+        span{
+            margin-right: 30px;
+        }
+    }
+    
+    .delete{
+        .p-a;
+        width: 100px;
+        right: 30px;
+        top: 15px;
+        font-size: 16px;
+        z-index: 2;
+        .times{
+            border: 1px solid @red;
+            color: @red;
+            width: 20px;
+            height: 20px;
+            line-height: 18px;
+            text-align: center;
+            font-size: 22px;
+            cursor: pointer;
+            .inline;
+            margin-left: 7px;
+            vertical-align: top;
+        }              
+    }
+    #form_plan{
+        input[type="text"]{
+            width: auto;
+            margin: 0 5px;
+            &.mini{
+                width: 65px;
+            }
+        }
+        select{
+            height: 35px;
+            line-height: 35px;
+            width: 150px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            vertical-align: middle;
+            font-size: 15px;
+            &#main_company{
+                width: 250px;
+            }
+        }
+        table {
+            .t-c;
+            .w100;
+            tr{
+                td{
+                    padding: 5px 10px;
+                    border: 1px solid #ccc;
+                    &:first-child{
+                        min-width: 100px;
+                    }
+                }
+                &:last-child{
+                    .t-l;
+                    a{
+                        background-color: @orange;
+                        color: #fff;
+                        .radius;
+                        border: 0;
+                        .pointer;
+                        padding: 2px 5px;
+                        &.disabled{
+                            background-color: #999;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+.files{
+    .w100;
+    .files_head{
+        .w100;
+        &>div{
+            .inline;
+        }
+        .file_label{
+            .size(150px, 50px);
+            border-radius: 5px 5px 0 0;
+            color: #fff;
+            font-size: 16px;
+            .bold;
+            .t-c;
+            line-height: 50px;
+            .pointer;
+            .label_all(@color){
+                background-color: @color;
+                border: 1px solid @color;
+                &.selected{
+                    background-color: #fff;
+                    color: @color;
+                    border-bottom: 1px solid #fff;
+                }
+            }
+            &.label_appliant{
+                .label_all(@green);
+            }
+            &.label_insured{
+                .label_all(@blue);
+            }
+            &.label_beneficiary{
+                .label_all(@red);
+            }
+            &.label_plan{
+                .label_all(@orange);
+            }
+        }
+        .arrow{
+            width: 50px;
+            font-size: 20px;
+            .t-c;
+            .bold;
+            color: @purple;
+        }
+    }
+}
+.submit_div{
+    width: 700px;
+    .p-a;
+    top: 70px;
+    left: 50%;
+    margin-left: -350px;
+    background-color: #fff;
+    z-index: 200;
+    h3{
+        .t-c;
+        font-size: 20px;
+        margin: 20px auto 15px;
+    }
+    table{
+        color: #666;
+        width: 90%;
+        margin: 0 0 20px 5%;
+        font-size: 18px;
+        .t-c;
+        .table_border(@borderColor){
+            border: 1px solid @borderColor;
+            th{
+                border: 1px solid @borderColor;
+            }
+            td{
+                border: 1px solid @borderColor;
+            }
+        }
+        th{
+            .t-l;
+            text-indent: 5px;
+            
+            padding: 5px 0;
+        }
+        td{
+            border: 1px solid #ccc;
+            padding: 5px 0;
+            &.fill_in{
+                .bold;
+            }
+        }
+        &.part_a{
+            .table_border(@green);
+        }
+        &.part_b{
+            .table_border(@blue);
+        }
+        &.part_c{
+            .table_border(@red);
+        }
+        &.part_d{
+            .table_border(@orange);
+        }
+        &.part_e{
+            .table_border(@purple);
+        }
+    }
+    .botton_tips{
+        width: 90%;
+        margin: 0 0 20px 5%;
+        font-size: 16px;
+        p{
+            color: red;
+        }
+        button{
+            .f-r;
+            .size(80px, 40px);
+            font-size: 18px;
+            border: 0;
+            .radius;
+            .pointer;
+            margin: 20px 10px;
+            color: #fff;
+            &#affirm{
+                background-color: #629B58;
+            }
+            &#abolish{
+                background-color: #F89406;
+            }
+        }
+    }
+    .part_s {
+        margin-left: 5%;
+    }
+}
+#overLay {
+    .p-a;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    .size(100%,100%);
+    background-color: rgba(0,0,0,0.5);
+}
+/*业务人员搜索*/
+.salesman {
+    li {
+        width: 180px;
+        .inline;
+        .pointer;
+        background-color: #eee;
+        .t-c;
+        margin: 5px;
+        padding: 4px 0;
+    }
+    .search_salesman_tip {
+        color: red;
+    }
+}
+
+#add_as_apply {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #59f;
+    color: #fff;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+#add_as_apply.selected {
+    color: #59f;
+}
+
+.box_lay{
+    margin: 0 10px 20px;
+    background-color: #fff;
+    padding: 10px 30px 10px 30px;
+    border: @border;
+    .shadow-lay;
+
+    .title_div {
+        .w100;
+        border-bottom: @border;
+        padding-bottom: 5px;
+        margin-bottom: 10px; 
+
+        .iconfont {
+            color: @blue;
+        }
+
+        .right_icon {
+            .f-r;
+            padding-left: 20px;
+            .pointer;
+        }
+
+    }
+    
+    .box_div {
+        .p-r;
+    }
+}
+
+.form_plan .lay .plan_ul {
+    height:45px;
+    line-height:40px;
+
+    li {
+        height:44px;
+
+        &:nth-child(2n + 1) {
+            width: 180px;
+        }
+
+        &:last-child {
+            border-right: 0;
+        }
+    }
+}
+
+.add_beneficiary {
+    .p-r;
+    border-top: 2px dashed #999;
+    padding-top: 10px;
+}
+
+#overlay {
+    background:#000;
+    filter:alpha(opacity=60);
+    opacity:.6;
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:100
+}
+#overlay img {
+    position:fixed;
+    display:none;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    -webkit-transform:translateZ(0);
+    -moz-transform:translateZ(0);
+    -ms-transform:translateZ(0);
+    -o-transform:translateZ(0);
+    transform:translateZ(0)
+}

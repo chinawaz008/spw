@@ -1,0 +1,47 @@
+/**
+ * 文件：民盛后台新增后援人员页面样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-4-29
+**/
+@import "../public/zlib.v2.less";
+
+@blue: #428fb8;
+@green: #86b97f;
+@orange: #f7b852;
+@blue-light: #6fb3e0;
+@red-light: #ce594d;
+
+@red: #e61d10;
+@gray-dark: #343737;
+@blue-dark: #242f34;
+
+.organization_table {
+    tr {
+        td {
+            &:first-child {
+                width: 100px;
+            }
+        }
+    }
+}
+.selected_position {
+    display: inline-block;
+    background-color: #ddd;
+    padding: 5px 15px;
+    margin: 0 20px 20px 0;
+    .pointer;
+    .iconfont {
+        .hide;
+    }
+    &:hover {
+        .iconfont {
+            color: @red;
+            display: inline;
+            font-size: 16px;
+            line-height: 18px;
+            margin-left: 10px;
+        }
+    }
+}

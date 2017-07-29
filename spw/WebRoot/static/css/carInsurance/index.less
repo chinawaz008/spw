@@ -1,0 +1,151 @@
+/**
+ * 文件：车险页面样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-4-1
+**/
+
+@import "../public/zlib.v2.less";
+@green: #80c269;
+@blue: #5599ff;
+@red: #cf4646;
+@orange: #ffae00;
+@purple: #563d7c;
+
+.border(){
+    border: 1px solid #ccc;
+}
+
+//车险第一步，提交车牌、手机号
+.form_box {
+    width: 625px;
+    margin: 20px 0 0 5px;
+    table {
+        margin-left: 70px;
+        font-size: 16px;
+        tr {
+            height: 60px;
+            td{
+                &:first-child{
+                    width: 150px;
+                    .t-r;
+                    span {
+                        color: red;
+                        vertical-align: middle;
+                        margin: 0 5px;
+                    }
+                }
+            }
+        }
+        input {
+            border: 1px solid #ccc;
+            height: 40px;
+            line-height: 40px;
+            width: 280px;
+            font-size: 14px;
+            text-indent: 5px;
+            &.short {
+                width: 160px;
+            }
+        }
+        .label_check{
+            font-size: 12px;
+            margin-left: 20px;
+            span {
+                .inline;
+                .square(16px);
+                .border;
+                .t-c;
+                vertical-align: text-bottom;
+                margin: 0 5px;
+                .pointer;
+                color: #fff;
+                &.selected{
+                    color:@blue;
+                }
+            }
+        }
+        .label_tips {
+            font-size: 14px;
+            color: red;
+            span {
+               .inline;
+               font-size: 16px;
+               .circle(16px, red);
+               .middle;
+               .t-c;
+               line-height: 16px;
+               margin: 0 5px 0 15px;
+            }
+        }
+        button{
+            background-color: @blue;
+            color: #fff;
+            width: 220px;
+            height: 37px;
+            .pointer;
+            .t-c;
+            border: 0;
+            font-size: 18px;
+
+        }
+    }
+}
+
+//车险选择城市插件
+.ms_car_citys_input {
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAANwAAADcBYx2BhQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFcSURBVDiNjdO/q85hGAbwz+vXOelEFCk5g5TBsZxJSQySAcVgMCiG750fC5PSOSWLP8E1KFkM5ywGJ4NVGRSLMgv5kUHKptfwfuntvN8vruW57vt57uu+r+fpGQyHQ1U1hQXM6cdPLCd5OJ5c166nMYsr7cEubMZyVa0k+bZaYAdWkrz/ywQfq+o1tmBC4A+qKphLcrCqduMFKslSl+qEAF7ia8u/4wne9o01IZDk7hj/gnN9xZ0CVbWIPUnOV9VOLGExydMugTUdufWYavkA012NeidIsjDG32G+qtZW1XTbcMO/LFzEriS32vgMLmMb9mK2qj7gUpJPXRYO4eRYfDXJURzG8yQH8ABn+yxcWJXaWFXHMIPtVXUE8/jRKdCD40YXu7Xl+/CM7leYQJLruIk3SW7g3u+9QdM0M7iGz3jUUf/Y6LNtwn2cwCmjz3dn0DTNbez/Tyur8eoXpcRlSK9FGe8AAAAASUVORK5CYII=);
+}
+.ms_car_citys {
+    .p-a;
+    .hide;
+    z-index: 999;
+    .content {
+        border:1px #d9d9d9 solid;
+        background-color:#f8f8f8;
+        width:300px;padding:10px 0 6px;
+        li {
+            .f-l;
+            width: 70px;
+            .o-h;
+            a {
+                display:block;
+                text-align:center;
+                line-height:22px;
+                white-space:nowrap;
+                color: #666;
+
+                &.current,&:hover {
+                    background-color: #fbeaea;
+                    color: @ms-red;
+                }
+            }
+        }
+        ul {
+            padding:2px 8px;
+            .clearfix;
+            &.zxs {
+                border-bottom:#a2a2a2 1px dotted;
+            }
+            &.city {
+                border-top:#a2a2a2 1px dotted;
+                .hide;
+            }
+        }
+
+    }
+    .close_ms_carcitys {
+        background-color:#fff;
+        border:1px #a2a2a2 solid; 
+        cursor:pointer;
+        padding:1px 4px;
+        line-height:15px;
+        position:absolute;
+        right:5px;top:5px;
+        z-index:9999;
+        border-radius:4px
+    }
+}

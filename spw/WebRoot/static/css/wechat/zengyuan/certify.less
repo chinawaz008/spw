@@ -1,0 +1,87 @@
+.main {
+    padding-top: 2rem;
+}
+
+
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    height: 4rem;
+    .left {
+        width: 20%;
+        padding-left: 1.5rem;
+        height: 4rem;
+        display: flex;
+        align-items: center;
+        span {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            background-color: #DA251E;
+            color: white;
+            font-size: 3rem;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        img {
+            width: 4rem;
+            height: 4rem;
+        }
+    }
+    .right {
+        box-sizing: border-box;
+        width: 80%;
+        height: 4rem;
+        line-height: 4rem;
+        padding-left: 1.5rem;
+        background-color: #fff;
+        border-radius: 2rem 0 0 2rem;
+        border: 1px solid #E5E5E5;
+        border-right: none;
+        font-size: 1.5rem;
+    }
+}
+
+.finsh {
+    float: right;
+    margin-right: 1rem;
+    color: #DA251E;
+    display: none;
+    i {
+        margin-right: .5rem;
+    }
+    &.show {
+        display: block;
+    }
+}
+
+.line {
+    height: 1.2rem;
+    margin: .3rem 0;
+    border-left: 2px solid #DA251E;
+    margin-left: 3.5rem;
+}
+
+.tips {
+    width: 100%;
+    height: 4rem;
+    span {
+        font-size: 1.2rem;
+        color: #8F8F8F;
+        box-sizing: border-box;
+        width: 80%;
+        float: right;
+        padding-left: 3rem;
+    }
+    .line{
+        height: 90%;
+    }
+}
+.uploadcar{
+    opacity: 0;
+    pointer-events: none;
+
+}

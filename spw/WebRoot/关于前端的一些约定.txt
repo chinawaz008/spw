@@ -1,0 +1,4 @@
+1、“新增”、“编辑”子页面中，请使用AJAX提交数据；
+2、在提交成功的回调函数中，可以使用parent.closeBox()来关闭子页面，使用parent.freshList()函数，来刷新原先的列表页面；
+parent.closeBox();
+parent.freshList();

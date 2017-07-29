@@ -1,0 +1,236 @@
+/**
+ * 文件：个人日报历史详情页面
+ * 作者：无名大强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-9-26
+**/
+@import "../public/zlib.v2.less";
+
+@yellow-light: #fffccc;
+@green_light: #e5ffe0;
+@red_light: #fed0cb;
+@orange_dark: #ea7e2f;
+
+.tab_lay {
+    .clearfix;
+    margin-bottom: 20px;
+}
+
+.date_box {
+    .size(315px, 160px);
+    .f-l;
+    .shadow-lay;
+
+    p {
+        text-indent: 35px;
+    }
+    
+    .day {
+        font-size: 26px;
+    }
+
+    .week {
+        color: @blue;
+        .bold;
+        font-size: 28px;
+    }
+}
+
+.chart_box {
+    .size(780px, 160px);
+    .shadow-lay;
+    .f-r;
+
+    .main_chart {
+        .size(100%, 100%);
+        height: 200px;
+        margin-top: -30px;
+    }
+}
+
+.calendar_box {
+    width: 430px;
+    min-height: 420px;
+    .shadow-lay;
+    .f-l;
+    .o-h;
+
+    .month {
+        font-size: 18px;
+        font-weight: normal;
+        color: #eb7d2f;
+        height: 37px;
+        .t-c;
+    }
+    .go_before {
+        .t-r;
+        .pointer;
+        .iconfont {
+            margin-right: -30px;
+        }
+    }
+    .go_after {
+        .t-l;
+        .pointer;
+        .iconfont {
+            margin-left: -30px;
+        }
+    }
+    .calendar_table {
+        .w100;
+        margin-top: 10px;
+    }
+    td {
+        width: 80px;
+        
+        &.ok {
+            background-color: @green_light;
+            .pointer;
+        }
+        &.no {
+            background-color: @red_light;
+            .pointer;
+        }
+        &.current {
+            background: url(../../img/daily/1.png) no-repeat center;
+            .pointer;
+        }
+        &.selected {
+            border: 2px solid @blue;
+            .pointer;
+        }
+    }
+    tbody {
+
+        tr {
+            height: 65px;
+            border-top: 1px solid #ccc;
+            .t-c;
+        }
+    }
+
+    .week_days {
+        margin-top: 15px;
+        color: #999;
+        height: 50px;
+    }
+}
+
+.flow_box {
+    .size(780px, 160px);
+    .shadow-lay;
+    .f-r;
+
+    background: url(../../img/daily/3.png) no-repeat center;
+    .flow_title {
+        margin: 20px;
+    }
+}
+
+.report_box {
+    width: 660px;
+    .shadow-lay;
+    .f-r;
+
+    .report_title {
+        height: 57px;
+        margin: 0 18px;
+        border-bottom: 1px solid #ccc;
+        line-height: 57px;
+        font-size: 15px;
+    }
+
+    .report_board {
+        padding: 5px 45px;
+        textarea {
+            .size(540px, 80px);
+            border: 1px solid #ccc;
+            padding: 3px 10px;
+
+            &.work_title {
+                height: 40px;
+            }
+
+        }
+        
+        .delete_report {
+            .t-r;
+            margin-bottom: 30px;
+            button {
+                color: #666;
+                background-color: #fff;
+                border: 0;
+            }
+        }
+    }
+
+    .add_more_btn {
+        .size(140px, 40px);
+        margin: 10px 260px 50px;
+        background-color: @orange_dark;
+        color: #fff;
+        border: 0;
+        .hide;
+       
+    }
+
+    .add_plan_summary_btn {
+        .size(140px, 40px);
+        margin: 10px 260px 50px;
+        background-color: @blue;
+        color: #fff;
+        border: 0;
+        .hide;
+    }
+
+    .no_report {
+        margin: 50px 230px;
+        border: 0;
+        .hide;
+    }
+
+    .finish_title {
+        height: 57px;
+        margin: 0 18px;
+        border-bottom: 1px solid #ccc;
+        line-height: 57px;
+        font-size: 15px;
+    }
+
+    
+    .execution {
+        padding: 0 20px;
+
+        span {
+            color: @blue;
+            margin-right: 10px;
+        }
+
+        textarea {
+            .size(440px, 85px);
+            border: 1px solid #ccc;
+            padding: 3px 10px;
+
+
+        }
+    }
+        
+  
+
+
+    .finish {
+        background-color: @yellow-light;
+        padding: 5px 10px;
+        margin-right: 5px;
+    }
+
+    img {
+        border: 1px solid #ccc;
+    }
+  
+
+    .img_p {
+        .t-c;
+    }
+}

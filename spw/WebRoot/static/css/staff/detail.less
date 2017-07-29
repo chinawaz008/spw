@@ -1,0 +1,66 @@
+/**
+ * 文件：民盛后台工资详情页面样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-4-29
+**/
+@import "../public/zlib.v2.less";
+
+@blue: #428fb8;
+@green: #86b97f;
+@orange: #f7b852;
+@blue-light: #6fb3e0;
+@red-light: #ce594d;
+
+@red: #e61d10;
+@gray-dark: #343737;
+@blue-dark: #242f34;
+
+.salary_item {
+    padding: 20px 20px 0;
+    .clearfix;
+    &:last-child {
+        margin-bottom: 40px;
+    }
+    .salary_item_title {
+        .f-l;
+        .size(130px, 40px);
+        line-height: 40px;
+        color: @blue;
+        background-color: #e5e5e5;
+        .t-c;
+    }
+    .salary_item_body {
+        width: 900px;
+        .one-height(40px);
+        .f-l;
+        table {
+            margin: 0;
+            tbody {
+                tr {
+                    td {
+                        border: 1px solid #e5e5e5;
+                        .t-c;
+                        .one-height(36px);
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+#base_info {
+    width: 800px;
+    tr {
+        td {
+            .one-height(40px);
+            font-size: 14px;
+            &.item {
+                .t-r;
+                color: @blue;
+            }
+        }
+    }
+}

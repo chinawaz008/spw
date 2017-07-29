@@ -1,0 +1,142 @@
+/**
+ * 文件：考勤规则管理页面样式
+ * 作者：无名小强
+ * 版本：v0.2
+ * 版权：民盛集团
+ * 日期：2016-10-24
+**/
+
+@import "../public/zlib.v2.less";
+
+.app {
+    .w100;
+    .clearfix;
+    
+    .rule_column {
+        width: 536px;
+        .f-l;
+        
+        &:first-child {
+            margin-right: 30px;
+        }
+
+    }
+
+    .rule {
+        .shadow-lay;
+        width: 536px;
+        float: left;
+        padding: 20px 0;
+        margin: 0 30px 30px 0;
+        border: 1px solid #ccc;
+
+        .rule_title {
+            width: 500px;
+            margin: 0 auto 10px;
+            padding-bottom: 10px;
+            .clearfix;
+            border-bottom: 1px dashed #ccc;
+            font-size: 16px;
+        }
+
+        .rule_control {
+            .inline;
+            .f-r;
+
+            button {
+                vertical-align: middle;
+                font-size: 14px;
+                border: 0;
+                background-color: #fff;
+
+                &:first-child {
+                    color: @orange;
+                }
+
+                &:nth-child(2) {
+                    color: @ms-red;
+                }
+
+                &:last-child {
+                    color: @blue;
+                }
+
+            }
+        }
+
+
+        table {
+            width: 500px;
+            margin: 0 auto; 
+            
+            td {
+                padding: 5px 0;
+
+                &:first-child {
+                    width: 80px;
+                    .t-r;
+                }
+
+                &:nth-child(2) {
+                    width: 170px;
+                }
+
+                &:nth-child(3) {
+                    width: 40px;
+                    .t-c;
+                }
+
+                &:nth-child(4) {
+                    width: 170px;
+                }
+
+            }
+
+            input {
+                .w100;
+            }
+
+        }
+
+        .iconfont {
+            padding-left: 5px;
+            .pointer;
+
+            &.icon-shanchu {
+                color: #999;
+            }
+
+            &.icon-xinzeng {
+                color: @orange;
+            }
+        }
+
+        .foot {
+            text-align: right;
+            padding-right: 50px;
+        }
+    }
+}
+.ztree {
+    .inline;
+    width: 280px;
+    height: 400px;
+    margin: 0;
+    overflow-y: scroll;
+}
+
+.position_name {
+    .inline;
+    width: 280px;
+    height: 400px;
+    vertical-align: top;
+    overflow-y: scroll;
+    li {
+        background-color: @orange;
+        color: #fff;
+        padding: 2px 5px;
+        margin: 5px 10px;
+        .pointer;
+        .f-l;
+    }
+}

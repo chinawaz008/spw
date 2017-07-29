@@ -1,0 +1,90 @@
+/**
+ * 文件：续期管理页面样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-3-29
+**/
+
+@import "../public/zlib.v2.less";
+@green: #80c269;
+@blue: #5599ff;
+@red: #cf4646;
+@orange: #ffae00;
+@purple: #563d7c;
+
+//弹出详情页样式
+.detail_div{
+    width: 700px;
+    .p-a;
+    top: 10px;
+    left: 50%;
+    margin-left: -350px;
+    background-color: #fff;
+    z-index: 200;
+    .hide;
+    h3{
+        .t-c;
+        font-size: 20px;
+        margin: 20px auto 15px;
+    }
+    table{
+        color: #666;
+        width: 90%;
+        margin: 0 0 20px 5%;
+        font-size: 18px;
+        .t-c;
+        .table_border(@borderColor){
+            border: 1px solid @borderColor;
+            th{
+                border: 1px solid @borderColor;
+            }
+            td{
+                border: 1px solid @borderColor;
+            }
+        }
+        th{
+            .t-l;
+            text-indent: 5px;
+            
+            padding: 5px 0;
+        }
+        td{
+            border: 1px solid #ccc;
+            padding: 5px 0;
+            &.fill_in{
+                .bold;
+            }
+        }
+        &.part_s{
+            .table_border(#fff);
+        }
+        &.part_a{
+            .table_border(@green);
+        }
+        &.part_b{
+            .table_border(@blue);
+        }
+        &.part_c{
+            .table_border(@red);
+        }
+        &.part_d{
+            .table_border(@orange);
+        }
+        &.part_e{
+            .table_border(@purple);
+        }
+    }
+    .botton_tips{
+        width: 90%;
+        margin: 0 0 20px 5%;
+        button{
+            .f-r;
+            .size(80px, 40px);
+            font-size: 18px;
+        }
+    }
+    .part_s {
+        margin-left: 5%;
+    }
+}

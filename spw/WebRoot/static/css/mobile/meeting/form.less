@@ -1,0 +1,129 @@
+/**
+ * 文件：新增会议页面样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-4-19
+**/
+
+@import "../../public/zlib.v2.less";
+@green: #80c269;
+@blue: #5599ff;
+@red: #cf4646;
+@orange: #ffae00;
+@purple: #563d7c;
+
+//参会人员弹出框样式
+
+.modal {
+    .p-f;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 888;
+    .hide;
+    .modal-dialog {
+        width: 600px;
+        margin: 30px auto;
+        background-color: #fff;
+    }
+    .text-c {
+        .t-c;
+    }
+    .modal-header {
+        padding: 15px;
+        border-bottom: 1px solid #e5e5e5;
+        .close {
+            font-size: 32px;
+            float: right;
+            font-weight: bold;
+            line-height: 1;
+            .pointer;
+            background-color: #fff;
+            border: 0;
+            padding: 0;
+            margin-top: -8px;
+            color: #999;
+        }
+        .modal-title {
+            font-size: 18px;
+            margin: 0;
+            font-weight: normal;
+        }
+    }
+    .modal-body {
+        padding: 15px;
+        
+        table {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            thead{
+                th{
+                    border: 1px solid #ddd;
+                    background-color: #eee;
+                }
+            }
+            tbody {
+                tr {
+                    &:nth-of-type(2n+1) {
+                    background-color: #f9f9f9;
+                    }
+                    td {
+                        border: 1px solid #ddd;
+                        .t-c;
+                    }
+                }
+            }
+        }
+    }
+    .modal-footer {
+        padding-top: 12px;
+        padding-bottom: 14px;
+        border-top-color: #e4e9ee;
+        box-shadow: none;
+        background-color: #eff3f8;
+        padding: 15px;
+        text-align: right;
+        border-top: 1px solid #e5e5e5;
+    }
+    
+}
+
+//分页按钮样式
+.pagination {
+    .f-r;
+    margin: 15px;
+    li {
+        display: inline;
+        .pointer;
+        color: @blue;
+        span {
+            font-size: 12px;
+            float: left;
+            margin-left: -1px;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            &:hover {
+                background-color: #eee;
+            }
+        }
+        &.active {
+            span {
+                color: #fff;
+                cursor: default;
+                background-color: @blue;
+                border-color: @blue;
+            }
+        }
+        &.disabled {
+            span {
+                color: #777;
+                cursor: not-allowed;
+                background-color: #fff;
+            }
+        }
+    }
+}

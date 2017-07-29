@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spw.elife.mobile.login.dao.MobileLoginMapper">    
+	
+  <!-- 判断用户名是否存在 -->
+   <select id="checkUserByUsername" resultType="java.lang.Integer">  
+       SELECT COUNT(0) FROM ms_staff WHERE 1=1 AND (id_card=#{username} OR work_num=#{username} OR phone_num=#{username}) AND status=1 AND is_del=0     
+  </select> 
+  
+  <!-- 判断密码是否正确 -->
+   <select id="checkUserByUsernameAndPassword" resultType="java.lang.Integer">  
+       SELECT COUNT(0) FROM ms_staff WHERE (id_card=#{username} OR work_num=#{username}  OR name like concat('%',#{username},'%') ) AND password=#{password} AND status=1 AND is_del=0        
+  </select>
+   
+  <!-- 判断mac是否正确 -->
+   <select id="checkMacAddress" resultType="java.lang.Integer">  
+       SELECT COUNT(0) FROM ms_staff_token WHERE 1=1 
+       <if test="staffid != null and staffid !=''">
+			and	staffid = #{staffid}
+	   </if>
+	   <if test="mac != null and mac !=''">
+			and	mobilekey = #{mac}
+	   </if>
+	   <if test="type != null and type !=''">
+			and	type = #{type}
+	   </if>
+  </select> 
+  
+  <!-- 判断是否是已签名 -->
+   <select id="checkIsAgree" resultType="java.lang.Integer">  
+       SELECT COUNT(0) FROM ms_staff_token WHERE 1=1 
+       <if test="staffid != null and staffid !=''">
+			and	staffid = #{staffid}
+	   </if>
+	   <if test="type != null and type !=''">
+			and	type = #{type}
+	   </if>
+	   and is_agree = '1' <!-- 已签 -->
+  </select> 
+  
+  <!-- 获取用户的staffid -->
+   <select id="getUserStaffidByUsernameAndPassword" resultType="java.lang.Integer">  
+       SELECT id FROM ms_staff WHERE (id_card=#{username} OR work_num=#{username} OR phone_num=#{username}) AND password=#{password} AND status=1 AND is_del=0       
+  </select> 
+  
+  <!-- 判断用户是否重复登录 -->
+   <select id="checkUserByStaffid" resultType="java.lang.Integer">  
+       SELECT COUNT(0) FROM ms_staff_token WHERE staffid=#{staffid}  and type = #{type}
+  </select> 
+  
+  <!-- 根据mac地址获得当前用户 -->
+  <!--  <select id="getStaffByMac" resultType="com.spw.elife.staff.bean.Staff">  
+       SELECT s.id,s.name,s.phone_num as phoneNum from ms_staff s where s.is_del=0 and s.status=1 
+       and s.id = (SELECT staffid from ms_staff_token t where t.mobilekey = #{mobilekey} and type = #{type})
+  </select>  -->
+  
+  
+  <!-- 保存用户的登录信息 -->
+   <insert  id="insertUserAccessToken"> 	 
+  		INSERT INTO ms_staff_token(staffid,mobilekey,type,createtime) VALUES(#{staffid},#{mobilekey},'0',now()) 
+  </insert>
+  
+  
+  <!-- 保存车贷的用户登录 -->
+   <insert  id="insertLoanUserAccessToken"> 	 
+  		INSERT INTO ms_staff_token(staffid,mobilekey,type,createtime) VALUES(#{staffid},#{mobilekey},#{type},now()) 
+  </insert>
+  
+  <!-- 用户退出 -->
+    <delete id="loginOutByStaffid">
+ 		DELETE FROM ms_staff_token WHERE staffid=#{staffid} and type = '0' 
+  </delete>
+ 
+ <!-- 判断旧密码是否正确 -->
+   <select id="checkOldPwdByStaffidAndOldPwd" resultType="java.lang.Integer">  
+       SELECT COUNT(0) FROM ms_staff WHERE id=#{staffid} AND password=#{oldpassword}     
+  </select>
+ 
+ <!-- 修改密码 -->
+ 	<update id="updatePwd">
+ 		UPDATE ms_staff SET password=#{password} WHERE id=#{staffid}
+   </update>
+   
+ <!-- 忘记密码 -->
+ 	<update id="updatePwdByPhone">
+ 		UPDATE ms_staff SET password=#{password} WHERE phone_num=#{phoneNum}
+   </update>
+   
+ <!-- 更新签名 -->
+ 	<update id="updateSign">
+ 		UPDATE ms_staff_token SET is_agree='1',sign_address=#{signAddress} <!-- 已签 --> WHERE staffid = #{staffid} and type = #{type}
+   </update>
+</mapper>

@@ -1,0 +1,324 @@
+/**
+ * 文件：民盛后台办公新版（子菜单为悬浮框）样式
+ * 作者：无名大强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-12-26
+**/
+@import "initial.less";
+@import "zlib.v2.less";
+
+body {
+    background-color: #e6e6e6;
+    .w100;
+    height: 100%;
+}
+
+.hide {
+    .hide;
+}
+
+//头部导航层
+.top {
+    .p-f;
+    .w100;
+    height: 60px;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    .clearfix;
+    .shadow;
+    z-index: 20;
+
+    .logo {
+        .size(110px, 60px);
+        background-color: @ms-red;
+        .f-l;
+        .t-c;
+        line-height: 60px;
+
+        i {
+            color: #fff;
+            font-size: 50px;
+        }
+    }
+
+    .title {
+        .f-l;
+        margin-left: 50px;
+        height: 100%;
+        line-height: 60px;
+    }
+
+    .menu {
+        .f-l;
+        height: 100%;
+        line-height: 60px;
+        .clearfix;
+        margin-left: 20px;
+
+        li {
+            .f-l;
+            margin: 0 10px;
+            height: 100%;
+            font-size: 18px;
+            .pointer;
+            webkit-transition: background-color 500ms;
+            transition: background-color 500ms;
+            .o-h;
+            .p-r;
+            
+            a {
+                color: #333;
+                .block;
+                width: 100%;
+                height: 100%;
+                padding: 0 10px;
+                webkit-transition: color 700ms;
+                transition: color 700ms;
+
+
+                &:hover {
+                    text-decoration: none;
+
+                }
+            }
+
+            .bk {
+                .block;
+                .w100;
+                height: 100%;
+                background-color: #da251d;
+                .p-a;
+                top: 60px;
+                z-index: -1;
+                webkit-transition: top 700ms;
+                transition: top 700ms;
+            }
+
+            &:hover {
+                background-color: #da251d;
+
+                a {
+                    color: #fff;
+                }
+
+                .bk {
+                    top: 0;
+                }
+            }
+
+            &.selected {
+                color: @ms-red;
+                border-bottom: 3px solid @ms-red;
+            }
+
+        }
+    }
+
+    .member {
+        .f-r;
+        font-size: 16px;
+        margin-right: 50px;
+        height: 100%;
+        line-height: 60px;
+        .pointer;
+        .p-r;
+
+        .avatar {
+            color: @ms-red;
+            font-size: 38px;
+            vertical-align: middle;
+        }
+
+        .message {
+            font-size: 38px;
+            color: @blue;
+            vertical-align: middle;
+            position: relative;
+        }
+
+        .num {
+            font-size: 12px;
+            line-height: 18px;
+            text-align: center;
+            width: 18px;
+            height: 18px;
+            border: 0;
+            border-radius: 18px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: @orange;
+            color: #fff;
+        }
+
+        .msg {
+            ul {
+                .p-a;
+                top: 50px;
+                left: 0;
+                border: 1px solid #ccc;
+                padding: 10px 0;
+                background-color: #fff;
+                .radius;
+                .hide;
+                max-height: 300px;
+                overflow: hidden;
+
+                li {
+                    line-height: 30px;
+                    height: 30px;
+                    overflow: hidden;
+                    .pointer;
+                    width: 170px;
+                    position: relative;
+                    margin: 0 10px 0 10px;
+
+                    .iconfont {
+                        position: absolute;
+                        right: 0;
+                        top: 2px;
+                        padding-left: 10px;
+                        margin: 0 0 0 10px;
+                        color: @ms-red;
+                        background: #fff;
+                        &:hover {
+                            color: darken(@ms-red, 10%);
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+                ul {
+                    display: block;
+                }
+            }
+        }
+
+
+        .user {
+            span {
+                margin: 0 10px;
+            }
+            
+            ul {
+                .p-a;
+                top: 50px;
+                right: 0;
+                border: 1px solid #ccc;
+                padding: 10px 0;
+                background-color: #fff;
+                .radius;
+                .hide;
+
+                li {
+                    line-height: 30px;
+                    .pointer;
+                    width: 130px;
+                    .t-c;
+
+                    &:hover {
+                        font-size: 18px;
+                        .iconfont {
+                            color: darken(@ms-red, 10%);
+                        }
+                    }
+
+                    .iconfont {
+                        margin: 0 10px 10px 0;
+                        font-size: 18px;
+                        color: @ms-red;
+
+
+                    }
+                    &:first-child {
+                        .iconfont {
+                            color: @blue;
+                        }
+
+                        &:hover {
+                            font-size: 18px;
+                            .iconfont {
+                                color: darken(@blue, 10%)
+                            }
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+                ul {
+                    display: block;
+                }
+            }
+        }
+
+    }
+}
+
+/*底部遮罩*/
+#overlay {
+    background: #000;
+    filter: alpha(opacity=60); /* IE的透明度 */
+    opacity: 0.6;  /* 透明度 */
+    display: none;
+    .p-f;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 100; /* 此处的图层要大于页面 */
+}
+#overlay img{
+    position:fixed;
+    .hide;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    -webkit-transform: translateZ(0);
+    -moz-transform:translateZ(0);
+    -ms-transform:translateZ(0);
+    -o-transform:translateZ(0);
+    transform: translateZ(0);
+}
+
+/*民盛日期选择插件的样式*/
+.ms_datepicker {
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+    background-image: url(data:image/gif;base64,R0lGODlhEAAQAPcAAP//////zP//mf//Zv//M///AP/M///MzP/Mmf/MZv/MM//MAP+Z//+ZzP+Zmf+ZZv+ZM/+ZAP9m//9mzP9mmf9mZv9mM/9mAP8z//8zzP8zmf8zZv8zM/8zAP8A//8AzP8Amf8AZv8AM/8AAMz//8z/zMz/mcz/Zsz/M8z/AMzM/8zMzMzMmczMZszMM8zMAMyZ/8yZzMyZmcyZZsyZM8yZAMxm/8xmzMxmmcxmZsxmM8xmAMwz/8wzzMwzmcwzZswzM8wzAMwA/8wAzMwAmcwAZswAM8wAAJn//5n/zJn/mZn/Zpn/M5n/AJnM/5nMzJnMmZnMZpnMM5nMAJmZ/5mZzJmZmZmZZpmZM5mZAJlm/5lmzJlmmZlmZplmM5lmAJkz/5kzzJkzmZkzZpkzM5kzAJkA/5kAzJkAmZkAZpkAM5kAAGb//2b/zGb/mWb/Zmb/M2b/AGbM/2bMzGbMmWbMZmbMM2bMAGaZ/2aZzGaZmWaZZmaZM2aZAGZm/2ZmzGZmmWZmZmZmM2ZmAGYz/2YzzGYzmWYzZmYzM2YzAGYA/2YAzGYAmWYAZmYAM2YAADP//zP/zDP/mTP/ZjP/MzP/ADPM/zPMzDPMmTPMZjPMMzPMADOZ/zOZzDOZmTOZZjOZMzOZADNm/zNmzDNmmTNmZjNmMzNmADMz/zMzzDMzmTMzZjMzMzMzADMA/zMAzDMAmTMAZjMAMzMAAAD//wD/zAD/mQD/ZgD/MwD/AADM/wDMzADMmQDMZgDMMwDMAACZ/wCZzACZmQCZZgCZMwCZAABm/wBmzABmmQBmZgBmMwBmAAAz/wAzzAAzmQAzZgAzMwAzAAAA/wAAzAAAmQAAZgAAMwAAAKanqPv8/fX6/NrY1uTd166sq9vX1t5MMc8zLt7e3tTU1P///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAOMALAAAAAAQABAAAAiBAMV1wzawIMGDAwUCWMiwYcOB2RxKXEjQoEWEBxeK08gRwEYABDt+HLkw4bZw4L6JCyduZUuWIQGAA5ANXERxN2kOXPgtYk+PHQmu9AYOHLeXSAViy5bNG1On2nB6jNitm8ir2bBhS8rSpdeqNDdmE0tWZ7ecQMcGFVexbVW34gICADs=);
+}
+.ms_datepicker_box {
+    .hide;
+    .p-a;
+    background-color: #fff;
+    z-index:999;
+    border:1px solid #ccc;
+    table {
+        font-size: 12px;
+        margin: 5px;
+        .t-c;
+        tr {
+            td {
+                padding: 2px;
+                .iconfont {
+                    .pointer;
+                }
+                &.pick_day {
+                    .pointer;
+                    &:hover {
+                        color: #fff;
+                        background-color: @blue;
+                    }
+                }
+                &.day_name {
+                    color: @blue;
+                }
+            }
+        }
+    }
+}

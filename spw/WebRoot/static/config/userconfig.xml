@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config Name="engine" Version="1.0">
+
+	<!-- Excel关联的信息定义
+		ExcelType = 定义Excel文件类型
+			xls：Excel 97-2003
+			xlsx：Excel 2007-
+		Prefix =定义模板的定义tag的开始文字
+		Suffix =定义模板的定义tag的结束文字
+		OutputTemplateDir = 指定输出模板的目录
+		OutputDir = 指定输出目录
+		KeepDir = 指定输出的文件保存一定时间的共通目录
+		MaxFiles = 一次可能输出的最大文件数
+		FileKeepDays = 指定文件的保存日数
+		FileNameDateFormat = 指定文件名里面事件赋值的格式化方法
+	-->
+	<ExcelInfo
+		ExcelType = "XLS"
+		Prefix = "{"
+		Suffix = "}"
+		OutputTemplateDir = "D:/excel/outputTemplate"
+		OutputDir = "D:/excel/output"
+		KeepDir = "D:/excel/keep"
+		MaxFiles = "250"
+		FileKeepDays = "2"
+		FileNameDateFormat = "yyyyMMddHHmmss"
+		OutputType = "SHEET"
+		/>
+<!-- 	<ExcelInfo
+		ExcelType = "XLS"
+		Prefix = "{"
+		Suffix = "}"
+		OutputTemplateDir = "D:/excel/outputTemplate"
+		OutputDir = "D:/excel/output"
+		KeepDir = "D:/excel/keep"
+		MaxFiles = "250"
+		FileKeepDays = "2"
+		FileNameDateFormat = "yyyyMMddHHmmss"
+		OutputType = "SHEET"
+		/> -->
+
+	<!--默认银行账户设置-->
+	<DefaultBankAccount
+		defaultBankAccount = "A001"
+	/>
+
+</Config>

@@ -1,0 +1,100 @@
+/**
+ * 文件：迅车贷公共样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-08-04
+**/
+@import "../public/zlib.v2.less";
+
+@gray-border: #cbcbcb;
+
+.main_box {
+    width: 990px;
+    margin: 40px auto 75px;
+}
+
+.section {
+    .clearfix;
+    margin-bottom: 20px; 
+    font-size: 16px;
+    .item_theme {
+        border-left: 9px solid @ms-red;
+        text-indent: 15px;
+        width: 160px;
+        .f-l;  
+    }
+    .item_title {
+        border-left: 9px solid @ms-red;
+        text-indent: 15px;
+        
+    }
+    .item_input {
+        .f-l;
+        input[type='text'] {
+            border:1px solid @gray-border;
+            text-indent: 10px;
+            &.phone {
+                width: 290px;
+                height: 30px;
+            }
+            &.address{
+                width: 800px;
+                height: 30px;
+            }
+        }
+    }
+    .item_body {
+        .clearfix;
+        margin-top: 40px;
+        font-size: 14px;
+        img {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+        .col1 {
+            width: 115px;
+            .t-r;
+            .f-l;
+            margin-right: 15px;
+        }
+        .col2 {
+            margin-right: 15px;
+            width: 200px;
+            .f-l;
+            input {
+                .w100;
+                .o-h;
+            }
+        }
+        .col3 {
+            width: 50px;
+            .f-l;
+        }
+        .col4 {
+            width: 280px;
+            .f-l;
+
+        }
+        .col5 {
+            width: 300px;
+            .f-l;
+            ol {
+                margin: 0;
+            }
+        }
+    }
+    .submit_btn {
+        .block;
+        .size(200px, 50px);
+        .pointer;
+        background-color: @ms-red;
+        color: #fff;
+        font-size: 18px;
+        border: 0;
+        border-radius: 5px;
+        margin: 80px auto 20px;
+
+    }
+}
+

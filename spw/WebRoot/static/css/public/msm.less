@@ -1,0 +1,343 @@
+/**
+ * 文件：民盛模板基础样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-2-26
+**/
+@import "zlib.v2.less";
+
+@blue: #428fb8;
+@green: #86b97f;
+@orange: #f7b852;
+@blue-light: #6fb3e0;
+@red-light: #ce594d;
+
+@red: #e61d10;
+@gray-dark: #343737;
+@blue-dark: #242f34;
+
+.shadow-btn(){
+    .shadow(3px 4px 2px #ccc);
+}
+.shadow-btn-light(){
+    .shadow(3px 4px 2px #aaa);
+}
+.shadow-lay() {
+    .shadow(1px 4px 8px #768c99);
+}
+.shadow-input() {
+    .shadow(0px 3px 3px #ccc inset);
+}
+
+
+/*整体框架*/
+.box {
+    width: 1360px;
+    .m-center;
+    .clearfix;
+}
+
+/*左边菜单栏*/
+.side {
+    width: 192px;
+    background-color: @gray-dark;
+    min-height: 900px;
+    color: #fff;
+    padding: 25px 16px;
+    .f-l;
+    .member {
+        .w100;
+        .m-center;
+        .t-c;
+        .portrait {
+            .circle(60px);
+            .m-center;
+            .o-h;
+            img {
+                .w100;
+            }
+        }
+        .name {
+            margin-top: 10px;
+        }
+        .logout {
+            font-size: 16px;
+            .pointer;
+            .mt10;
+            .tuichu {
+                color: @red;
+                margin-right: 5px;
+            }
+        }
+    }
+    .menu {
+        .mt10;
+        .nav_list {
+            .w100;
+            border-top: 1px solid #262626;
+            border-bottom: 1px solid #4d4d4d;
+            &>li {
+                .w100;
+                border-top: 1px solid #4d4d4d;
+                border-bottom: 1px solid #262626;
+                &>div {
+                    font-size: 16px;
+                    .one-height(40px);
+                    .pointer;
+                    label {
+                        margin-left: 5px;
+                        .pointer;
+                    }
+                    i:last-child {
+                        .f-r;
+                    }
+                }
+                &.opened {
+                    .submenu {
+                        display:block;
+                    }
+                }
+                .submenu {
+                    background-color: @blue-dark;
+                    margin: 0 -16px;
+                    .hide;
+                    li {
+                        line-height: 26px;
+                        padding-left: 20px; 
+                        .pointer;
+                        &.selected {
+                            color: @blue;
+                            cursor: default;
+                        }
+                        &:before {
+                            content: "·";
+                            font-size: 20px;
+                            .bold;
+                            margin-right: 9px;
+                        }
+                        &:hover {
+                            background-color: @blue;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+/*右边主体*/
+.main {
+    .f-l;
+    width: 1168px;
+    background-color: #fff;
+    .title {
+        .w100;
+        .one-height(50px);
+        text-indent: 25px;
+        background-color: @blue;
+        color: #fff;
+        font-size: 20px;
+    }
+    .crumbs {
+        .one-height(40px);
+        background-color: #f5f5f5;
+        border-bottom: 1px solid #ccc;
+        padding: 0 0 0 25px;
+        li {
+            .f-l;
+            margin-right: 9px;
+            &+li:before {
+                font-family: "iconfont";
+                content: "\e615";
+                color: #ccc;
+                font-size: 12px;
+                margin-right: 9px;
+                .middle;
+            }
+        }
+    }
+    .body {
+        padding: 10px 20px 30px 20px;
+        
+        .theme_lay {
+            margin-bottom: 20px;
+            .theme {
+                color: @blue;
+                .inline;
+                .main_theme {
+                    font-size: 26px;
+                }
+                .sub_theme {
+                    font-size: 12px;
+                }
+            }
+            .btns {
+                .inline;
+                .f-r;
+                .mt5;
+            }
+        }
+        .search_lay{
+            margin-bottom: 20px;
+            background-color: #f2f2f2;
+            padding: 15px 30px 15px 30px;
+            .shadow-lay;
+            .radius(5px);
+            input[type="text"] {
+                border: 0;
+                text-indent: 5px;
+                .shadow-input;
+            }
+            .search_div {
+                input[type="text"] {
+                    width: 280px;
+                }
+                .first_search{
+                    border: 1px solid #ccc;
+                    .shadow(0px 6px 6px #fff inset);
+                    &:hover{
+                        .shadow(0px 3px 3px #fff inset);
+                    }
+                }
+            }
+            .table_div {
+                margin-top: 10px;
+                .hide;
+                .clearfix;
+                table {
+                    .w100;
+                    td {
+                        height: 40px;
+                    }
+                }
+                button {
+                    .f-r;
+                }
+            }
+        }
+        .table_lay {
+            border: 1px solid #ccc;
+            .shadow-lay;
+            .table_window {
+                width:1088px;
+                .mt20;
+                margin-left: 20px;
+                overflow-x: scroll;
+            }
+            table {
+                width: 1500px;
+                thead {
+                    th {
+                        color: @blue;
+                        font-weight: normal;
+                        background-color: #f2f2f2;
+                        border: 1px solid #ccc;
+                        // border-top: 0;
+                        height: 45px;
+                        // &:first-child {
+                        //     border-left: 0;
+                        // }
+                        // &:last-child {
+                        //     border-right: 0;
+                        // }
+                    }
+                }
+                tbody {
+                    td{
+                        background-color: #fff;
+                        font-size: 12px;
+                        border:1px solid #ccc;
+                        height: 38px;
+                        // &:first-child {
+                        //     border-left: 0;
+                        // }
+                        // &:last-child {
+                        //     border-right: 0;
+                        // }
+                    }
+                }
+            }
+            .pagination {
+                .f-r;
+                margin: 15px;
+                li {
+                    display: inline;
+                    .pointer;
+                    color: @blue;
+                    span {
+                        font-size: 12px;
+                        float: left;
+                        margin-left: -1px;
+                        padding: 5px 10px;
+                        border: 1px solid #ccc;
+                        &:hover {
+                            background-color: #eee;
+                        }
+                    }
+                    &.active {
+                        span {
+                            color: #fff;
+                            cursor: default;
+                            background-color: @blue;
+                            border-color: @blue;
+                        }
+                    }
+                    &.disabled {
+                        span {
+                            color: #777;
+                            cursor: not-allowed;
+                            background-color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+/*按钮样式*/
+.btn(@color) {
+    border: 0;
+    margin: 5px;
+    color: #fff;
+    background-color: @color;
+    text-shadow: 1px 1px darken(@color, 30%);;
+    .shadow-btn;
+    &:hover {
+        background-color:darken(@color, 15%);
+        .shadow-btn-light;
+    }
+}
+.btnr(@color) {
+    .btn(@color);
+    .radius(5px);
+}
+
+.btn_blue {
+    .btn(@blue-light);
+}
+.btn_green {
+    .btn(@green);
+}
+.btn_orange {
+    .btn(@orange);
+}
+.btn_red {
+    .btn(@red-light);
+}
+
+.btnr_blue {
+    .btnr(@blue-light);
+}
+.btnr_green {
+    .btnr(@green);
+}
+.btnr_orange {
+    .btnr(@orange);
+}
+.btnr_red {
+    .btnr(@red-light);
+}

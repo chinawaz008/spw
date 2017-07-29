@@ -1,0 +1,169 @@
+/**
+ * 文件：民盛后台办公新增类页面样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-3-3
+**/
+@import "zlib.v2.less";
+
+@blue: #428fb8;
+@green: #86b97f;
+@orange: #f7b852;
+@blue-light: #6fb3e0;
+@red-light: #ce594d;
+
+@red: #e61d10;
+@gray-dark: #343737;
+@blue-dark: #242f34;
+
+/*tab切换页的样式*/
+.tab_lay {
+    .tab_controller{
+        .clearfix;
+        li {
+            .f-l;
+            .t-c;
+            width: 120px;
+            .size(120px, 35px);
+            line-height: 30px;
+            background-color: @gray-light;
+            border: 1px solid #ccc;
+            margin-right: -1px;
+            .pointer;
+            &.active {
+                background-color: #fff;
+                border-top:2px solid @blue;
+                border-bottom: 1px solid #fff;
+            }
+            &.wrong {
+                &:after {
+                    content: "！";
+                    color: @red;
+                    .bold;
+                }
+            }
+            .iconfont {
+                color: @blue;
+            }
+
+
+        }
+    }
+    .tab_bodies {
+        border:1px solid #ccc;
+        margin-top: -1px;
+        .shadow-lay;
+        table {
+            margin: 20px 2% 40px;
+            width: 96%;
+            font-size: 12px;
+            td {
+                height: 55px;
+                .p-r;
+                &.item_name{
+                    .t-r;
+                }
+            }
+            select {
+                height: 26px;
+                width: 90px;
+                option {
+                    text-indent: 5px;
+                }
+                &.select_m {
+                    width: 140px;
+                }
+
+            }
+            input[type="text"] {
+                .one-height(28px);
+                vertical-align: middle;
+            }
+            textarea {
+                .w100;
+                margin: 10px 0;
+                padding: 5px 8px;
+                border: 1px solid #eee;
+                color: #666;
+                .shadow-input;
+            }
+            .choose_pic_td {
+                vertical-align: top;
+                .choose_pic {
+                    width: 163px;
+                    border:1px solid #ddd;
+                    margin: 15px auto;
+                    .pointer;
+                    img {
+                        .size(150px, 235px);
+                        margin: 5px;
+                    }
+                }
+                p {
+                    .t-c;
+                    .pointer;
+                    input {
+                        width: 150px;
+                    }
+                }
+            }
+            .check_for_the_same {
+                visibility: hidden;
+                .pointer;
+            }
+            .last_the_same {
+                .hide;
+            }
+            #fenbu {
+                .hide;
+            }
+            .add_relatives {
+                .hide;
+            }
+            .belong_to_same {
+                vertical-align: middle;
+            }
+            .input_tip {
+                .p-a;
+                color: @red;
+                top: 43px;
+                left: 5px;
+            }
+            .delete_fenbu {
+                .hide();
+            }
+            
+        }
+
+        #info_files_form {
+            table {
+                thead {
+                    color: @blue;
+                    tr {
+                        border-bottom: 1px solid @blue;
+                    }
+                }
+            }
+        }
+
+        #organization_form {
+            .describe_td {
+                vertical-align: top;
+                .describe {
+                    padding: 0 0 0 100px;
+                    line-height: 25px;
+                    width: 500px;
+                    text-indent: -36px;
+                    .f-r;
+                    .iconfont {
+                        font-size: 25px;
+                        color: @red-light;
+                        margin-right: 10px;
+                        .bold;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,77 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="/WEB-INF/jspf/prepare.jspf" %>
+<a class="menu-toggler" id="menu-toggler" href="#">
+    <span class="menu-text"></span>
+</a>
+
+<div class="sidebar ${principal.menuFixed?'sidebar-fixed':''}" id="sidebar">
+<!--     <div class="sidebar-shortcuts" id="sidebar-shortcuts"> -->
+<!--         <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large"> -->
+<!--             <button class="btn btn-success"> -->
+<!--                 <i class="icon-signal"></i> -->
+<!--             </button> -->
+<!--             <button class="btn btn-info"> -->
+<!--                 <i class="icon-pencil"></i> -->
+<!--             </button> -->
+<!--             <button class="btn btn-warning"> -->
+<!--                 <i class="icon-group"></i> -->
+<!--             </button> -->
+<!--             <button class="btn btn-danger"> -->
+<!--                 <i class="icon-cogs"></i> -->
+<!--             </button> -->
+<!--         </div> -->
+<!--         <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini"> -->
+<!--             <span class="btn btn-success"></span> -->
+<!--             <span class="btn btn-info"></span> -->
+<!--             <span class="btn btn-warning"></span> -->
+<!--             <span class="btn btn-danger"></span> -->
+<!--         </div> -->
+<!--     </div> -->
+    <!-- #sidebar-shortcuts -->
+    <ul class="nav nav-list">
+        <c:forEach items="${principal.menus}" var="cur">
+            <li class="${fn:contains(principal.location,cur) ? (cur.branch ? 'active open':'active'):''}">
+                <a href="${cur.branch ? '':ctx}${cur.branch ? 'javascript:;' : cur.url}" class="${cur.branch ? 'dropdown-toggle':''}">
+                    <i class="${cur.icon}"></i>
+                    <span class="menu-text">${cur.name}</span>
+                        <c:if test="${cur.branch}">
+                        <b class="arrow icon-angle-down"></b>
+                    </c:if>
+                </a>
+                <c:if test="${cur.branch}">
+                    <ul class="submenu">
+                        <c:forEach items="${cur.menus}" var="submenu">
+							
+                            <li class="${fn:contains(principal.location,submenu) ? (submenu.branch ? 'active open':'active'):''}">
+                                <a href="${submenu.branch ? '':ctx}${submenu.branch ? 'javascript:;' : submenu.url}" class="${submenu.branch ? 'dropdown-toggle':''}">
+                                    <i class="icon-double-angle-right"></i>
+                                    <span class="menu-text">${submenu.name}</span>
+                                    <c:if test="${submenu.branch}">
+                                        <b class="arrow icon-angle-down"></b>
+                                    </c:if>
+                                </a>
+                                <c:if test="${submenu.branch}">
+                                    <ul class="submenu">
+                                        <c:forEach items="${submenu.menus}" var="grandsonMenu">
+										
+                                            <li class="${fn:contains(principal.location,grandsonMenu) ? (grandsonMenu.branch ? 'active open':'active'):''}">
+                                                <a href="${grandsonMenu.branch ? '':ctx}${grandsonMenu.branch ? 'javascript:;' : grandsonMenu.url}" class="${grandsonMenu.branch ? 'dropdown-toggle':''}">
+                                                    <i class="icon-double-angle-right"></i>
+                                                    <span class="menu-text">${grandsonMenu.name}</span>
+                                                </a>
+                                            </li>
+                                        </c:forEach>
+                                    </ul>
+                                </c:if>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                </c:if>
+            </li>
+        </c:forEach>
+    </ul><!-- /.nav-list -->
+
+    <div class="sidebar-collapse" id="sidebar-collapse">
+        <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+/**
+ * 文件：签批详情页样式
+ * 作者：无名大强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-8-24
+**/
+@import "../public/zlib.v2.less";
+
+
+.main .body .table_lay {
+    .detail_table {
+        tr {
+            td {
+                .t-l;
+                padding-left: 10px;
+                border: 0;
+                font-size: 14px;
+                &.item_name {
+                    font-weight: 700;
+                    text-align: right;
+                    &.last_item {
+                        vertical-align: top;
+                        padding: 5px 0 0;
+                    }
+                    width: 100px;
+                }
+                span {
+                    &.common {
+                        color: @blue;
+                    }
+                    &.accelerated {
+                        color: @orange;
+                    }
+                    &.urgent {
+                        color: @red;
+                    }
+                }
+                a {
+                    .pointer;
+
+                }
+            }
+
+        }
+        .adds {
+            li {
+                padding-left: 50px;
+                margin: 5px 0 20px;
+                background: url(../../img/document/adds.png) no-repeat;
+                p {
+                    margin: 0 0 5px;
+                }
+            }
+        }
+        
+    }
+
+    .signatory {
+        margin: 15px 25px;
+        padding: 10px 0;
+        background-color: #f2f2f2;
+        table {
+            tr {
+                td{
+                    background-color: #f2f2f2;
+                    &.item_name {
+                        width: 100px;
+
+                   
+                    }
+                    span {
+                        &.agree {
+                            color: @green;
+                        }
+                        &.reject {
+                            color: @red;
+                        }
+                        &.unsigned {
+                            color: @blue;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+    .input_tip {
+        color: #e61d10;
+        margin-left: 10px;
+    }
+    
+}

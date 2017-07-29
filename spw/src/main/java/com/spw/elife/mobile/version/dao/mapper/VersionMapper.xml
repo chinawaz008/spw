@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spw.elife.mobile.version.dao.VersionMapper">
+
+ <!-- 添加基本考勤 -->
+ <insert id="saveBasicVersion" parameterType="com.spw.elife.mobile.version.bean.MVersion">
+ 	
+ 	INSERT INTO ms_version(date,version) VALUES(#{version.date},#{version.version})
+ 	
+ </insert>
+ 
+ <!-- 查找当前最大的版本号 -->
+ <select id="findLastVersion" resultType="com.spw.elife.mobile.version.bean.MVersion">
+       SELECT id,date,version from ms_version order by id  desc limit 1
+ </select>
+ 
+</mapper>

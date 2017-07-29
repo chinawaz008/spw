@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<script src="http://cdn.bootcss.com/jquery/1.8.2/jquery.js"></script>
+<script src="http://cdn.bootcss.com/jquery/1.4.4/jquery.min.js"></script>
+
+</head>
+<body>
+<ul class="iptgroup">
+<li class="f-left name" style="padding:5px;">出发日期</li>
+<li class="f-left">
+<input readonly="readonly" class="doubledate ipticon" type="text">
+</li>
+<li class="f-left name" style="padding:5px;">返程日期</li>
+<li class="f-left">
+<input readonly="readonly" class="doubledate ipticon" type="text">
+</li>
+</ul>
+<script type="text/javascript" src="doubleDate2.0.js"></script>
+<link rel="stylesheet" type="text/css" href="doubleDate.css" />
+<script type="text/javascript">
+$(function(){
+	//time box
+	$('.doubledate').kuiDate({className: 'doubledate',isDisabled: "0"});
+})
+</script>
+    </body>
+</html>

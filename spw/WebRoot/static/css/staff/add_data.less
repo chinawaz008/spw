@@ -1,0 +1,365 @@
+/**
+ * 文件：民盛后台新增后援人员页面样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-4-29
+**/
+@import "../public/zlib.v2.less";
+@brown: #997a7a;
+@gray: #f7f7f7;
+
+.blank_box {
+    background-color: #fff;
+    border: @border;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+    
+    .btn {
+        color: #fff;
+        background-color: @ms-red;
+        border: 1px solid @ms-red;
+        margin: 10px;
+        padding: 5px 20px;
+        border-radius: 5px;
+    }
+
+    input {
+        text-indent: 3px;
+        border: @border;
+
+        &.long {
+            width: 200px;
+        }
+    }
+
+    .title {
+        background-color: @gray;
+        color: @brown;
+        font-size: 18px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+//候选人员的表格
+.staff_table {
+    width: 100%;
+    border: @border;
+    border-radius: 5px;
+    text-align: center;
+    
+    thead {
+        background-color: @gray;
+        tr {
+            border-bottom: 2px solid #999;
+        }
+        th {
+            border: @border;
+            color: @brown;
+            padding: 10px 0;
+        }
+
+    }
+    tbody {
+        tr {
+            &:nth-child(2n) {
+                background-color: @gray;
+            }
+        }   
+
+        td {
+            border: @border;
+            padding: 10px 0;
+        }
+
+        .un_selected {
+            width: 20px;
+            height: 20px;
+            border: @border;
+            margin: 0 auto;
+            border-radius: 20px;
+            cursor: pointer;
+            
+        }  
+
+        .selected {
+            .un_selected;
+            border: 1px solid @ms-red;
+            background-color: @ms-red;
+        }
+    }
+}
+
+//业务业管数据权限
+.achievement_authority {
+
+    td {
+        padding: 20px 10px;
+        vertical-align: top;
+        
+    }
+    .un_selected {
+        width: 15px;
+        height: 15px;
+        border: @border;
+        border-radius: 15px;
+        display: inline-block;
+        margin: -3px 10px;
+        cursor: pointer;
+    }
+
+    .selected {
+        .un_selected;
+
+        border: 1px solid @ms-red;
+        background-color: @ms-red;
+    }
+
+
+    .can {
+        color: @orange;
+        display: inline-block;
+        vertical-align: top;
+        
+    }
+
+    .lines {
+        display: inline-block;
+
+        li {
+            padding: 2px 0;
+            cursor: pointer;
+        }
+    }
+    
+    .un_checked {
+        width: 15px;
+        height: 15px;
+        border: @border;
+        border-radius: 5px;
+        display: inline-block;
+        margin-right: 5px;
+        vertical-align: middle;
+        text-align: center; 
+    }
+
+    .checked {
+        .un_checked;
+        border: 1px solid @ms-red;
+        line-height: 14px;
+        &:before {
+            content: '\221a';
+            color: @ms-red;
+            font-size: 12px;
+            font-weight: bold;
+            
+        }
+    }
+}
+
+.box {
+    border: @border;
+    padding: 10px 30px 10px 10px;
+}
+
+.fen {
+    border: 0;
+    display: none;
+
+    li {
+        padding: 10px 0;
+    }
+
+
+    .red {
+        width: 25px;
+        height: 25px;
+        background-color: @ms-red;
+        color: #fff;
+        border: 0;
+        border-radius: 25px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .green {
+        .red;
+        background-color: @green;
+    }
+
+    .name {
+        display: inline-block;
+        width: 100px;
+        text-align: right;
+        padding-right: 10px;
+    }
+
+    select {
+        width: 120px;
+        margin-right: 5px;
+    }
+}
+
+.blue {
+    background-color: @blue;
+    color: #fff;
+    border: 0;
+    border-radius: 3px;
+    padding: 5px 15px;
+}
+
+.duxunqu {
+    margin: 10px 0 20px 100px;
+    border: @border;
+    padding: 10px;
+    width: 500px;
+
+    span {
+        margin-right: 20px;
+    }
+}
+
+.inner_box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: #fff;
+    width: 400px;
+    height: 400px;
+    z-index: 101;
+    margin-left: -200px;
+    margin-top: -200px;
+    border: @border;
+    background-color: #f2f2f2;
+    display: none;
+
+    .box_title {
+        border-bottom: 1px solid #ccc;
+        padding: 5px;
+        background-color: #fff;
+
+        .select_all {
+            float: right;
+            margin-right: 20px;
+            color: #666;
+            cursor: pointer;
+
+            &:before {
+                content: ' ';
+                display: inline-block;
+                border: @border;
+                width: 15px;
+                height: 15px;
+                vertical-align: middle;
+                margin-right: 5px;
+                cursor: pointer;
+            }
+
+            &.selected {
+                &:before {
+                    content: '\221a';
+                    border: 1px solid @ms-red;
+                    color: @ms-red;
+                    font-size: 12px;
+                    font-weight: bold;
+                    line-height: 1;
+                    text-align: center;
+                    
+                }
+            }
+        }
+    }
+    .title {
+        color: #997a7a;
+        margin-left: 10px;
+    }
+    .close_btn {
+        float: right;
+        color: #ccc;
+        margin-right: 10px;
+        cursor: pointer;
+
+        &:hover {
+            color: #999;
+        }
+    }
+
+    .box_foot {
+        background-color: #fff;
+        text-align: center;
+        border-top: @border;
+        width: 100%;
+        padding: 10px 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        button {
+            background-color: @ms-red;
+            color: #fff;
+            margin: 0 10px;
+            border: 1px solid @ms-red;
+            padding: 5px 20px;
+            border-radius: 5px;
+
+            &.close {
+                background-color: #b3b3b3;
+                border: 1px solid #b3b3b3;
+            }
+        }
+    }
+
+    ul {
+        width: 100%;
+        height: 315px;
+        overflow-y: scroll;
+    }
+
+    li {
+        float: left;
+        margin: 3px 0 3px 5px;
+        width: 90px;
+        height: 20px;
+        overflow: hidden;
+        &:before {
+            content: ' ';
+            display: inline-block;
+            border: @border;
+            width: 15px;
+            height: 15px;
+            vertical-align: middle;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        &.selected {
+            &:before {
+                content: '\221a';
+                border: 1px solid @ms-red;
+                color: @ms-red;
+                font-size: 12px;
+                font-weight: bold;
+                line-height: 1;
+                text-align: center;
+            }
+        }
+    }
+}
+
+
+.department_div{
+    margin: 10px 0 20px 100px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 500px;
+    display: none;
+
+    span {
+        margin-right: 20px;
+    }
+}
+
+
+

@@ -1,0 +1,89 @@
+/**
+ * 文件：民盛后台办公新版（子菜单为悬浮框）样式
+ * 作者：无名大强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-12-26
+**/
+
+@import "initial.less";
+@import "zlib.v2.less";
+
+body {
+    background-color: #fff;
+    .w100;
+    height: 100%;
+    margin: 0;
+}
+
+.hide {
+  .hide;
+}
+
+//详情里的tab页
+.tab_controllers {
+  margin: 10px 0 0 10px;
+  .clearfix;
+  li {
+    .f-l;
+    border: 1px solid #ccc;
+    background: #eee;
+    padding: 2px 5px;
+    width: 55px;
+    border-radius: 5px 5px 0 0;
+    .pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: 0;
+    text-overflow: ellipsis;
+
+    &.selected {
+      background-color: #fff;
+      width: auto;
+      border-bottom: 1px solid #fff;
+      margin-bottom: -1px;
+    }
+  }
+
+}
+
+.info_cards {
+  border: @border;
+  margin: -1px 10px 0;
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 520px;
+  width: 95%;
+}
+
+.detail_table {
+  .w100;
+  margin-top: 10px;
+
+  tr {
+    height: 35px;
+
+    &:nth-child(2n+1) {
+      background-color: #f2f2f2;
+    }
+  }
+
+  td {
+    &:nth-child(2n+1) {
+      .bold;
+      padding: 0 10px;
+      white-space: nowrap;
+      
+      &:before {
+        content: '·';
+        color: @ms-red;
+        font-size: 25px;
+        line-height: 14px;
+        padding-right: 7px;
+        vertical-align: text-top;
+
+      }
+    }
+  }
+}
+

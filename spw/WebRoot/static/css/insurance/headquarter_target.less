@@ -1,0 +1,132 @@
+/**
+ * 文件：总公司续期指标样式
+ * 作者：无名大强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2017-4-18
+**/
+@import "../public/zlib.v2.less";
+
+@h-pink: #f80671;
+@h-orange: #f39900;
+@h-green: #1cccb0;
+
+.chart {
+    .left_ruler {
+        width: 100px;
+        .inline;
+        vertical-align: bottom;
+
+        ul {
+            li {
+                height: 54px;
+                padding-top: 34px;
+                .t-r;
+            }
+        }
+    }
+
+    .right_table {
+        .size(950px, 300px);
+        border-left: 1px solid #333;
+        border-bottom: 1px solid #333;
+        .inline;
+        overflow: hidden;
+        padding-right: 50px;
+        vertical-align: bottom;
+        .p-r;
+
+        table {
+            border-left: 0;
+            border-bottom: 0;
+            margin-top: 24px;
+            margin-left: -1px;
+            tr {
+                td {
+                    height: 55px;
+                }
+            }
+        }
+
+        .histogram {
+            .p-a;
+            bottom: 0;
+            width: 60px;
+            height: 20px;
+
+            &.h25 {
+                left: 115px;
+                background-color: @h-pink;
+            }
+
+            &.h13 {
+                left: 420px;
+                background-color: @h-pink;
+            }
+
+            &.h2 {
+                left: 630px;
+                background-color: @h-orange;
+            }
+
+            &.h1 {
+                left: 715px;
+                background-color: @h-green;
+            }
+
+            &.h0 {
+                left: 800px;
+                background-color: @h-pink;
+            }
+        }
+    }
+
+    .bottom_ruler {
+        .w100;
+        .p-r;
+        .clearfix;
+        margin-top: 10px;
+        height: 30px;
+
+        label {
+            .p-a;
+            &:first-child {
+                left: 210px;
+            }
+
+            &:nth-child(2) {
+                left: 520px;
+            }
+
+            &:nth-child(3) {
+                left: 750px;
+            }
+
+            &:nth-child(4) {
+                left: 835px;
+            }
+
+            &:nth-child(5) {
+                left: 900px;
+            }
+        }
+    }
+}
+
+.navigation {
+    .clearfix;
+    li {
+        .f-l;
+        margin-right: 20px;
+
+        a {
+            &.selected {
+                background-color: @ms-red;
+                color: #fff;
+                padding: 10px 20px;
+                border-radius: 20px;
+            }
+        }
+
+    }
+}

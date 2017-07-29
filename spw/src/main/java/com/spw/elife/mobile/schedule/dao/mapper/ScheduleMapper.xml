@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spw.elife.mobile.schedule.dao.ScheduleMapper">    
+       
+    <select id="queryScheduleList" resultType="com.spw.elife.mobile.schedule.bean.Schedule">
+		SELECT s.id, s.name,s.start_time as startTime,s.end_time as endTime,s.partake,s.note,s.type FROM ms_schedule AS s  
+		
+		WHERE s.is_del=0 AND s.end_time > #{date} AND s.staffid = #{staffid} ORDER BY s.id DESC
+		
+    </select>
+    
+    <select id="getById" resultType="com.spw.elife.mobile.schedule.bean.Schedule">
+		SELECT
+		s.name,s.start_time as startTime,s.end_time as endTime,s.partake,s.note,s.type
+		FROM ms_schedule AS s
+		where s.staffid = #{staffid} and s.id = #{scheduleId}
+    </select> 
+    
+     
+    <update id="deleteEntity">	
+		UPDATE ms_schedule 
+		 <set> 
+		 	is_del = 1 
+		 </set>
+			WHERE staffid=#{staffid} and id = #{scheduleid}
+	</update>
+	
+    <insert id="insertEntity" parameterType="com.spw.elife.mobile.schedule.bean.Schedule">
+        insert into ms_schedule(staffid,name,start_time,end_time,partake,note,is_del,type)
+        values(#{staffId},#{name},#{startTime},#{endTime},#{partake},#{note},#{isDel},#{type})
+    </insert>   
+    
+    <update id="updateEntiy" parameterType="com.spw.elife.mobile.schedule.bean.Schedule">
+		update ms_schedule 
+		<set>
+				staffid = #{staffId},
+				type = #{type},
+				name = #{name},
+				start_time = #{startTime},
+				end_time = #{endTime},
+				partake = #{partake},
+			<if test="note != null">
+				note = #{note},
+			</if>
+		</set>
+		where id= #{id}
+	</update>
+</mapper>

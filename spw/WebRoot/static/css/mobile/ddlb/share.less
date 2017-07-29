@@ -1,0 +1,146 @@
+/**
+ * 文件：CIF计划书
+ * 作者：无名大强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2017-3-9
+**/
+
+@import "../../public/zlib.v2.less";
+@images: "../../../img/cif";
+@green: #0eab89;
+
+body {
+    background-color: #eefff7;
+    .size(100%, 100%);
+    font-size: 1.4rem;
+}
+
+.hide {
+    .hide;
+}
+
+//标题栏组件
+.title_bar {
+    .w100;
+    .p-r;
+    top: 0;
+    height: 4.5rem;
+    background-color: #fff;
+    border-bottom: @border;
+    .t-c;
+
+    button {
+        .p-a;
+        left: 1rem;
+        .square(2.5rem);
+        top: 50%;
+        margin-top: -1.25rem;
+        border: 0;
+        background: url("@{images}/back.png"); 
+        background-color: #fff;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+
+        &.to_share {
+            right: 1rem;
+            left: auto;
+            background-image: url("@{images}/share.png");
+        }
+    }
+
+    h1 {
+        .w100;
+        height: 100%;
+        line-height: 4.5rem;
+        .t-c;
+        font-size: 2rem;
+    }
+}
+
+
+.box {
+    width: 94%;
+    margin: 0 auto;
+    border: 2px solid @green;
+    border-radius: 1.5rem;
+
+    table {
+        width: 80%;
+        margin: 0 auto 0.5rem; 
+        color: @green;
+
+        thead {
+            .t-c;
+            font-size: 2rem;
+            padding: 2rem 0;
+        }
+
+        td {
+            padding: 0 0 0.5rem;
+        }
+
+    }
+}
+
+.board {
+    width: 94%;
+    margin: 2rem auto 1rem;
+    border: 2px solid @green;
+    border-radius: 1.5rem;
+    padding-bottom: 1rem;
+
+    table {
+        width: 90%;
+        margin: 0 auto; 
+        border-top: 1px dashed @green;
+        padding-bottom: 1rem;
+
+        &.add {
+            .hide;
+        }
+
+        &:first-child {
+            border-top: 0;
+        }
+
+
+        th {
+            .t-l;
+            padding: 1rem 0 0.5rem;
+            font-weight: normal;
+        }
+
+        td {
+            .green {
+                color: @green;
+            }
+        }
+
+        .mainPlain {
+            .inline;
+            vertical-align: top;
+            margin-right: 1rem;
+            .circle(2rem, #e60111, #fff);
+        }
+
+        .addPlain {
+            .inline;
+            vertical-align: top;
+            margin-right: 1rem;
+            .circle(2rem, #086752, #fff);
+        }
+    }
+    p {
+        .t-c;
+        color: @green;
+
+        &:first-child {
+            margin-top: 1rem;
+        }
+
+        a{
+            color: #f15f06;
+        }
+    }
+}

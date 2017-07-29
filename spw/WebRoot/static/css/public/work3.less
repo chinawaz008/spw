@@ -1,0 +1,174 @@
+/**
+ * 文件：民盛后台办公新版（子菜单为悬浮框）样式
+ * 作者：无名大强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-12-26
+**/
+@import "zlib.v2.less";
+
+body {
+    background-color: #fff;
+    .w100;
+    height: 100%;
+}
+
+//横向导航栏着重表示
+.menu {
+    li {
+        &.selected {
+            color: @ms-red;
+            border-bottom: 3px solid @ms-red;
+        }
+    }
+}
+
+//整个工作区下半部分
+.work_box {
+    .w100;
+    margin: 60px 0;
+    .clearfix;
+}
+
+//左侧菜单栏
+.side_box {
+    .f-l;
+    width: 110px;
+    background-color: #232626;
+    .t-c;
+    .pointer;
+    height: 1200px;
+
+    .menu_li {
+        width: 100%;
+        border-top: 1px solid #4d4d4d;
+        border-bottom: 1px solid #262626;
+        background-color: #343737;
+        color: #868688;
+        .p-r;
+
+        .iconfont {
+            font-size: 30px;
+        }
+
+        .title_name {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .menu_div {
+            padding: 15px 0;
+            .p-r;
+
+            &:hover {
+                background-color: #242f34;
+                color: #d3d5d6;
+                border-left: 3px solid @ms-red;
+                border-right: 3px solid #242f34;
+
+            }
+        }
+
+        &:hover {
+            .sub_ul {
+                .block;
+            }
+        }
+    }
+
+    .sub_ul {
+        .hide;
+        position: absolute;
+        left: 110px;
+        top: 0;
+        background-color: #343737;
+        // transition: display 1s linear 2s;
+        // -moz-transition: display 1s linear 2s;  /* Firefox 4 */
+        // -webkit-transition: display 1s linear 2s;   /* Safari 和 Chrome */
+        // -o-transition: display 1s linear 2s;
+
+        li {
+            width: 180px;
+            padding: 18px 0;
+            color: #868688;
+
+            &:hover {
+                background-color: #242f34;
+                color: #d3d5d6;
+            }
+        }
+
+        &:hover {
+            .block;
+        }
+    }
+}
+
+.body {
+    padding: 10px 20px 30px 20px;
+    margin-left: 110px;
+
+    iframe {
+        .w100;
+        height: 1200px;
+        border: 0;
+    }
+}
+
+//查看详情弹出框
+.detail_box {
+    
+}
+
+//弹出框样式
+.box {
+    .p-f;
+    top: 50%;
+    left: 50%;
+    background-color: #fff;
+    .size(900px, 600px);
+    z-index: 101;
+    margin-left: -450px;
+    margin-top: -300px;
+    .hide;
+
+    .box_title {
+        border-bottom: @border;
+        padding: 5px;
+    }
+
+    .title {
+        color: #997a7a;
+        margin-left: 10px;
+    }
+
+    .close_btn {
+        .f-r;
+        color: #ccc;
+        margin-right: 10px;
+        .pointer;
+
+        &:hover {
+            color: darken(#ccc, 20%);
+        }
+    }
+
+    iframe {
+        border: 0;
+        width: 100%;
+        height: 560px;
+        border-left: 3px solid #fff;
+        border-right: 3px solid #fff;
+    }
+
+    &.detail_box {
+        left: initial;
+        right: 50px;
+        .size(400px, 600px);
+        border: @border;
+        padding: 5px 0;
+        .radius;
+    }
+}
+
+

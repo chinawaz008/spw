@@ -1,0 +1,11 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<%@include file="/WEB-INF/jspf/nav.jspf" %>
+<div id="main-container" class="main-container ${principal.petty ? 'container':''}">
+    <div class="main-container-inner">
+        <%@include file="/WEB-INF/jspf/menu.jspf"%>
+        <div class="main-content">
+            <%@include file="/WEB-INF/jspf/location.jspf"%>
+            <div class="page-content">
+                <div class="row">
+                    <div class="col-xs-12">

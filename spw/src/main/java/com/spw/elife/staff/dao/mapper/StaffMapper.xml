@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spw.elife.staff.dao.StaffMapper">    
+    <select id="countBusEntity" resultType="int">
+        select count(0) from ms_staff AS s
+		LEFT JOIN organization o on s.countyFranchisees_id = o.id
+		LEFT JOIN organization r on s.store_id =r.id
+		left join company c on c.id = s.branch_company_id
+        where s.is_del=0 and s.status=1
+        <if test="staffRole !=null and staffRole !='' and staffRole == 1">
+			AND (1=2
+			<if test="defultStaffId !=null and defultStaffId !=''">
+				OR s.id =#{defultStaffId }
+	        </if>
+	        <!-- 总公司渠道检索条件集合 -->
+			<if test="channelList !=null and channelList !=''">
+				OR s.line_type in
+					<foreach item="list" collection="channelList" open="(" separator="," close=")">
+						#{list}
+					</foreach>
+	        </if>
+	        <!-- 督训区检索条件集合 -->
+			<if test="governorList !=null and governorList !=''">
+				OR s.countyFranchisees_id in
+					<foreach item="list" collection="governorList" open="(" separator="," close=")">
+						#{list}
+					</foreach>
+	        </if>
+	        <!-- 省分检索条件集合 -->
+			<if test="companyList !=null and companyList !=''">
+				OR s.branch_company_id in
+					<foreach item="list" collection="companyList" open="(" separator="," close=")">
+						#{list}
+					</foreach>
+	        </if>
+	        <!-- 部门检索条件集合 -->
+			<if test="departmentList !=null and departmentList !=''">
+				OR 
+					<foreach collection="departmentList" item="item" index="indexP"  open="" separator="OR" close="">
+						FIND_IN_SET(#{item}, s.org_type)
+					</foreach>
+	        </if>
+			) 
+        </if>
+        <if test="storeId!=null and storeId!=''">
+            and s.`store_id` = #{storeId}
+        </if>
+        <if test="lineType!=null and lineType!=''">
+            and s.`line_type` = #{lineType}
+        </if>
+        <if test="name!=null and name!=''">
+            and s.`name` like  concat('%',#{name},'%') 
+        </if>
+       <!--  <if test="orgName!=null and orgName!=''">
+            and (o.name like  concat('%',#{orgName},'%')  or r.name like  concat('%',#{orgName},'%')) 
+        </if> -->
+        <if test="provinceId!=null and provinceId!=''">
+            and (o.province_id = #{provinceId} or c.province_id = #{provinceId})
+        </if>
+        <if test="regionId!=null and regionId!=''">
+            and o.region_id = #{regionId}
+        </if>
+        <if test="countyId!=null and countyId!=''">
+            and o.county_id = #{countyId}
+        </if>
+        <if test="branchCompanyId!=null and branchCompanyId!=''">
+            and s.branch_company_id = #{branchCompanyId}
+        </if>
+        <if test="workNum!=null and workNum!=''">
+            and s.work_num = #{workNum}
+        </if>
+        <if test="idCard!=null and idCard!=''">
+            and s.id_card = #{idCard}
+        </if>
+        <if test="entryDate!=null and entryDate!=''">
+            and DATE_FORMAT( s.entry_date, '%Y-%m-%d') >= #{entryDate}
+        </if>
+        <if test="quitDate!=null and quitDate!=''">
+            and <![CDATA[ DATE_FORMAT( s.entry_date, '%Y-%m-%d') <= #{quitDate} ]]> 
+        </if>
+        <if test="personType!=null and personType!=''">
+            and s.person_type = #{personType}
+        </if>
+        <if test="countyFranchiseesId!=null and countyFranchiseesId!=''">
+            and  s.countyFranchisees_id = #{countyFranchiseesId}
+        </if>
+        <if test="position !=null and position!=''">
+        	and s.position IN 
+    	<foreach collection="position" item="item" index="indexP"  open="(" separator="," close=")">
+        	#{item}
+        </foreach>
+        </if>
+    </select>
+     
+    <select id="selectBusEntityList" resultType="com.spw.elife.staff.bean.Staff">
+       SELECT
+		s.id,
+		s.`name`,
+		s.id_card as idCard,
+		s.position as position,
+		s.work_num as workNum,
+	 	s.org_type as orgType,s.branch_company_id as branchCompanyId,s.remaining_sum as remainingSum,
+		s.countyFranchisees_id as countyFranchiseesId,
+        s.province_id as provinceId,s.region_id as regionId,s.county_id as countyId,s.town_id as townId,s.village_id as villageId,        
+        s.referrer_name as referrerName,s.referrer_phone as referrerPhone,s.referrer_bank_num as referrerBankNum,
+        s.referrer_bank as referrerBank,s.referrer_idCard as referrerIdCard,
+		s.store_id as storeId,
+		s.bank_name as bankName,
+		s.bank_card_num as bankCardNum,
+		s.address,
+		s.phone_num as phoneNum,
+		s.entry_date as entryDate,
+		s.quit_date as quitDate,	
+		s.status,
+		s.is_del as isdel,
+		s.line_type as lineType,
+		s.contract_type as contractType,
+		s.contract_pic as contractPic,
+		s.contract_num as contractNum,
+		s.have_part_id as havePartId,	
+		o.head_company_name as townName,	
+		o.name as countyFranchiseesName,r.name as storeName,
+		o.region_name as regionName,
+		s.base_pay as basePay,s.social_pay as socialPay,s.float_pay as floatPay,
+		s.sex as sex,
+		s.education as education
+		FROM
+		ms_staff AS s
+		LEFT JOIN organization o on s.countyFranchisees_id = o.id
+		LEFT JOIN organization r on s.store_id =r.id
+		left join company c on c.id = s.branch_company_id
+		where s.is_del=0 and s.status=1
+        <if test="staffRole !=null and staffRole !='' and staffRole == 1">
+			AND (1=2
+			<if test="defultStaffId !=null and defultStaffId !=''">
+				OR s.id =#{defultStaffId }
+	        </if>
+			<!-- 总公司渠道检索条件集合 -->
+			<if test="channelList !=null and channelList !=''">
+				OR s.line_type in
+					<foreach item="list" collection="channelList" open="(" separator="," close=")">
+						#{list}
+					</foreach>
+	        </if>
+	        <!-- 督训区检索条件集合 -->
+			<if test="governorList !=null and governorList !=''">
+				OR s.countyFranchisees_id in
+					<foreach item="list" collection="governorList" open="(" separator="," close=")">
+						#{list}
+					</foreach>
+	        </if>
+	        <!-- 省分检索条件集合 -->
+			<if test="companyList !=null and companyList !=''">
+				OR s.branch_company_id in
+					<foreach item="list" collection="companyList" open="(" separator="," close=")">
+						#{list}
+					</foreach>
+	        </if>
+	        <!-- 部门检索条件集合 -->
+			<if test="departmentList !=null and departmentList !=''">
+				OR
+					<foreach collection="departmentList" item="item" index="indexP"  open="" separator="OR" close="">
+						FIND_IN_SET(#{item}, s.org_type)
+					</foreach>
+	        </if>
+			) 
+        </if>
+		 <if test="storeId!=null and storeId!=''">
+            and s.`store_id` = #{storeId}
+        </if>
+        <if test="lineType!=null and lineType!=''">
+            and s.`line_type` = #{lineType}
+        </if>
+        <if test="name!=null and name!=''">
+            and s.`name` like  concat('%',#{name},'%') 
+        </if>
+       <!--  <if test="orgName!=null and orgName!=''">
+            and (o.name like  concat('%',#{orgName},'%')  or r.name like  concat('%',#{orgName},'%')) 
+        </if> -->
+        <if test="provinceId!=null and provinceId!=''">
+            and (o.province_id = #{provinceId} or c.province_id = #{provinceId})
+        </if>
+        <if test="regionId!=null and regionId!=''">
+            and o.region_id = #{regionId}
+        </if>
+        <if test="countyId!=null and countyId!=''">
+            and o.county_id = #{countyId}
+        </if>
+        <if test="branchCompanyId!=null and branchCompanyId!=''">
+            and s.branch_company_id = #{branchCompanyId}
+        </if>
+        <if test="workNum!=null and workNum!=''">
+            and s.work_num = #{workNum}
+        </if>
+        <if test="idCard!=null and idCard!=''">
+            and s.id_card = #{idCard}
+        </if>
+        <if test="entryDate!=null and entryDate!=''">
+            and DATE_FORMAT( s.entry_date, '%Y-%m-%d') >= #{entryDate}
+        </if>
+        <if test="quitDate!=null and quitDate!=''">
+            and <![CDATA[ DATE_FORMAT( s.entry_date, '%Y-%m-%d') <= #{quitDate} ]]> 
+        </if>
+        <if test="personType!=null and personType!=''">
+            and s.person_type = #{personType}
+        </if>
+        <if test="countyFranchiseesId!=null and countyFranchiseesId!=''">
+            and  s.countyFranchisees_id = #{countyFranchiseesId}
+        </if>
+        <if test="position !=null and position!=''">
+        	and s.position IN 
+    	<foreach collection="position" item="item" index="indexP"  open="(" separator="," close=")">
+        	#{item}
+        </foreach>
+        </if>
+        order by s.branch_company_id,s.countyFranchisees_id,s.store_id,LEFT(s.position,3) asc
+        limit #{index},#{size}
+    </select>
+    
+    <select id="countBusEntityNew" resultType="int">
+        select count(0) from ms_staff AS s
+		LEFT JOIN organization o on s.countyFranchisees_id = o.id
+		LEFT JOIN organization r on s.store_id =r.id
+        where s.is_del=0
+        
+		<if test="staffRole !=null and staffRole !='' and staffRole == 1">
+			AND (1=2
+			<if test="defultStaffId !=null and defultStaffId !=''">
+				OR s.id =#{defultStaffId }
+	        </if>
+	        <!-- 总公司渠道检索条件集合 -->
+			<if test="channelList !=null and channelList !=''">
+				OR s.line_type in
+					<foreach item="list" collection="channelList" open="(" separator="," close=")">
+						#{list}
+					</foreach>
+	        </if>
+	        <!-- 督训区检索条件集合 -->
+			<if test="governorList !=null and governorList !=''">
+				OR s.countyFranchisees_id in
+					<foreach item="list" collection="governorList" open="(" separator="," close=")">
+						#{list}
+					</foreach>
+	        </if>
+	        <!-- 省分检索条件集合 -->
+			<if test="companyList !=null and companyList !=''">
+				OR s.branch_company_id in
+					<foreach item="list" collection="companyList" open="(" separator="," close=")">
+						#{list}
+					</foreach>
+	        </if>
+	        <!-- 部门检索条件集合 -->
+			<if test="departmentList !=null and departmentList !=''">
+				OR 
+					<foreach collection="departmentList" item="item" index="indexP"  open="" separator="OR" close="">
+						FIND_IN_SET(#{item}, s.org_type)
+					</foreach>
+	        </if>
+			) 
+        </if> 
+		<if test="status != null and status != ''">
+			and s.status = #{status}
+		</if>
+        <if test="storeId!=null and storeId!=''">
+            and s.`store_id` = #{storeId}
+        </if>
+        <if test="lineType!=null and lineType!=''">
+            and s.`line_type` = #{lineType}
+        </if>
+        <if test="name!=null and name!=''">
+            and s.`name` like  concat('%',#{name},'%') 
+        </if>
+        <if test="orgName!=null and orgName!=''">
+            and (o.name like  concat('%',#{orgName},'%')  or r.name like  concat('%',#{orgName},'%')) 
+        </if>
+        <if test="provinceId!=null and provinceId!=''">
+            and o.province_id = #{provinceId}
+        </if>
+        <if test="regionId!=null and regionId!=''">
+            and o.region_id = #{regionId}
+        </if>
+        <if test="countyId!=null and countyId!=''">
+            and o.county_id = #{countyId}
+        </if>
+        <if test="branchCompanyId!=null and branchCompanyId!=''">
+            and s.branch_company_id = #{branchCompanyId}
+        </if>
+        <if test="workNum!=null and workNum!=''">
+            and s.work_num = #{workNum}
+        </if>
+        <if test="idCard!=null and idCard!=''">
+            and s.id_card = #{idCard}
+        </if>
+        <if test="entryDate!=null and entryDate!=''">
+            and DATE_FORMAT( s.entry_date, '%Y-%m-%d') >= #{entryDate}
+        </if>
+        <if test="quitDate!=null and quitDate!=''">
+            and <![CDATA[ DATE_FORMAT( s.quit_date, '%Y-%m-%d') <= #{quitDate} ]]> 
+        </if>
+        <if test="personType!=null and personType!=''">
+            and s.person_type = #{personType}
+        </if>
+        <if test="countyFranchiseesId!=null and countyFranchiseesId!=''">
+            and  s.countyFranchisees_id = #{countyFranchiseesId}
+        </if>
+        <if test="position !=null and position!=''">
+        	and s.position IN 
+    	<foreach collection="position" item="item" index="indexP"  open="(" separator="," close=")">
+        	#{item}
+        </foreach>
+        </if>
+    </select>
+     
+    <select id="selectBusEntityListNew" resultType="com.spw.elife.staff.bean.Staff">
+       SELECT
+		s.id,
+		s.`name`,
+		s.id_card as idCard,
+		s.position as position,
+		s.work_num as workNum,
+	 	s.org_type as orgType,s.branch_company_id as branchCompanyId,s.remaining_sum as remainingSum,
+		s.countyFranchisees_id as countyFranchiseesId,
+        s.province_id as provinceId,s.region_id as regionId,s.county_id as countyId,s.town_id as townId,s.village_id as villageId,        
+        s.referrer_name as referrerName,s.referrer_phone as referrerPhone,s.referrer_bank_num as referrerBankNum,
+        s.referrer_bank as referrerBank,s.referrer_idCard as referrerIdCard,
+		s.store_id as storeId,
+		s.bank_name as bankName,
+		s.bank_card_num as bankCardNum,
+		s.address,
+		s.phone_num as phoneNum,
+		s.entry_date as entryDate,
+		s.quit_date as quitDate,	
+		s.status,
+		s.is_del as isdel,
+		s.line_type as lineType,
+		s.contract_type as contractType,
+		s.contract_pic as contractPic,
+		s.contract_num as contractNum,
+		s.have_part_id as havePartId,	
+		s.person_type as personType,	
+		o.head_company_name as townName,	
+		o.name as countyFranchiseesName,r.name as storeName,
+		o.region_name as regionName,
+		s.base_pay as basePay,s.social_pay as socialPay,s.float_pay as floatPay,
+		s.sex as sex,
+		s.education as education
+		FROM
+		ms_staff AS s
+		LEFT JOIN organization o on s.countyFranchisees_id = o.id
+		LEFT JOIN organization r on s.store_id =r.id
+		where s.is_del=0 
+		
+		<if test="staffRole !=null and staffRole !='' and staffRole == 1">
+			AND (1=2
+			<if test="defultStaffId !=null and defultStaffId !=''">
+				OR s.id =#{defultStaffId }
+	        </if>
+	        <!-- 总公司渠道检索条件集合 -->
+			<if test="channelList !=null and channelList !=''">
+				OR s.line_type in
+					<foreach item="list" collection="channelList" open="(" separator="," close=")">
+						#{list}
+					</foreach>
+	        </if>
+	        <!-- 督训区检索条件集合 -->
+			<if test="governorList !=null and governorList !=''">
+				OR s.countyFranchisees_id in
+					<foreach item="list" collection="governorList" open="(" separator="," close=")">
+						#{list}
+					</foreach>
+	        </if>
+	        <!-- 省分检索条件集合 -->
+			<if test="companyList !=null and companyList !=''">
+				OR s.branch_company_id in
+					<foreach item="list" collection="companyList" open="(" separator="," close=")">
+						#{list}
+					</foreach>
+	        </if>
+	        <!-- 部门检索条件集合 -->
+			<if test="departmentList !=null and departmentList !=''">
+				OR 
+					<foreach collection="departmentList" item="item" index="indexP"  open="" separator="OR" close="">
+						FIND_IN_SET(#{item}, s.org_type)
+					</foreach>
+	        </if>
+			) 
+        </if> 
+		<if test="status != null and status != ''">
+			and s.status = #{status}
+		</if>
+		<if test="storeId!=null and storeId!=''">
+            and s.`store_id` = #{storeId}
+        </if>
+		<if test="lineType!=null and lineType!=''">
+            and s.`line_type` = #{lineType}
+        </if>
+		<if test="name!=null and name!=''">
+            and s.`name` like  concat('%',#{name},'%') 
+        </if>
+        <if test="provinceId!=null and provinceId!=''">
+            and o.province_id = #{provinceId}
+        </if>
+        <if test="regionId!=null and regionId!=''">
+            and o.region_id = #{regionId}
+        </if>
+        <if test="countyId!=null and countyId!=''">
+            and o.county_id = #{countyId}
+        </if>
+        <if test="branchCompanyId!=null and branchCompanyId!=''">
+            and s.branch_company_id = #{branchCompanyId}
+        </if>
+        <if test="workNum!=null and workNum!=''">
+            and s.work_num = #{workNum}
+        </if>
+        <if test="idCard!=null and idCard!=''">
+            and s.id_card = #{idCard}
+        </if>
+        <if test="entryDate!=null and entryDate!=''">
+            and DATE_FORMAT( s.entry_date, '%Y-%m-%d') >= #{entryDate}
+        </if>
+        <if test="quitDate!=null and quitDate!=''">
+            and <![CDATA[ DATE_FORMAT( s.quit_date, '%Y-%m-%d') <= #{quitDate} ]]> 
+        </if>
+        <if test="personType!=null and personType!=''">
+            and s.person_type = #{personType}
+        </if>
+        <if test="orgName!=null and orgName!=''">
+            and (o.name like  concat('%',#{orgName},'%')  or r.name like  concat('%',#{orgName},'%'))
+        </if>
+        <if test="countyFranchiseesId!=null and countyFranchiseesId!=''">
+            and  s.countyFranchisees_id = #{countyFranchiseesId}
+        </if>
+        <if test="position !=null and position!=''">
+        	and s.position IN 
+    	<foreach collection="position" item="item" index="indexP"  open="(" separator="," close=")">
+        	#{item}
+        </foreach>
+        </if>
+        order by s.branch_company_id,s.countyFranchisees_id,s.store_id,LEFT(s.position,3) asc
+        limit #{index},#{size}
+    </select>
+    <select id="selectVersion" resultType="String">
+       SELECT max(version) from ms_version  
+    </select>
+</mapper>

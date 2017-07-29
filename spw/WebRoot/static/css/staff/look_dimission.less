@@ -1,0 +1,56 @@
+/**
+ * 文件：民盛后台晋升详情页面样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-6-8
+**/
+@import "../public/zlib.v2.less";
+
+.tab_body {
+    padding: 50px 0 100px 100px;
+    .steps{
+        .clearfix;
+        .section {
+            .f-l;
+            font-size: 25px;
+            text-align: center;
+            border: 3px solid #999;
+            width: 120px;
+            height: 50px;
+            line-height: 40px;
+        }
+        p {
+            .f-l;
+            margin-left: 10px;
+        }
+        &.current {
+            .section {
+                background-color: @orange;
+                color: #fff;
+            }
+            p {
+                color: #999;
+            }
+        }
+        &.passed {
+            .section {
+                background-color: @green;
+                color: #fff;
+            }
+        }
+        &.stop {
+            .section {
+                background-color: @ms-red;
+                color: #fff;
+            }
+            p {
+                color: @ms-red;
+            }
+        }
+    }
+    .arrow {
+        height: 50px;
+        margin: 5px 50px;
+    }
+}

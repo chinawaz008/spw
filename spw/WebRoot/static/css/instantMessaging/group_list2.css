@@ -1,0 +1,47 @@
+/*lessc 不能正常执行，故临时用css原生写法*/
+.detail_control li{
+	padding-top: 5px;
+	cursor: pointer;
+}
+.group_members_num {
+	margin: 5px 0 5px 20px;
+}
+.staff_table {
+	text-align: center;
+	height: 300px;
+	overflow-y: scroll;
+}
+.staff_table td {
+	padding: 5px 0;
+}
+
+.staff_table .delete_span {
+	color: #ffae00;
+	cursor: pointer;
+}
+
+.staff_table .icon-geren {
+	color: #ba1e17;
+	margin-right: 5px;
+}
+
+.detail_tab_div {
+	height: 300px;
+    overflow: scroll;
+}
+
+.set_name, .set_num, .set_note, .set_delete {
+	margin: 10px 15px;
+}
+
+.detail_tab_div input {
+	padding-left: 5px;
+}
+
+.set_delete button{
+	border: 0;
+	
+}
+
+
+

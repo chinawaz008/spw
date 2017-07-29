@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spw.elife.basics.dao.UserInfoMapper">
+
+	<select id="selectUserById" resultType="com.spw.elife.basics.bean.UserInfo">
+		select id,username,password,`type`,status from console_user where id=#{id}
+	</select>
+
+	<select id="selectUserByUsername" resultType="com.spw.elife.staff.bean.Staff">
+		SELECT id,`password`,line_type lineType,countyFranchisees_id
+		countyFranchiseesId,name,position,person_type as
+		personType,position,branch_company_id as branchCompanyId,
+		org_type as orgType,work_num as workNum
+		from ms_staff s WHERE (s.work_num = #{workNum} or s.name like
+		concat('%',#{workNum},'%') or s.id_card = #{workNum})
+		and s.is_del
+		=#{isDel} and s.`status` =#{status}
+	</select>
+
+	<update id="updateUserSettings">
+		update console_user
+		<set>
+			<if test="skin !=null and skin !=''">skin =#{skin},</if>
+			<if test="navbarFixed !=null and navbarFixed !=''">navbar_fixed =#{navbarFixed},</if>
+			<if test="menuFixed !=null and menuFixed !=''">menu_fixed =#{menuFixed},</if>
+			<if test="breadcrumbFixed !=null and breadcrumbFixed !=''">breadcrumb_fixed =#{breadcrumbFixed},</if>
+			<if test="petty !=null and petty !=''">petty =#{petty},</if>
+		</set>
+		where id=#{id}
+	</update>
+
+	<update id="updateUserPassword">
+		update console_user set password=#{password},status=1 where id=#{id}
+	</update>
+
+	<insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
+		insert into console_user (username, password, status, type, add_time)
+		values (#{username}, #{password}, #{status}, #{type}, #{addTime})
+	</insert>
+
+	<update id="updateUserStatus">
+		update console_user set status = #{status} where id=#{id}
+	</update>
+
+	<update id="updateUserPassWord">
+		update console_user set password =#{password} where id=#{id}
+	</update>
+	<select id="queryPasswordByTel" resultType="com.spw.elife.basics.bean.UserInfo">
+		select u.id,u.username,u.password,u.`type`,u.status,u.skin,u.navbar_fixed
+		navbarFixed,u.menu_fixed menuFixed,u.breadcrumb_fixed
+		breadcrumbFixed,u.petty from console_user u,sj_info sj where
+		sj.user_id = u.id and sj.link_tel=#{username} and sj.is_del=0 limit 1
+	</select>
+	<select id="queryFactoryByTel" resultType="com.spw.elife.basics.bean.UserInfo">
+		select u.id,u.username,u.password,u.`type`,u.status,u.skin,u.navbar_fixed
+		navbarFixed,u.menu_fixed menuFixed,u.breadcrumb_fixed
+		breadcrumbFixed,u.petty from console_user u,factory sj where
+		sj.user_id = u.id and sj.link_tel=#{username} and sj.is_del=0 limit 1
+	</select>
+	<update id="updatePassword">
+		update console_user set password=#{password},status=1 where id = (select
+		user_id from sj_info where link_tel=#{phone})
+	</update>
+</mapper>

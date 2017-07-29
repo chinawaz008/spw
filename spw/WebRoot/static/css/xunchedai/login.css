@@ -1,0 +1,60 @@
+.main_body {
+    width: 100%;
+    background: url('../../img/xunchedai/bg.png') no-repeat;
+    height: 700px;
+    padding-top: 10px;
+    
+}
+
+.title p {
+    width: 100%;
+    color: white;
+    font-size: 60px;
+    text-align: center;
+    margin-top: 135px;
+}
+
+.login_main {
+    width: 100%;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.input_style input {
+    width: 320px;
+    height: 48px;
+    color: white;
+    font-size: 22px;
+    border: 1px;
+    border-style: solid;
+    border-color: white;
+    background-color: transparent;
+    margin-left: 18px;
+    text-indent: 5px;
+}
+
+.input_style label {
+font-size: 24px;
+}
+
+.text_style {
+    color: white;
+    font-size: 20px;  
+}
+
+.login_main div {
+    margin: 30px;
+}
+
+.submit {
+    width: 320px;
+    height: 48px;
+    background-color: #ba1e17;
+    border: 1px;
+    color: white;
+    font-size: 22px;
+    margin-left: 90px;
+    margin-top: 20px;
+    padding: 5px;
+    border-radius:5px;
+}

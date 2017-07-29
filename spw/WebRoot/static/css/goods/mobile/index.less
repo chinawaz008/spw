@@ -1,0 +1,97 @@
+/*商品首页*/
+@import "../../public/zlib.v2.less";
+
+//标题栏
+.title_bar {
+    width: 100%;
+    position: fixed;
+    top: 1.6rem;
+    left: 0;
+    z-index: 1;
+
+    h1 {
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        text-align: center;
+        font-size: 1.6rem;
+        font-weight: normal;
+    }
+
+    img {
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        top: 0;
+        cursor: pointer;
+        
+    }
+
+    .back {
+        left: 2rem;
+    }
+
+    .cart {
+        right: 2rem;
+    }
+}
+
+
+//轮播图样式
+.carousel {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    
+
+    a {
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        
+        -webkit-transition: left 2s;
+        -moz-transition: left 2s;
+        -ms-transition: left 2s;
+        -o-transition: left 2s;
+        transition: left 2s;
+
+        &.go {
+            left: -100%;
+            display: block;
+            z-index: 1;
+            
+        }
+
+        &.bg {
+            position: relative;
+            display: block;
+        }
+        
+    }
+}
+
+//分类图标
+.classify {
+    .clearfix;
+    .one_class {
+        float: left;
+        width: 25%;
+        text-align: center;
+        margin-bottom: 1rem;
+        
+
+        img {
+            width: 70%;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.2rem;
+        }
+    }
+}

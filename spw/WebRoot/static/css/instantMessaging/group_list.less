@@ -1,0 +1,460 @@
+/**
+ * 文件：群组列表页
+ * 作者：无名大强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2017-2-21
+**/
+
+@import "../public/zlib.v2.less";
+@import "../public/initial.less";
+@green: #80c269;
+@blue: #5599ff;
+@red: #cf4646;
+@orange: #ffae00;
+@purple: #563d7c;
+@brown: #997a7a;
+
+body {
+    background-color: #fff;
+    .w100;
+    height: 100%;
+    margin: 0;
+    .p-r;
+}
+
+.hide {
+    .hide;
+}
+
+.orange {
+    color: @orange;
+}
+
+.red {
+    color: @ms-red;
+}
+
+.grey {
+    color: #ccc;
+}
+
+/*底部遮罩*/
+#overlay {
+    background: #000;
+    filter: alpha(opacity=60); /* IE的透明度 */
+    opacity: 0.6;  /* 透明度 */
+    display: none;
+    .p-f;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 100; /* 此处的图层要大于页面 */
+}
+#overlay img{
+    position:fixed;
+    .hide;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    -webkit-transform: translateZ(0);
+    -moz-transform:translateZ(0);
+    -ms-transform:translateZ(0);
+    -o-transform:translateZ(0);
+    transform: translateZ(0);
+}
+
+//头部标题栏部分
+.title_lay {
+    border-bottom: @border;
+
+    .main_title {
+        font-size: 24px;
+        width: 180px;
+        padding-bottom: 5px;
+        border-bottom: 3px solid @ms-red;
+        margin-bottom: -2px;
+    }
+}
+
+//tab切换页的控制按钮
+.controller_lay {
+    .clearfix;
+    margin-top: 15px;
+    li {
+        .f-l;
+        border: @border;
+        background-color: #f3f3f3;
+        padding: 5px 30px;
+        .t-c;
+        margin-right: -1px;
+        .pointer;
+
+        &.selected {
+            background-color: #fff;
+            color: @brown;
+            border-bottom: 1px solid #fff;
+
+        }
+    }
+}
+
+//选择框部分
+.select_lay {
+    border: @border;
+    margin-top: -1px;
+    padding: 10px 20px;
+
+    .select_div {
+        margin-left: 130px;
+        .clearfix;
+
+        .select_box {
+            .size(250px, 260px);
+            .f-l;
+            border: @border;
+            padding: 5px 0;
+            margin: 0;
+            overflow-y: scroll;
+
+            .select_ul {
+                margin: 0px 10px;
+
+                li {
+                    .pointer;
+                    i {
+                        margin-right: 10px;
+
+                        &.icon-geren {
+                            color: @ms-red;
+                        }
+
+                        &.icon-zhiji {
+                            color: @green;
+                        }
+                    }
+                    span {
+                        .inline;
+
+                        &:nth-child(2) {
+                            width: 90px;
+                        }
+                    }
+
+                    &.selected {
+                        border: 1px solid @orange;
+                        background-color: lighten(@orange, 20%);
+                    }
+
+                }
+            }
+        }
+
+        .select_btns {
+            .f-l;
+            padding: 100px 50px 0;
+            width: 160px;
+
+            button {
+                .block;
+                margin: 0 auto 40px;
+            }
+        }
+    }
+
+    .position_div {
+        margin-top: 10px;
+        .tip {
+            color: @orange;
+            clear: both;
+            padding-top: 5px;
+        }   
+    }
+
+    .work_num_div {
+        margin: 10px 0 20px;
+        .p-r;
+
+        .search {
+            margin-bottom: 5px;
+
+            input {
+                border: @border;
+                padding-left: 5px;
+            }
+        }
+        .search_btn {
+            background-color: @ms-red;
+            color: #fff;
+            border: 0;
+        }
+        .submit_btn {
+            background-color: @blue;
+            color: #fff;
+            border: 0;
+            padding: 5px 20px;
+            .p-a;
+            bottom: 40px;
+            left: 900px;
+
+        }
+    }
+
+}
+
+//列表层
+.list_lay {
+    border-top: 1px dashed #ccc;
+    padding-top: 10px;
+
+    p{
+        margin-bottom: 10px;
+    }
+
+    .list_ul {
+        .clearfix;
+
+        li {
+            .f-l;
+            width: 300px;
+            background-image: url(../../img/instantMessaging/pop.png);
+            background-repeat: no-repeat;
+            padding: 10px 50px;
+            background-size: auto 100%;
+            margin-bottom: 10px;
+            .pointer;
+        }
+    }
+
+    .pages {
+        .clearfix;
+        .t-c;
+        margin: 10px 0;
+        li {
+            .inline;
+            .t-c;
+            height: 32px;
+            padding: 0 15px;
+            line-height: 32px;
+            .radius;
+            margin: 0 10px;
+            background-color: #e6e6e6;
+            color: #999;
+            .pointer;
+
+            &.selected {
+                color: #fff;
+                background-color: @ms-red; 
+            }
+        }
+    }
+}
+
+//详情弹出框
+.detail_div {
+    .p-f;
+    top: 300px;
+    left: 50%;
+    margin-left: -200px;
+    background-color: #fff;
+    border: @border;
+    width: 400px;
+    .radius;
+    .hide;
+
+    .detail_title {
+        padding: 5px 0;
+
+        .group_name {
+            color: @brown;
+            margin-left: 10px;
+        }
+
+        .detail_close {
+            color: #ccc;
+            .f-r;
+            padding: 0 10px;
+            .pointer;
+        }
+    }
+
+    .detail_body {
+        .w100;
+        background-color: #f2f2f2;
+    }
+
+    .detail_control {
+        .clearfix;
+        .w100;
+        li {
+            .f-l;
+            border-bottom: 4px solid #ccc;
+            width: 33%;
+            margin-right: 1px;
+            .t-c;
+            padding-top: 5px;
+            cursor: pointer;
+
+            &.selected {
+                color: @ms-red;
+                border-bottom: 4px solid @ms-red;
+            }
+        }
+    }
+
+    .staff_table {
+        .w100;
+        thead {
+            .t-c;
+            background-color: #fff;
+        }
+    }
+
+    .group_members_num {
+        margin: 5px 0 5px 20px;
+    }
+    .staff_table {
+        text-align: center;
+        height: 300px;
+        overflow-y: scroll;
+    }
+    .staff_table td {
+        padding: 5px 0;
+    }
+
+    .staff_table .delete_span {
+        color: #ffae00;
+        cursor: pointer;
+    }
+
+    .staff_table .icon-geren {
+        color: #ba1e17;
+        margin-right: 5px;
+    }
+
+    .detail_tab_div {
+        
+        .w100;
+
+        &.tab1 {
+            height: 300px;
+            overflow: scroll;
+        }
+
+        &.tab2 {
+            .hide;
+        }
+
+        &.tab3 {
+            .hide;
+        }
+
+    }
+
+    .set_name, .set_num, .set_note, .set_delete {
+        margin: 20px 15px;
+    }
+
+    .detail_tab_div input {
+        border: @border;
+        padding-left: 5px;
+    }
+
+    .set_delete button{
+        border: 0;
+        background-color: @ms-red;
+        color: #fff;
+        margin: 5px 0 0 20px;
+        padding: 5px 20px;
+        .radius;
+    }
+
+    .set_btns {
+        .w100;
+        border-top: @border;
+        margin-top: 20px;
+        .t-c;
+        padding: 30px 0;
+
+
+        button {
+            padding: 5px 40px;
+            border: 0;
+            color: #fff;
+            margin: 0 20px;
+
+            &.ok {
+                background-color: @green;
+            }
+
+            &.cancel {
+                background-color: #aaa;
+            }
+        }
+    }
+}
+
+.add_search {
+    padding: 10px 0;
+
+    input {
+        border: @border;
+        padding-left: 5px;
+        margin-left: 15px;
+    }
+
+    button {
+        background-color: @ms-red;
+        color: #fff;
+        border: 0;
+    }
+}
+
+.add_search_div {
+    margin: 0 15px;
+
+    .sub_add_div {
+        .inline;
+        vertical-align: middle;
+    }
+
+    .sub_select_div {
+        width: 135px;
+        height: 150px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        padding: 5px 0;
+        margin: 0;
+        overflow-y: scroll;
+
+    }
+
+    .sub_selected_ul {
+        margin-left: 3px;
+        li {
+            .pointer;
+            .icon-geren {
+                color: @ms-red;
+                margin-right: 5px;
+            }
+            span {
+                &:last-child {
+                    margin-left: 5px;
+                }
+            }
+
+            &.selected {
+                border: 1px solid @orange;
+                background-color: lighten(@orange, 20%);
+            }
+        }
+    }
+
+    button {
+        .block;
+        margin: 30px 10px
+    }
+}

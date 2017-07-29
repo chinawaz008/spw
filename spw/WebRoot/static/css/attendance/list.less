@@ -1,0 +1,169 @@
+/**
+ * 文件：考勤列表页面样式
+ * 作者：无名小强
+ * 版本：v0.2
+ * 版权：民盛集团
+ * 日期：2016-5-4
+**/
+
+@import "../public/zlib.v2.less";
+@green: #80c269;
+@blue: #5599ff;
+@red: #cf4646;
+@orange: #ffae00;
+@purple: #563d7c;
+
+//分配弹出框样式
+.text-center {
+    .t-c;
+}
+input {
+    border: 1px solid #ccc;
+    padding: 2px 5px;
+    color: #999;
+}
+.input-small {
+    width: 90px;
+    max-width: 100%;
+}
+.input-mini {
+    width: 60px;
+    max-width: 100%;
+}
+.space-6 {
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+    margin: 6px 0 5px;
+}
+.space-2 {
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+    margin: 2px 0 1px;
+}
+.alert {
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14px;
+    border-radius: 0;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+.control_btn_div {
+    display: inline-block;
+    vertical-align: middle;
+    .control_btn {
+        border-radius: 0 !important;
+        font-size: 10px;
+        padding: 0;
+        width: 18px;
+        height: 12px;
+        line-height: 8px;
+        .bold;
+        display: block;
+        color: #fff;
+        background-color: @blue; 
+        border: 0;
+        margin: 0 0 2px 0;
+        padding: 0;
+    }
+}
+.ms_spinner{
+    display: inline-block;
+}
+.modal {
+    .p-f;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 888;
+    .hide;
+    .modal-dialog {
+        width: 600px;
+        margin: 30px auto;
+        background-color: #fff;
+    }
+    .modal-header {
+        padding: 15px;
+        border-bottom: 1px solid #e5e5e5;
+        .close {
+            font-size: 32px;
+            float: right;
+            font-weight: bold;
+            line-height: 1;
+            .pointer;
+            background-color: #fff;
+            border: 0;
+            padding: 0;
+            margin-top: -8px;
+            color: #999;
+        }
+        .modal-title {
+            font-size: 18px;
+            margin: 0;
+            font-weight: normal;
+        }
+    }
+    .modal-body {
+        padding: 15px;
+        label {
+            .one-height(34px);
+            vertical-align: middle;
+            font-weight: normal;
+            font-size: 14px;
+            display: inline-block;
+            max-width: 100%;
+            margin-bottom: 5px;
+        }
+        .input-group {
+            display: inline-table;
+            vertical-align: middle;
+            border-collapse: separate;
+            
+        }
+        .control_btn {
+            
+        }
+        table {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            tr {
+                &:nth-of-type(2n+1) {
+                background-color: #f9f9f9;
+                }
+                td {
+                    border: 1px solid #ddd;
+                }
+            }
+        }
+    }
+    .modal-footer {
+        padding-top: 12px;
+        padding-bottom: 14px;
+        border-top-color: #e4e9ee;
+        box-shadow: none;
+        background-color: #eff3f8;
+        padding: 15px;
+        text-align: right;
+        border-top: 1px solid #e5e5e5;
+    }
+    
+}
+
+.detail_left{width:50%;float: left}.attend_img{max-width:170px;overflow: hidden}

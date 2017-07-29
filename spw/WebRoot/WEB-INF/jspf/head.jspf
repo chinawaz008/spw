@@ -1,0 +1,79 @@
+<%@page pageEncoding="UTF-8" %>
+<%
+    request.setAttribute("ctx", request.getContextPath());
+    request.setAttribute("mtx", request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort());
+    request.setAttribute("htx", request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath());
+%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="keywords" content="<spring:message code="application.keywords"/>" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" type="text/css" href="${ctx}/static/css/goods/bootstrap.css?v=1" />
+<link rel="stylesheet" href="${ctx}/static/css/goods/font-awesome.min.css" />
+<!--[if IE 7]> 
+    <link rel="stylesheet" href="${ctx}/static/css/font-awesome-ie7.min.css" />
+<![endif]-->
+<!-- ace styles -->
+<link rel="stylesheet" href="${ctx}/static/css/goods/ace.min.css" />
+<link rel="stylesheet" href="${ctx}/static/css/goods/ace-rtl.min.css" />
+<link rel="stylesheet" href="${ctx}/static/css/goods/ace-skins.min.css" />
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="${ctx}/static/css/ace-ie.min.css" />
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="${ctx}/static/css/goods/bootstrap-datetimepicker.css"/>
+<link rel="stylesheet" type="text/css" href="${ctx}/static/css/goods/common.css?v=17" />
+<link rel="stylesheet" type="text/css" href="${ctx}/static/css/goods/colorbox.css" />
+<link rel="stylesheet" type="text/css" href="${ctx}/static/css/goods/bbs.css" />
+<link rel="stylesheet" type="text/css" href="${ctx}/static/css/goods/chosen.css" />
+<link rel="stylesheet" type="text/css" href="${ctx}/static/css/goods/jquery.bigautocomplete.css" />
+<script type="text/javascript">
+    var ctx = "${ctx}";
+    var htx = "${htx}";
+    var mtx = "${mtx}";
+</script>
+<script type="text/javascript" src="${ctx}/static/js/goods/ace-extra.min.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/jquery.form.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/typeahead.bundle.min.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/markdown/markdown.min.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/markdown/bootstrap-markdown.min.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/query.hotkeys.min.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/bootstrap-wysiwyg.min.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/bootbox.min.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/jquery.maskedinput.min.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/bootstrap/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/bootstrap/bootstrap-datetimepicker.zh-CN.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/bootstrap/bootstrap-treeview.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/jquery-validation/jquery.validate.min.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/jquery-validation/additional-methods.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/jquery-validation/messages_zh.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/jquery.pager.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/ace-elements.min.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/ace.min.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/jquery.fileupload.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/nojs.js?v=10"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/jquery.colorbox-min.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/chosen.min.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/amplifier.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/openNewWindow.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/goods/jquery.bigautocomplete.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('[data-rel=tooltip]').tooltip();
+        var $lookupForm=$("form.lookup");
+        $(".ace-switch",$lookupForm).on("change",function(){
+            $lookupForm.submit();
+        });
+    });
+</script>
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="${ctx}/static/js/html5shiv.js"></script>
+      <script src="${ctx}/static/js/respond.min.js"></script>
+<![endif]-->

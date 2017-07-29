@@ -1,0 +1,157 @@
+/**
+ * 文件：车险页面样式
+ * 作者：无名小强
+ * 版本：v0.1
+ * 版权：民盛集团
+ * 日期：2016-4-1
+**/
+
+@import "../public/zlib.v2.less";
+@images: "../../img/carInsurance";
+@blue: #5599ff;
+@blue-light:#eaf7fd;
+@blue-dark:#5790aa;
+@blue-bg:#f6f9fc;
+.border(){
+    border: 1px solid #ccc;
+}
+.form_title {
+    font-size: 16px;
+    line-height: 20px;
+    margin: 20px 0 0 50px;
+    .bold;
+    label {
+        .inline;
+        .size(10px, 20px);
+        background-color: @ms-red;
+        margin-right: 5px;
+        vertical-align: text-top;
+    }
+    span{
+        font-size: 12px;
+        font-weight: normal;
+    }
+}
+
+.form_box {
+    border: 1px solid #CCC;
+    width: 990px;
+    margin: 10px 0 0 50px;
+    padding: 0;
+    font-size: 14px;
+    .list_main {
+        padding: 45px 25px;
+       
+        .company_logo {
+            .f-l;
+            .size(170px, 40px);
+            img {
+                .w100;
+            }
+        }
+        .fee {
+            .f-l;
+            margin-left: 50px;
+            .red {
+                color: @ms-red;
+                margin-left: 20px;
+            }
+            .big {
+                font-size: 24px;
+            }
+        }
+        .operation {
+            .f-l;
+            margin-left: 50px;
+            button {
+                .size(135px, 35px);
+                background-color: @blue;
+                color: #fff;
+                .t-c;
+                .pointer;
+                border: 0;
+            }
+        }
+    }
+    .list_service {
+        background-color: #f6f6f6;
+        padding: 10px 25px;
+        border-bottom: 1px solid #ccc;
+        border-top: dashed 1px #ccc;
+        color: #888;
+        .service_title {
+            .f-l;
+            .t-c;
+            .big {
+                font-size: 20px;
+            }
+        }
+        .service_items {
+            .f-l;
+            margin-left: 40px;
+            li {
+                .f-l;
+                .t-c;
+                margin: 0 10px;
+                .service_icon {
+                    .circle(40px; #fff);
+                    .m-center;
+                    img {
+                        margin-top: 5px;
+                    }
+                }
+                .service_name {
+                    font-size: 11px;
+                }
+            }
+        }
+    }
+    .list_detail {
+        background-color: @blue-bg;
+        table {
+            .w100;
+            margin: 0;
+            tr {
+                border-bottom: 1px dashed #ccc;
+                td {
+                    padding: 8px 2px;
+                    &:first-child {
+                        padding-left: 150px;
+                    }
+                    &:last-child {
+                        .t-r;
+                        padding-right: 70px;
+                    }
+                }
+                th {
+                    padding: 8px 2px;
+                }
+            }
+        }
+        .btn(@color: red) {
+            padding: 0 7px;
+            color:#fff;
+            background: @color;
+            border: 0;
+        }
+        .btn_orange {
+            .btn(#ff9e05);
+        }
+        .btn_green {
+            .btn(#32b9aa);
+        }
+        .btn_blue {
+            .btn(#1986b6);
+        }
+    }
+    .list_end {
+        .list_main;
+        background-color: @blue-bg;
+        padding: 25px 25px;
+    }
+
+    &:last-child{
+        margin-bottom: 50px;
+    }
+
+}
